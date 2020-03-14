@@ -1,0 +1,11 @@
+<div>{{ label }}</div>
+<div>
+  <input
+    type="range"
+    [min]="min"
+    [max]="max"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChanged()"
+  />
+  <input [(ngModel)]="value" (ngModelChange)="valueChanged()" />
+</div>
