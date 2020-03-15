@@ -1,14 +1,21 @@
-<h2>Button Setup</h2>
-<div class="row">
-  <app-base-button [radius]="radius"></app-base-button>
-</div>
+<div class="container-setting">
+  <h2>Button Setup</h2>
+  <app-base-button setting="shape"></app-base-button>
 
-<div class="row">
-  <app-setting-range-slider
-    label="Radius"
-    min="0"
-    max="30"
-    [value]="DscButton.buttonStyles.borderRadius"
-    (valueChange)="changeValue($event)"
-  ></app-setting-range-slider>
+  <div class="row">
+    <app-setting-range-slider
+      label="Radius"
+      min="0"
+      max="30"
+      [value]="DscButton.buttonStyles.borderRadius"
+      (valueChange)="changeValue($event)"
+    ></app-setting-range-slider>
+  </div>
+
+  <h2>Button Shape</h2>
+  <div class="row">
+    <app-base-button class="row" setting="size" size="small"></app-base-button>
+    <app-base-button class="row" setting="size" size="medium"></app-base-button>
+    <app-base-button class="row" setting="size" size="large"></app-base-button>
+  </div>
 </div>

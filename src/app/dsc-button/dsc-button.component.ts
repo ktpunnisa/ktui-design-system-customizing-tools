@@ -7,16 +7,11 @@ import { DscButtonService } from './dsc-button.service';
   styleUrls: ['./dsc-button.component.scss']
 })
 export class DscButtonComponent implements OnInit {
-  radius = 24;
-  name = 'ktpunnisa';
-  rad = '24px';
-
-  constructor(protected DscButton: DscButtonService) {}
+  constructor(private DscButton: DscButtonService) {}
 
   ngOnInit() {}
 
   changeValue(event) {
-    this.radius = event;
-    this.rad = `${this.radius}px`;
+    this.DscButton.buttonStyles.borderRadius = event;
   }
 }

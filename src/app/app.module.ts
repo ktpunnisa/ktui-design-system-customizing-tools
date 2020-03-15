@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { BaseButtonComponent } from './base/base-button/base-button.component';
 import { DscButtonComponent } from './dsc-button/dsc-button.component';
 import { SettingRangeSliderComponent } from './base/setting-range-slider/setting-range-slider.component';
+import { DscColorComponent } from './dsc-color/dsc-color.component';
+import { BaseColorComponent } from './base/base-color/base-color.component';
 @NgModule({
   declarations: [
     AppComponent,
     BaseButtonComponent,
     DscButtonComponent,
-    SettingRangeSliderComponent
+    SettingRangeSliderComponent,
+    DscColorComponent,
+    BaseColorComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

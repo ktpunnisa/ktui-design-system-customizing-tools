@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { DscButton } from './dsc-button';
+import { DscButton, ButtonSizeValue } from './dsc-button';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DscButtonService {
   buttonStyles: DscButton;
+  buttonBaseSize: ButtonSizeValue;
   private BUTTON_STYLES: DscButton = {
     borderRadius: 4,
     size: {
@@ -409,16 +410,17 @@ export class DscButtonService {
   };
 
   constructor() {
-    this.updateButtonStyles();
+    this.updateDscButton();
   }
 
   getButtonStyles(): Observable<DscButton> {
     return of(this.BUTTON_STYLES);
   }
 
-  updateButtonStyles(): void {
+  updateDscButton(): void {
     this.getButtonStyles().subscribe(response => {
       this.buttonStyles = response;
+      this.buttonBaseSize = response.size.medium;
     });
   }
 }

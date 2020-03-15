@@ -7,5 +7,5 @@
     [(ngModel)]="value"
     (ngModelChange)="valueChanged()"
   />
-  <input [(ngModel)]="value" (ngModelChange)="valueChanged()" />
+  <input type="number" [min]="min" [(ngModel)]="value" (ngModelChange)="valueChanged()" />
 </div>

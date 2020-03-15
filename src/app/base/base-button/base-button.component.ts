@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { DscButtonService } from 'src/app/dsc-button/dsc-button.service';
+import { ButtonSizeValue, ButtonStyle } from 'src/app/dsc-button/dsc-button';
 
 @Component({
   selector: 'app-base-button',
@@ -8,28 +9,53 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 })
 export class BaseButtonComponent implements OnInit {
   @Input() name = 'Button';
-  @Input() fontColor = 'white';
-  @Input() bgColor = '#C1D5FA';
-  @Input() radius = 0;
-  @Input() fontSize = 20;
-  @Input() pt = 12;
-  @Input() pr = 20;
-  @Input() pb = 12;
-  @Input() pl = 20;
+  @Input() setting = 'shape';
+  @Input() size = 'medium';
+  @Input() type = 'default';
+  @Input() state = 'normal';
+  bgColor = '#C1D5FA';
+  fontColor = 'white';
+  btnSize: ButtonSizeValue;
+  btnStyle: ButtonStyle;
 
-  constructor() {}
+  constructor(private DscButton: DscButtonService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.btnSize = this.DscButton.buttonStyles.size[this.size];
+    this.btnStyle = this.DscButton.buttonStyles.type[this.type][this.state];
+  }
 
   getButtonStyle() {
-    const styles = {
-      'background-color': this.bgColor,
-      color: this.fontColor,
-      'font-size': `${this.fontSize}px`,
-      padding: `${this.pt}px ${this.pr}px ${this.pb}px ${this.pl}px`,
-      'border-radius': `${this.radius}px`,
-      width: 'fit-Content'
+    const shape = {
+      width: 'fit-Content',
+      'border-radius': `${this.DscButton.buttonStyles.borderRadius}px`
     };
-    return styles;
+    const size = {
+      'font-size':
+        this.setting === 'shape'
+          ? `${this.DscButton.buttonBaseSize.fontSize}px`
+          : `${this.btnSize.fontSize}px`,
+      'padding-top':
+        this.setting === 'shape'
+          ? `${this.DscButton.buttonBaseSize.padding.top}px`
+          : `${this.btnSize.padding.top}px`,
+      'padding-right':
+        this.setting === 'shape'
+          ? `${this.DscButton.buttonBaseSize.padding.right}px`
+          : `${this.btnSize.padding.right}px`,
+      'padding-bottom':
+        this.setting === 'shape'
+          ? `${this.DscButton.buttonBaseSize.padding.bottom}px`
+          : `${this.btnSize.padding.bottom}px`,
+      'padding-left':
+        this.setting === 'shape'
+          ? `${this.DscButton.buttonBaseSize.padding.left}px`
+          : `${this.btnSize.padding.left}px`
+    };
+    const type = {
+      color: this.fontColor,
+      'background-color': this.bgColor
+    };
+    return { ...shape, ...size, ...type };
   }
 }
