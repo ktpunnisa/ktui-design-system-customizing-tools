@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DscColorService } from './dsc-color.service';
 
 @Component({
   selector: 'app-dsc-color',
@@ -7,12 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DscColorComponent implements OnInit {
   isBase = false;
-  brandColors = ['primary', 'secondary'];
-  systemColors = ['success', 'info', 'warning', 'danger'];
-  naturalColors = ['white', 'gray', 'black'];
-  shades = ['lightest', 'lighter', 'light', 'base', 'dark', 'darker'];
 
-  constructor() {}
+  constructor(private DscColor: DscColorService) {}
 
   ngOnInit() {}
 }

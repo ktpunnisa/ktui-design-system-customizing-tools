@@ -11,6 +11,8 @@ import { DscButtonComponent } from './dsc-button/dsc-button.component';
 import { SettingRangeSliderComponent } from './base/setting-range-slider/setting-range-slider.component';
 import { DscColorComponent } from './dsc-color/dsc-color.component';
 import { BaseColorComponent } from './base/base-color/base-color.component';
+import { DscColorSettingComponent } from './dsc-color-setting/dsc-color-setting.component';
+import { DscButtonSettingComponent } from './dsc-button-setting/dsc-button-setting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { BaseColorComponent } from './base/base-color/base-color.component';
     DscButtonComponent,
     SettingRangeSliderComponent,
     DscColorComponent,
-    BaseColorComponent
+    BaseColorComponent,
+    DscColorSettingComponent,
+    DscButtonSettingComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

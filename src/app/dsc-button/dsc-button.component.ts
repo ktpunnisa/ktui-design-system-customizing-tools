@@ -7,11 +7,8 @@ import { DscButtonService } from './dsc-button.service';
   styleUrls: ['./dsc-button.component.scss']
 })
 export class DscButtonComponent implements OnInit {
-  constructor(private DscButton: DscButtonService) {}
+  sizes = ['small', 'medium', 'large'];
+  constructor() {}
 
   ngOnInit() {}
-
-  changeValue(event) {
-    this.DscButton.buttonStyles.borderRadius = event;
-  }
 }

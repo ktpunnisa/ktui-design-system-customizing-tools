@@ -7,8 +7,12 @@ import chroma from 'chroma-js';
   providedIn: 'root'
 })
 export class DscColorService {
-  colors: DscColor;
-  shades: DscShade;
+  dscColors: DscColor;
+  dscShades: DscShade;
+  brandColors = ['primary', 'secondary'];
+  systemColors = ['success', 'info', 'warning', 'danger'];
+  naturalColors = ['white', 'gray', 'black'];
+  shades = ['lightest', 'lighter', 'light', 'base', 'dark', 'darker'];
   size: PaletteSize = {
     s: { width: 112, height: 40, borderRadius: 4 },
     m: { width: 112, height: 52, borderRadius: 4 },
@@ -29,12 +33,12 @@ export class DscColorService {
   };
 
   private SHADES = {
-    lightest: 0.65,
-    lighter: 0.3,
-    light: 0.1,
+    lightest: 65,
+    lighter: 30,
+    light: 10,
     base: 0,
-    dark: 0.3,
-    darker: 0.5
+    dark: 30,
+    darker: 50
   };
 
   constructor() {
@@ -51,10 +55,10 @@ export class DscColorService {
 
   updateDscColor(): void {
     this.getColors().subscribe(response => {
-      this.colors = response;
+      this.dscColors = response;
     });
     this.getShades().subscribe(response => {
-      this.shades = response;
+      this.dscShades = response;
     });
   }
 

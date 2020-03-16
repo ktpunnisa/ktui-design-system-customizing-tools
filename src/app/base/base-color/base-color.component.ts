@@ -16,15 +16,14 @@ export class BaseColorComponent implements OnInit {
 
   constructor(private DscColor: DscColorService) {}
 
-  ngOnInit() {
-    this.palette = this.DscColor.size[this.size];
-    this.opacity = this.DscColor.shades[this.shade];
-  }
+  ngOnInit() {}
 
   getColorStyle() {
+    this.palette = this.DscColor.size[this.size];
+    this.opacity = this.DscColor.dscShades[this.shade] * 0.01;
     return {
       'background-color': this.DscColor.mixColorShade(
-        this.DscColor.colors[this.color],
+        this.DscColor.dscColors[this.color],
         this.shade,
         this.opacity
       ),
