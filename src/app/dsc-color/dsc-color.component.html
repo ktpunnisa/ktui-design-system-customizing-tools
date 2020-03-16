@@ -3,7 +3,7 @@
     <div *ngIf="isBase">
       <h2>Brand Colors</h2>
       <div class="row">
-        <div class="scale-color" *ngFor="let color of brandColors">
+        <div class="scale-color" *ngFor="let color of DscColor.brandColors">
           <app-base-color [color]="color" size="xl"></app-base-color>
           {{ color }}
         </div>
@@ -11,7 +11,7 @@
 
       <h2>System Colors</h2>
       <div class="row">
-        <div class="scale-color" *ngFor="let color of systemColors">
+        <div class="scale-color" *ngFor="let color of DscColor.systemColors">
           <app-base-color [color]="color" size="l"></app-base-color>
           {{ color }}
         </div>
@@ -19,7 +19,7 @@
 
       <h2>Natural Colors</h2>
       <div class="row">
-        <div class="scale-color" *ngFor="let color of naturalColors">
+        <div class="scale-color" *ngFor="let color of DscColor.naturalColors">
           <app-base-color [color]="color" size="l"></app-base-color>
           {{ color }}
         </div>
