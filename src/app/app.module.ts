@@ -13,6 +13,7 @@ import { DscColorComponent } from './dsc-color/dsc-color.component';
 import { BaseColorComponent } from './base/base-color/base-color.component';
 import { DscColorSettingComponent } from './dsc-color-setting/dsc-color-setting.component';
 import { DscButtonSettingComponent } from './dsc-button-setting/dsc-button-setting.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { DscButtonSettingComponent } from './dsc-button-setting/dsc-button-setti
     DscColorComponent,
     BaseColorComponent,
     DscColorSettingComponent,
-    DscButtonSettingComponent
+    DscButtonSettingComponent,
+    SidebarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
