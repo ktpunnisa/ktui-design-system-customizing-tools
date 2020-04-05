@@ -1,4 +1,8 @@
 export interface DscColor {
+  themes: DscTheme;
+  shades: DscShade;
+}
+export interface DscTheme {
   primary: string;
   secondary: string;
   success: string;

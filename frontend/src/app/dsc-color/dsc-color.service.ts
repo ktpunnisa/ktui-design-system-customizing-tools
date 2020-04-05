@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { DscColor, DscShade, Palette, PaletteSize } from './dsc-color';
+import { DscColor, DscShade, Palette, PaletteSize, DscTheme } from './dsc-color';
 import chroma from 'chroma-js';
+import { ApiService } from '../api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DscColorService {
-  dscColors: DscColor;
+  dscThemes: DscTheme;
   dscShades: DscShade;
   brandColors = ['primary', 'secondary'];
   systemColors = ['success', 'info', 'warning', 'danger'];
@@ -20,7 +21,7 @@ export class DscColorService {
     xl: { width: 210, height: 140, borderRadius: 8 }
   };
 
-  private COLORS: DscColor = {
+  private THEMES: DscTheme = {
     primary: '#ff8879',
     secondary: '#009ba6',
     success: '#00dcc7',
@@ -32,7 +33,7 @@ export class DscColorService {
     black: '#232323'
   };
 
-  private SHADES = {
+  private SHADES: DscShade = {
     lightest: 65,
     lighter: 30,
     light: 10,
@@ -41,12 +42,19 @@ export class DscColorService {
     darker: 50
   };
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.updateDscColor();
+    this.getDscColors().subscribe(res => {
+      console.log(res);
+    });
   }
 
-  getColors(): Observable<any> {
-    return of(this.COLORS);
+  getDscColors(): Observable<DscColor> {
+    return this.apiService.get('color', { projectId: 'kt-component' });
+  }
+
+  getThemes(): Observable<any> {
+    return of(this.THEMES);
   }
 
   getShades(): Observable<any> {
@@ -54,8 +62,8 @@ export class DscColorService {
   }
 
   updateDscColor(): void {
-    this.getColors().subscribe(response => {
-      this.dscColors = response;
+    this.getThemes().subscribe(response => {
+      this.dscThemes = response;
     });
     this.getShades().subscribe(response => {
       this.dscShades = response;

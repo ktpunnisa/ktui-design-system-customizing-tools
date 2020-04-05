@@ -23,7 +23,7 @@ export class BaseColorComponent implements OnInit {
     this.palette = this.DscColor.size[this.size];
     this.opacity = this.DscColor.dscShades[this.shade] * 0.01;
     this.colorGenerated = this.DscColor.mixColorShade(
-      this.DscColor.dscColors[this.color],
+      this.DscColor.dscThemes[this.color],
       this.shade,
       this.opacity
     );
