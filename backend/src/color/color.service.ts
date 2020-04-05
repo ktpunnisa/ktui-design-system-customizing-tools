@@ -23,8 +23,6 @@ export class ColorService {
     }
     const color = await this.findColor(projectId);
     return {
-      id: color[0].id,
-      project_id: color[0].project_id,
       themes: color[0].themes,
       shades: color[0].shades,
     };

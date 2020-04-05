@@ -35,7 +35,7 @@ export class ColorController {
 
   @Patch()
   async updateColor(
-    @Query('projectId') projectId: string,
+    @Body('projectId') projectId: string,
     @Body('themes') themes: Theme,
     @Body('shades') shades: Shade,
   ) {
