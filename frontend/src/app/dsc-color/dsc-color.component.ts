@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DscColorService } from './dsc-color.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dsc-color',
@@ -9,12 +10,13 @@ import { DscColorService } from './dsc-color.service';
 export class DscColorComponent implements OnInit {
   isBase = false;
 
-  constructor(protected DscColor: DscColorService) {}
+  constructor(private route: ActivatedRoute, protected DscColor: DscColorService) {}
 
   ngOnInit() {
-    this.DscColor.getDscColors().subscribe(res => {
-      this.DscColor.dscThemes = res.themes;
-      this.DscColor.dscShades = res.shades;
+    this.route.data.subscribe(data => {
+      const colorStyle = data.color;
+      this.DscColor.dscThemes = colorStyle.themes;
+      this.DscColor.dscShades = colorStyle.shades;
     });
   }
 }

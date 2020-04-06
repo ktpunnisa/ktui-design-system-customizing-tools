@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import chroma from 'chroma-js';
 
-import { DscColor, DscShade, PaletteSize, DscTheme } from './dsc-color';
+import { DscShade, PaletteSize, DscTheme, DscColorStyle } from './dsc-color';
 import { ApiService } from '../api.service';
 
 @Injectable({
@@ -24,8 +24,8 @@ export class DscColorService {
 
   constructor(private apiService: ApiService) {}
 
-  getDscColors(): Observable<DscColor> {
-    return this.apiService.get('color', { projectId: 'test' });
+  getDscColors(projectId: string): Observable<DscColorStyle> {
+    return this.apiService.get('color', { projectId });
   }
 
   updateDscColors(projectId: string, themes: DscTheme, shades: DscShade): Observable<any> {

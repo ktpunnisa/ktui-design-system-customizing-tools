@@ -1,4 +1,4 @@
-export interface DscColor {
+export interface DscColorStyle {
   themes: DscTheme;
   shades: DscShade;
 }
