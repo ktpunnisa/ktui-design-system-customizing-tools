@@ -7,7 +7,7 @@ import { DscButtonService } from '../dsc-button/dsc-button.service';
   styleUrls: ['./dsc-button-setting.component.scss']
 })
 export class DscButtonSettingComponent implements OnInit {
-  constructor(private DscButton: DscButtonService) {}
+  constructor(protected DscButton: DscButtonService) {}
 
   ngOnInit() {}
 

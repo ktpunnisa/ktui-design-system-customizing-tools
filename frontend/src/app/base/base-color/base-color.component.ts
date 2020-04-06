@@ -9,7 +9,7 @@ import { Palette } from 'src/app/dsc-color/dsc-color';
 })
 export class BaseColorComponent implements OnInit {
   @Input() color = 'primary';
-  @Input() shade = 'base';
+  @Input() shade = 'default';
   @Input() size = 's';
   palette: Palette;
   opacity: number;
@@ -21,9 +21,9 @@ export class BaseColorComponent implements OnInit {
 
   getColorStyle() {
     this.palette = this.DscColor.size[this.size];
-    this.opacity = this.DscColor.dscShades[this.shade] * 0.01;
+    this.opacity = this.DscColor.dscShades ? this.DscColor.dscShades[this.shade] * 0.01 : 1;
     this.colorGenerated = this.DscColor.mixColorShade(
-      this.DscColor.dscThemes[this.color],
+      this.DscColor.dscThemes ? this.DscColor.dscThemes[this.color] : 'white',
       this.shade,
       this.opacity
     );

@@ -18,7 +18,7 @@ export interface DscShade {
   lightest: number;
   lighter: number;
   light: number;
-  base: number;
+  default: number;
   dark: number;
   darker: number;
 }

@@ -54,6 +54,14 @@ export class ApiService {
     return this.http.put<T>(resolve(environment.apiPath, url), data, options);
   }
 
+  patch<T>(url: string, data: any, credentials: boolean = true): Observable<T> {
+    const options: HttpOptions = {};
+    if (credentials) {
+      options.withCredentials = true;
+    }
+    return this.http.patch<T>(resolve(environment.apiPath, url), data, options);
+  }
+
   resolve(url: string) {
     return resolve(environment.apiPath, url);
   }

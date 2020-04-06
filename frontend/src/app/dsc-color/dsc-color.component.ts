@@ -9,7 +9,12 @@ import { DscColorService } from './dsc-color.service';
 export class DscColorComponent implements OnInit {
   isBase = false;
 
-  constructor(private DscColor: DscColorService) {}
+  constructor(protected DscColor: DscColorService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.DscColor.getDscColors().subscribe(res => {
+      this.DscColor.dscThemes = res.themes;
+      this.DscColor.dscShades = res.shades;
+    });
+  }
 }
