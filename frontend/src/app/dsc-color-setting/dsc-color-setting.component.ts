@@ -13,6 +13,12 @@ export class DscColorSettingComponent implements OnInit {
 
   changeShade(event, shade) {
     this.DscColor.dscShades[shade] = event;
-    this.DscColor.updateDscColors('test', this.DscColor.dscThemes, this.DscColor.dscShades);
+    this.DscColor.updateDscColors(
+      'test',
+      this.DscColor.dscThemes,
+      this.DscColor.dscShades
+    ).subscribe(res => {
+      console.log(res);
+    });
   }
 }

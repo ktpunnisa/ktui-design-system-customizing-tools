@@ -5,18 +5,18 @@ import {
   Get,
   Patch,
   Delete,
-  Query,
+  Param,
 } from '@nestjs/common';
 import { ColorService } from './color.service';
 import { Theme, Shade } from 'src/interfaces/color.interface';
 
-@Controller('color')
+@Controller()
 export class ColorController {
   constructor(private readonly colorService: ColorService) {}
 
   @Post()
   async addColor(
-    @Body('project_id') projectId: string,
+    @Param('projectId') projectId: string,
     @Body('themes') themes: Theme,
     @Body('shades') shades: Shade,
   ) {
@@ -29,13 +29,13 @@ export class ColorController {
   }
 
   @Get()
-  getColor(@Query('projectId') projectId: string) {
+  getColor(@Param('projectId') projectId: string) {
     return this.colorService.getColor(projectId);
   }
 
   @Patch()
   async updateColor(
-    @Body('projectId') projectId: string,
+    @Param('projectId') projectId: string,
     @Body('themes') themes: Theme,
     @Body('shades') shades: Shade,
   ) {
@@ -44,7 +44,7 @@ export class ColorController {
   }
 
   @Delete()
-  async removeColor(@Query('projectId') projectId: string) {
+  async removeColor(@Param('projectId') projectId: string) {
     await this.colorService.deleteColor(projectId);
     return null;
   }

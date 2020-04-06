@@ -25,11 +25,11 @@ export class DscColorService {
   constructor(private apiService: ApiService) {}
 
   getDscColors(projectId: string): Observable<DscColorStyle> {
-    return this.apiService.get('color', { projectId });
+    return this.apiService.get(`project/${projectId}/color`);
   }
 
   updateDscColors(projectId: string, themes: DscTheme, shades: DscShade): Observable<any> {
-    return this.apiService.patch('color', { projectId, themes, shades });
+    return this.apiService.patch(`project/${projectId}/color`, { themes, shades });
   }
 
   mixColorShade(color, shade, opacity) {
