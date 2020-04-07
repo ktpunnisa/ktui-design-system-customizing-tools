@@ -1,7 +1,13 @@
-export interface DscButton {
-  borderRadius: number;
+export interface ButtonToken {
+  shape: ButtonShape;
   size: ButtonSize;
   type: ButtonType;
+}
+
+export interface ButtonShape {
+  borderRadius: number;
+  borderStyle: string;
+  borderWidth: number;
 }
 
 export interface ButtonSize {
@@ -55,8 +61,6 @@ export interface ButtonBackground {
 }
 
 export interface ButtonBorder {
-  style: string;
-  width: number;
   type: string;
   color: string;
   shade: string;

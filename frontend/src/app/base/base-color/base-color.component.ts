@@ -21,9 +21,9 @@ export class BaseColorComponent implements OnInit {
 
   getColorStyle() {
     this.palette = this.DscColor.size[this.size];
-    this.opacity = this.DscColor.dscShades ? this.DscColor.dscShades[this.shade] * 0.01 : 1;
+    this.opacity = this.DscColor.colorShade ? this.DscColor.colorShade[this.shade] * 0.01 : 1;
     this.colorGenerated = this.DscColor.mixColorShade(
-      this.DscColor.dscThemes ? this.DscColor.dscThemes[this.color] : 'white',
+      this.DscColor.colorTheme ? this.DscColor.colorTheme[this.color] : 'white',
       this.shade,
       this.opacity
     );

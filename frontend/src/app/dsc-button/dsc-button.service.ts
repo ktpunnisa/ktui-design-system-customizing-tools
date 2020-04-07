@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { DscButton, ButtonSizeValue } from './dsc-button';
+import { ButtonToken, ButtonSizeValue } from './dsc-button';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DscButtonService {
-  buttonStyles: DscButton;
+  buttonToken: ButtonToken;
   buttonBaseSize: ButtonSizeValue;
-  private BUTTON_STYLES: DscButton = {
-    borderRadius: 4,
+  private BUTTON_STYLES: ButtonToken = {
+    shape: {
+      borderRadius: 4,
+      borderStyle: 'solid',
+      borderWidth: 1
+    },
     size: {
       small: {
         fontSize: 14,
@@ -53,8 +57,6 @@ export class DscButtonService {
             shade: 'base'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'custom',
             color: '',
             shade: 'base'
@@ -83,8 +85,6 @@ export class DscButtonService {
             shade: 'light'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'custom',
             color: '',
             shade: 'light'
@@ -113,8 +113,6 @@ export class DscButtonService {
             shade: 'lighter'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'custom',
             color: '',
             shade: 'lighter'
@@ -143,8 +141,6 @@ export class DscButtonService {
             shade: 'lightest'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'fixed',
             color: 'gray',
             shade: 'lightest'
@@ -175,8 +171,6 @@ export class DscButtonService {
             shade: 'base'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'custom',
             color: '',
             shade: 'base'
@@ -205,8 +199,6 @@ export class DscButtonService {
             shade: 'base'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'custom',
             color: '',
             shade: 'base'
@@ -235,8 +227,6 @@ export class DscButtonService {
             shade: 'lighter'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'custom',
             color: '',
             shade: 'lighter'
@@ -265,8 +255,6 @@ export class DscButtonService {
             shade: 'base'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'fixed',
             color: 'gray',
             shade: 'lighter'
@@ -297,8 +285,6 @@ export class DscButtonService {
             shade: ''
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'transparent',
             color: '',
             shade: ''
@@ -327,8 +313,6 @@ export class DscButtonService {
             shade: 'lightest'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'fixed',
             color: 'gray',
             shade: 'lightest'
@@ -357,8 +341,6 @@ export class DscButtonService {
             shade: 'lighter'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'fixed',
             color: 'gray',
             shade: 'lighter'
@@ -387,8 +369,6 @@ export class DscButtonService {
             shade: 'lightest'
           },
           border: {
-            style: 'solid',
-            width: 1,
             type: 'fixed',
             color: 'gray',
             shade: 'lightest'
@@ -413,13 +393,13 @@ export class DscButtonService {
     this.updateDscButton();
   }
 
-  getButtonStyles(): Observable<DscButton> {
+  getButtonStyles(): Observable<ButtonToken> {
     return of(this.BUTTON_STYLES);
   }
 
   updateDscButton(): void {
     this.getButtonStyles().subscribe(response => {
-      this.buttonStyles = response;
+      this.buttonToken = response;
       this.buttonBaseSize = response.size.medium;
     });
   }

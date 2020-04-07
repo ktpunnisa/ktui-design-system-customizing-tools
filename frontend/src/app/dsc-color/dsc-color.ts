@@ -1,8 +1,8 @@
-export interface DscColorStyle {
-  themes: DscTheme;
-  shades: DscShade;
+export interface ColorToken {
+  themes: ColorTheme;
+  shades: ColorShade;
 }
-export interface DscTheme {
+export interface ColorTheme {
   primary: string;
   secondary: string;
   success: string;
@@ -14,7 +14,7 @@ export interface DscTheme {
   black: string;
 }
 
-export interface DscShade {
+export interface ColorShade {
   lightest: number;
   lighter: number;
   light: number;

@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import chroma from 'chroma-js';
 
-import { DscShade, PaletteSize, DscTheme, DscColorStyle } from './dsc-color';
+import { ColorShade, PaletteSize, ColorTheme, ColorToken } from './dsc-color';
 import { ApiService } from '../api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DscColorService {
-  dscThemes: DscTheme;
-  dscShades: DscShade;
+  colorTheme: ColorTheme;
+  colorShade: ColorShade;
   brandColors = ['primary', 'secondary'];
   systemColors = ['success', 'info', 'warning', 'danger'];
   naturalColors = ['white', 'gray', 'black'];
@@ -24,11 +24,11 @@ export class DscColorService {
 
   constructor(private apiService: ApiService) {}
 
-  getDscColors(projectId: string): Observable<DscColorStyle> {
+  getDscColors(projectId: string): Observable<ColorToken> {
     return this.apiService.get(`project/${projectId}/color`);
   }
 
-  updateDscColors(projectId: string, themes: DscTheme, shades: DscShade): Observable<any> {
+  updateDscColors(projectId: string, themes: ColorTheme, shades: ColorShade): Observable<any> {
     return this.apiService.patch(`project/${projectId}/color`, { themes, shades });
   }
 

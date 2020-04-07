@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DscButtonService } from 'src/app/dsc-button/dsc-button.service';
-import { ButtonSizeValue, ButtonStyle } from 'src/app/dsc-button/dsc-button';
+import { ButtonSizeValue, ButtonStyle, ButtonShape } from 'src/app/dsc-button/dsc-button';
 
 @Component({
   selector: 'app-base-button',
@@ -15,20 +15,22 @@ export class BaseButtonComponent implements OnInit {
   @Input() state = 'normal';
   bgColor = '#C1D5FA';
   fontColor = 'white';
+  btnShape: ButtonShape;
   btnSize: ButtonSizeValue;
   btnStyle: ButtonStyle;
 
   constructor(private DscButton: DscButtonService) {}
 
   ngOnInit() {
-    this.btnSize = this.DscButton.buttonStyles.size[this.size];
-    this.btnStyle = this.DscButton.buttonStyles.type[this.type][this.state];
+    this.btnShape = this.DscButton.buttonToken.shape;
+    this.btnSize = this.DscButton.buttonToken.size[this.size];
+    this.btnStyle = this.DscButton.buttonToken.type[this.type][this.state];
   }
 
   getButtonStyle() {
     const shape = {
       width: 'fit-Content',
-      'border-radius': `${this.DscButton.buttonStyles.borderRadius}px`
+      'border-radius': `${this.btnShape.borderRadius}px`
     };
     const size = {
       'font-size':
