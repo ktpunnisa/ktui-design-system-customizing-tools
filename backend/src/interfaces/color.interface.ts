@@ -1,13 +1,13 @@
 import { Document } from 'mongoose';
 
-export interface Color extends Document {
+export interface ColorToken extends Document {
   id: string;
   project_id: string;
-  themes: Theme;
-  shades: Shade;
+  themes: ColorTheme;
+  shades: ColorShade;
 }
 
-export interface Theme extends Document {
+export interface ColorTheme extends Document {
   primary: string;
   secondary: string;
   success: string;
@@ -19,7 +19,7 @@ export interface Theme extends Document {
   black: string;
 }
 
-export interface Shade extends Document {
+export interface ColorShade extends Document {
   lightest: number;
   lighter: number;
   light: number;

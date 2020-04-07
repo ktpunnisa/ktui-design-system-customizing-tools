@@ -1,13 +1,17 @@
 import { Model } from 'mongoose';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Color, Theme, Shade } from '../interfaces/color.interface';
+import {
+  ColorToken,
+  ColorTheme,
+  ColorShade,
+} from '../interfaces/color.interface';
 
 @Injectable()
 export class ColorService {
-  constructor(@InjectModel('Color') private colorModel: Model<Color>) {}
+  constructor(@InjectModel('Color') private colorModel: Model<ColorToken>) {}
 
-  async insertColor(projectId: string, themes: Theme, shades: Shade) {
+  async insertColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
     const newColor = new this.colorModel({
       project_id: projectId,
       themes,
@@ -28,7 +32,7 @@ export class ColorService {
     };
   }
 
-  async updateColor(projectId: string, themes: Theme, shades: Shade) {
+  async updateColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
     if (!projectId) {
       throw new NotFoundException('project_id does not exist!');
     }
@@ -54,7 +58,7 @@ export class ColorService {
     }
   }
 
-  private async findColor(projectId: string): Promise<Color> {
+  private async findColor(projectId: string): Promise<ColorToken> {
     let color;
     try {
       color = await this.colorModel.find({ project_id: projectId }).exec();

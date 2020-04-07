@@ -8,7 +8,7 @@ import {
   Param,
 } from '@nestjs/common';
 import { ColorService } from './color.service';
-import { Theme, Shade } from 'src/interfaces/color.interface';
+import { ColorTheme, ColorShade } from 'src/interfaces/color.interface';
 
 @Controller()
 export class ColorController {
@@ -17,8 +17,8 @@ export class ColorController {
   @Post()
   async addColor(
     @Param('projectId') projectId: string,
-    @Body('themes') themes: Theme,
-    @Body('shades') shades: Shade,
+    @Body('themes') themes: ColorTheme,
+    @Body('shades') shades: ColorShade,
   ) {
     const generatedId = await this.colorService.insertColor(
       projectId,
@@ -36,8 +36,8 @@ export class ColorController {
   @Patch()
   async updateColor(
     @Param('projectId') projectId: string,
-    @Body('themes') themes: Theme,
-    @Body('shades') shades: Shade,
+    @Body('themes') themes: ColorTheme,
+    @Body('shades') shades: ColorShade,
   ) {
     await this.colorService.updateColor(projectId, themes, shades);
     return null;

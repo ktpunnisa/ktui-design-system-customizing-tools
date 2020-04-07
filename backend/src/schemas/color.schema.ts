@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const ThemeSchema = new mongoose.Schema({
+export const ColorThemeSchema = new mongoose.Schema({
   primary: String,
   secondary: String,
   success: String,
@@ -12,7 +12,7 @@ export const ThemeSchema = new mongoose.Schema({
   black: String,
 });
 
-export const ShadeSchema = new mongoose.Schema({
+export const ColorShadeSchema = new mongoose.Schema({
   lightest: Number,
   lighter: Number,
   light: Number,
@@ -23,6 +23,6 @@ export const ShadeSchema = new mongoose.Schema({
 
 export const ColorSchema = new mongoose.Schema({
   project_id: String,
-  themes: ThemeSchema,
-  shades: ShadeSchema,
+  themes: ColorThemeSchema,
+  shades: ColorShadeSchema,
 });
