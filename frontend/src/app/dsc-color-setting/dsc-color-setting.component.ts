@@ -12,11 +12,11 @@ export class DscColorSettingComponent implements OnInit {
   ngOnInit() {}
 
   changeShade(event, shade) {
-    this.DscColor.colorShade[shade] = event;
-    this.DscColor.updateDscColors(
+    this.DscColor.colorShades[shade] = event;
+    this.DscColor.updateColorToken(
       'test',
-      this.DscColor.colorTheme,
-      this.DscColor.colorShade
+      this.DscColor.colorThemes,
+      this.DscColor.colorShades
     ).subscribe(res => {
       console.log(res);
     });

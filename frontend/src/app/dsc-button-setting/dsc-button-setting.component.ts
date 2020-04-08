@@ -12,6 +12,6 @@ export class DscButtonSettingComponent implements OnInit {
   ngOnInit() {}
 
   changeValue(event) {
-    this.DscButton.buttonToken.shape.borderRadius = event;
+    this.DscButton.buttonShape.borderRadius = event;
   }
 }

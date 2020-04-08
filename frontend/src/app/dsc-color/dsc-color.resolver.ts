@@ -9,6 +9,6 @@ export class DscColorResolver implements Resolve<ColorToken> {
   constructor(private DscColor: DscColorService) {}
 
   resolve(): Observable<ColorToken> {
-    return this.DscColor.getDscColors('test');
+    return this.DscColor.getColorToken('test');
   }
 }

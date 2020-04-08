@@ -3,9 +3,9 @@
     <h2>Button Setup</h2>
     <app-base-button setting="shape"></app-base-button>
 
-    <h2>Button Shape</h2>
+    <h2>Button Size</h2>
     <div class="row">
-      <div class="button-setting" *ngFor="let size of sizes">
+      <div class="button-setting" *ngFor="let size of DscButton.sizes">
         <app-base-button setting="size" [size]="size"></app-base-button>
       </div>
     </div>

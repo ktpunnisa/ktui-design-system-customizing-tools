@@ -9,8 +9,8 @@ import { ApiService } from '../api.service';
   providedIn: 'root'
 })
 export class DscColorService {
-  colorTheme: ColorTheme;
-  colorShade: ColorShade;
+  colorThemes: ColorTheme;
+  colorShades: ColorShade;
   brandColors = ['primary', 'secondary'];
   systemColors = ['success', 'info', 'warning', 'danger'];
   naturalColors = ['white', 'gray', 'black'];
@@ -24,11 +24,11 @@ export class DscColorService {
 
   constructor(private apiService: ApiService) {}
 
-  getDscColors(projectId: string): Observable<ColorToken> {
+  getColorToken(projectId: string): Observable<ColorToken> {
     return this.apiService.get(`project/${projectId}/color`);
   }
 
-  updateDscColors(projectId: string, themes: ColorTheme, shades: ColorShade): Observable<any> {
+  updateColorToken(projectId: string, themes: ColorTheme, shades: ColorShade): Observable<any> {
     return this.apiService.patch(`project/${projectId}/color`, { themes, shades });
   }
 

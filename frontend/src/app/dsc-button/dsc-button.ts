@@ -1,10 +1,11 @@
 export interface ButtonToken {
   shape: ButtonShape;
-  size: ButtonSize;
-  type: ButtonType;
+  sizes: ButtonSize;
+  types: ButtonType;
 }
 
 export interface ButtonShape {
+  [x: string]: any;
   borderRadius: number;
   borderStyle: string;
   borderWidth: number;
