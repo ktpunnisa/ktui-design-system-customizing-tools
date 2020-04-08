@@ -6,9 +6,9 @@ import { ColorToken } from './dsc-color';
 
 @Injectable()
 export class DscColorResolver implements Resolve<ColorToken> {
-  constructor(private DscColor: DscColorService) {}
+  constructor(private ColorService: DscColorService) {}
 
   resolve(): Observable<ColorToken> {
-    return this.DscColor.getColorToken('test');
+    return this.ColorService.getColorToken('test');
   }
 }

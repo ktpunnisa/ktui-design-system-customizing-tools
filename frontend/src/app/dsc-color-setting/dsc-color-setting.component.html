@@ -1,13 +1,13 @@
 <div class="setting">
   <h3>Color Shades</h3>
-  <ng-container *ngIf="DscColor.colorShades">
-    <div *ngFor="let shade of DscColor.shades">
+  <ng-container *ngIf="ColorService.colorShades">
+    <div *ngFor="let shade of ColorService.shades">
       <app-setting-range-slider
         *ngIf="shade !== 'default'"
         [label]="shade"
         min="0"
         max="100"
-        [value]="DscColor.colorShades[shade]"
+        [value]="ColorService.colorShades[shade]"
         (valueChange)="changeShade($event, shade)"
       ></app-setting-range-slider>
     </div>

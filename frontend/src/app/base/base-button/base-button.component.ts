@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DscButtonService } from 'src/app/dsc-button/dsc-button.service';
 import { ButtonSizeValue, ButtonStyle, ButtonShape } from 'src/app/dsc-button/dsc-button';
+import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
 
 @Component({
   selector: 'app-base-button',
@@ -13,24 +14,37 @@ export class BaseButtonComponent implements OnInit {
   @Input() size = 'medium';
   @Input() type = 'default';
   @Input() state = 'normal';
-  bgColor = '#C1D5FA';
-  fontColor = 'white';
+  @Input() color = 'primary';
+  base = {
+    font: 'white',
+    background: '#C1D5FA',
+    border: '#99B5FC'
+  };
   buttonShape: ButtonShape;
   buttonSize: ButtonSizeValue;
   buttonStyle: ButtonStyle;
 
-  constructor(private DscButton: DscButtonService) {}
+  constructor(private buttonService: DscButtonService, private ColorService: DscColorService) {}
 
   ngOnInit() {}
 
   setButton() {
-    this.buttonShape = this.DscButton.buttonShape;
-    this.buttonSize = this.DscButton.buttonSizes
-      ? this.DscButton.buttonSizes[this.size]
+    this.buttonShape = this.buttonService.buttonShape;
+    this.buttonSize = this.buttonService.buttonSizes
+      ? this.buttonService.buttonSizes[this.size]
       : undefined;
-    this.buttonStyle = this.DscButton.buttonTypes
-      ? this.DscButton.buttonTypes[this.type][this.state]
+    this.buttonStyle = this.buttonService.buttonTypes
+      ? this.buttonService.buttonTypes[this.type][this.state]
       : undefined;
+  }
+
+  getColor(style) {
+    const styleToken = this.buttonStyle[style];
+    const colorCode =
+      styleToken.type === 'custom'
+        ? this.ColorService.colorThemes[this.color]
+        : this.ColorService.colorThemes[styleToken.color];
+    return this.buttonService.getColorShade(styleToken.type, colorCode, styleToken.shade);
   }
 
   getButtonStyle() {
@@ -38,38 +52,44 @@ export class BaseButtonComponent implements OnInit {
     const shape = this.buttonShape
       ? {
           width: 'fit-Content',
-          'border-radius': `${this.buttonShape.borderRadius}px`
+          'border-radius': `${this.buttonShape.borderRadius}px`,
+          'border-style': `${this.buttonShape.borderStyle}`,
+          'border-width': `${this.buttonShape.borderWidth}px`
         }
       : {};
     const size =
-      this.buttonSize && this.DscButton.buttonBaseSize
+      this.buttonSize && this.buttonService.buttonBaseSize
         ? {
             'font-size':
-              this.setting === 'shape'
-                ? `${this.DscButton.buttonBaseSize.fontSize}px`
-                : `${this.buttonSize.fontSize}px`,
+              this.setting === 'size'
+                ? `${this.buttonSize.fontSize}px`
+                : `${this.buttonService.buttonBaseSize.fontSize}px`,
             'padding-top':
-              this.setting === 'shape'
-                ? `${this.DscButton.buttonBaseSize.padding.top}px`
-                : `${this.buttonSize.padding.top}px`,
+              this.setting === 'size'
+                ? `${this.buttonSize.padding.top}px`
+                : `${this.buttonService.buttonBaseSize.padding.top}px`,
             'padding-right':
-              this.setting === 'shape'
-                ? `${this.DscButton.buttonBaseSize.padding.right}px`
-                : `${this.buttonSize.padding.right}px`,
+              this.setting === 'size'
+                ? `${this.buttonSize.padding.right}px`
+                : `${this.buttonService.buttonBaseSize.padding.right}px`,
             'padding-bottom':
-              this.setting === 'shape'
-                ? `${this.DscButton.buttonBaseSize.padding.bottom}px`
-                : `${this.buttonSize.padding.bottom}px`,
+              this.setting === 'size'
+                ? `${this.buttonSize.padding.bottom}px`
+                : `${this.buttonService.buttonBaseSize.padding.bottom}px`,
             'padding-left':
-              this.setting === 'shape'
-                ? `${this.DscButton.buttonBaseSize.padding.left}px`
-                : `${this.buttonSize.padding.left}px`
+              this.setting === 'size'
+                ? `${this.buttonSize.padding.left}px`
+                : `${this.buttonService.buttonBaseSize.padding.left}px`
           }
         : {};
-    const type = {
-      color: this.fontColor,
-      'background-color': this.bgColor
-    };
+    const type = this.buttonStyle
+      ? {
+          color: this.setting === 'type' ? this.getColor('font') : this.base.font,
+          'background-color':
+            this.setting === 'type' ? this.getColor('background') : this.base.background,
+          'border-color': this.setting === 'type' ? this.getColor('border') : this.base.border
+        }
+      : {};
     return { ...shape, ...size, ...type };
   }
 }

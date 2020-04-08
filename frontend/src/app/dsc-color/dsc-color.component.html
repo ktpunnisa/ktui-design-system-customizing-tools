@@ -3,7 +3,7 @@
     <div *ngIf="isBase">
       <h2>Brand Colors</h2>
       <div class="row">
-        <div class="scale-color" *ngFor="let color of DscColor.brandColors">
+        <div class="scale-color" *ngFor="let color of ColorService.brandColors">
           <app-base-color [color]="color" size="xl"></app-base-color>
           {{ color }}
         </div>
@@ -11,7 +11,7 @@
 
       <h2>System Colors</h2>
       <div class="row">
-        <div class="scale-color" *ngFor="let color of DscColor.systemColors">
+        <div class="scale-color" *ngFor="let color of ColorService.systemColors">
           <app-base-color [color]="color" size="l"></app-base-color>
           {{ color }}
         </div>
@@ -19,7 +19,7 @@
 
       <h2>Natural Colors</h2>
       <div class="row">
-        <div class="scale-color" *ngFor="let color of DscColor.naturalColors">
+        <div class="scale-color" *ngFor="let color of ColorService.naturalColors">
           <app-base-color [color]="color" size="l"></app-base-color>
           {{ color }}
         </div>
@@ -29,20 +29,20 @@
     <div *ngIf="!isBase">
       <h2>Color Scales</h2>
       <div class="row base-color">
-        <div class="scale-color" *ngFor="let color of DscColor.brandColors">
+        <div class="scale-color" *ngFor="let color of ColorService.brandColors">
           <app-base-color [color]="color" size="m"></app-base-color>
         </div>
-        <div class="scale-color" *ngFor="let color of DscColor.systemColors">
+        <div class="scale-color" *ngFor="let color of ColorService.systemColors">
           <app-base-color [color]="color" size="m"></app-base-color>
         </div>
       </div>
       <div class="column">
-        <div *ngFor="let shade of DscColor.shades">
+        <div *ngFor="let shade of ColorService.shades">
           <div class="row">
-            <div class="scale-color" *ngFor="let color of DscColor.brandColors">
+            <div class="scale-color" *ngFor="let color of ColorService.brandColors">
               <app-base-color [color]="color" [shade]="shade" size="s"></app-base-color>
             </div>
-            <div class="scale-color" *ngFor="let color of DscColor.systemColors">
+            <div class="scale-color" *ngFor="let color of ColorService.systemColors">
               <app-base-color [color]="color" [shade]="shade" size="s"></app-base-color>
             </div>
           </div>
@@ -50,12 +50,12 @@
       </div>
       <h2>Gray Scales</h2>
       <div class="row base-color">
-        <div class="scale-color" *ngFor="let color of DscColor.naturalColors">
+        <div class="scale-color" *ngFor="let color of ColorService.naturalColors">
           <app-base-color [color]="color" size="m"></app-base-color>
         </div>
       </div>
       <div class="row">
-        <div class="scale-color" *ngFor="let shade of DscColor.shades">
+        <div class="scale-color" *ngFor="let shade of ColorService.shades">
           <app-base-color color="gray" [shade]="shade" size="s"></app-base-color>
         </div>
       </div>

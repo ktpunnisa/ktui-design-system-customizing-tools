@@ -10,13 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 export class DscColorComponent implements OnInit {
   isBase = false;
 
-  constructor(private route: ActivatedRoute, protected DscColor: DscColorService) {}
+  constructor(private route: ActivatedRoute, protected ColorService: DscColorService) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
       const colorToken = data.color;
-      this.DscColor.colorThemes = colorToken.themes;
-      this.DscColor.colorShades = colorToken.shades;
+      this.ColorService.colorThemes = colorToken.themes;
+      this.ColorService.colorShades = colorToken.shades;
     });
   }
 }

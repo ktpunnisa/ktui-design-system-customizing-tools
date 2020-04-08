@@ -7,16 +7,16 @@ import { DscColorService } from '../dsc-color/dsc-color.service';
   styleUrls: ['./dsc-color-setting.component.scss']
 })
 export class DscColorSettingComponent implements OnInit {
-  constructor(protected DscColor: DscColorService) {}
+  constructor(protected ColorService: DscColorService) {}
 
   ngOnInit() {}
 
   changeShade(event, shade) {
-    this.DscColor.colorShades[shade] = event;
-    this.DscColor.updateColorToken(
+    this.ColorService.colorShades[shade] = event;
+    this.ColorService.updateColorToken(
       'test',
-      this.DscColor.colorThemes,
-      this.DscColor.colorShades
+      this.ColorService.colorThemes,
+      this.ColorService.colorShades
     ).subscribe(res => {
       console.log(res);
     });

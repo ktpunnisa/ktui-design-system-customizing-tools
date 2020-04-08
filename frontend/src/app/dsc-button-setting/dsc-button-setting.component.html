@@ -1,11 +1,18 @@
 <div class="setting">
-  <ng-container *ngIf="DscButton.buttonShape">
+  <ng-container *ngIf="ButtonService.buttonShape">
     <app-setting-range-slider
       label="Radius"
       min="0"
       max="30"
-      [value]="DscButton.buttonShape.borderRadius"
-      (valueChange)="changeValue($event)"
+      [value]="ButtonService.buttonShape.borderRadius"
+      (valueChange)="changeShape($event, 'borderRadius')"
+    ></app-setting-range-slider>
+    <app-setting-range-slider
+      label="Width"
+      min="0"
+      max="10"
+      [value]="ButtonService.buttonShape.borderWidth"
+      (valueChange)="changeShape($event, 'borderWidth')"
     ></app-setting-range-slider>
   </ng-container>
 </div>

@@ -1,12 +1,22 @@
 <div class="container">
   <div class="template">
     <h2>Button Setup</h2>
+    <h3>Button Shape</h3>
     <app-base-button setting="shape"></app-base-button>
 
-    <h2>Button Size</h2>
+    <h3>Button Size</h3>
     <div class="row">
-      <div class="button-setting" *ngFor="let size of DscButton.sizes">
+      <div class="button-setting" *ngFor="let size of ButtonService.sizes">
         <app-base-button setting="size" [size]="size"></app-base-button>
+      </div>
+    </div>
+
+    <h3>Button State</h3>
+    <div class="row">
+      <div class="button-setting" *ngFor="let type of ButtonService.types">
+        <div class="button-setting" *ngFor="let state of ButtonService.states">
+          <app-base-button setting="type" [type]="type" [state]="state"></app-base-button>
+        </div>
       </div>
     </div>
   </div>

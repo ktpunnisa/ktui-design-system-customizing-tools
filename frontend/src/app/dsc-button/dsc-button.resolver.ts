@@ -6,9 +6,9 @@ import { ButtonToken } from './dsc-button';
 
 @Injectable()
 export class DscButtonResolver implements Resolve<ButtonToken> {
-  constructor(private DscColor: DscButtonService) {}
+  constructor(private ColorService: DscButtonService) {}
 
   resolve(): Observable<ButtonToken> {
-    return this.DscColor.getButtonToken('test');
+    return this.ColorService.getButtonToken('test');
   }
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     component: DscButtonComponent,
-    resolve: { button: DscButtonResolver },
+    resolve: { color: DscColorResolver, button: DscButtonResolver },
     runGuardsAndResolvers: 'always'
   },
   {
