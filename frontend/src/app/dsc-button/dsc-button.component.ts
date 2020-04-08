@@ -11,11 +11,12 @@ export class DscButtonComponent implements OnInit {
   constructor(private route: ActivatedRoute, protected DscButton: DscButtonService) {}
 
   ngOnInit() {
-    this.DscButton.getButtonToken('test').subscribe(res => {
-      this.DscButton.buttonShape = res.shape;
-      this.DscButton.buttonSizes = res.sizes;
-      this.DscButton.buttonTypes = res.types;
-      this.DscButton.buttonBaseSize = res.sizes.medium;
+    this.route.data.subscribe(data => {
+      const buttonToken = data.button;
+      this.DscButton.buttonShape = buttonToken.shape;
+      this.DscButton.buttonSizes = buttonToken.sizes;
+      this.DscButton.buttonTypes = buttonToken.types;
+      this.DscButton.buttonBaseSize = buttonToken.sizes.medium;
     });
   }
 }

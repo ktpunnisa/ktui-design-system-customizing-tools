@@ -16,6 +16,7 @@ import { DscColorSettingComponent } from './dsc-color-setting/dsc-color-setting.
 import { DscButtonSettingComponent } from './dsc-button-setting/dsc-button-setting.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DscColorResolver } from './dsc-color/dsc-color.resolver';
+import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { DscColorResolver } from './dsc-color/dsc-color.resolver';
     SidebarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [DscColorResolver],
+  providers: [DscColorResolver, DscButtonResolver],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA // Tells Angular we will have custom tags in our templates

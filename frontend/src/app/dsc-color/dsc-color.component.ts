@@ -14,9 +14,9 @@ export class DscColorComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      const colorStyle = data.color;
-      this.DscColor.colorThemes = colorStyle.themes;
-      this.DscColor.colorShades = colorStyle.shades;
+      const colorToken = data.color;
+      this.DscColor.colorThemes = colorToken.themes;
+      this.DscColor.colorShades = colorToken.shades;
     });
   }
 }
