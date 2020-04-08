@@ -7,6 +7,7 @@ import { ProjectModule } from './project/project.module';
 import { ColorModule } from './color/color.module';
 import { routes } from './routes';
 import { RouterModule } from 'nest-router';
+import { ButtonModule } from './button/button.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { RouterModule } from 'nest-router';
     RouterModule.forRoutes(routes),
     ProjectModule,
     ColorModule,
+    ButtonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
