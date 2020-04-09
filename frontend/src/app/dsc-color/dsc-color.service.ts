@@ -2,7 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import chroma from 'chroma-js';
 
-import { ColorShade, PaletteSize, ColorTheme, ColorToken } from './dsc-color';
+import {
+  ColorShade,
+  PaletteSize,
+  ColorTheme,
+  ColorToken,
+  ShadowSystem,
+  ShadeSystem
+} from './dsc-color';
 import { ApiService } from '../api.service';
 
 @Injectable({
@@ -41,10 +48,38 @@ export class DscColorService {
     return color;
   }
 
-  getColorOpacity(hex, opacity) {
-    const r = '0x' + hex[1] + hex[2];
-    const g = '0x' + hex[3] + hex[4];
-    const b = '0x' + hex[5] + hex[6];
-    return `rgba(${parseInt(r, 16)},${parseInt(g, 16)},${parseInt(b, 16)},${opacity})`;
+  mixColorOpacity(color, opacity) {
+    return chroma(color).alpha(opacity);
+  }
+
+  getColorShade(colorShade: ShadeSystem, color) {
+    if (colorShade.type === 'transparent') {
+      return 'transparent';
+    }
+    const colorCode =
+      colorShade.type === 'custom' ? this.colorThemes[color] : this.colorThemes[colorShade.color];
+    const shade = colorShade.shade;
+    const opacity = this.colorShades[colorShade.shade] * 0.01;
+    return this.mixColorShade(colorCode, shade, opacity);
+  }
+
+  getColorShadow(colorShade: ShadowSystem, color) {
+    if (colorShade.type === 'transparent') {
+      return 'transparent';
+    }
+    const colorCode =
+      colorShade.type === 'custom' ? this.colorThemes[color] : this.colorThemes[colorShade.color];
+    const opacity = colorShade.opacity;
+    return this.mixColorOpacity(colorCode, opacity);
+  }
+
+  getBoxShadows(boxShadows: ShadowSystem[], color) {
+    let boxShadowStyle = '';
+    boxShadows.forEach(boxShadow => {
+      const colorCode = this.getColorShadow(boxShadow, color);
+      const style = `${boxShadow.x}px ${boxShadow.y}px ${boxShadow.blur}px ${boxShadow.spread}px ${colorCode}`;
+      boxShadowStyle = boxShadowStyle === '' ? `${style}` : `${style}, ${boxShadowStyle}`;
+    });
+    return boxShadowStyle;
   }
 }

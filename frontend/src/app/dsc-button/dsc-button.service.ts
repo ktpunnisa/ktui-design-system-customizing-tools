@@ -18,7 +18,7 @@ export class DscButtonService {
   types = ['default', 'outline', 'ghost'];
   states = ['normal', 'hover', 'pressed', 'disabled'];
 
-  constructor(private apiService: ApiService, private ColorService: DscColorService) {}
+  constructor(private apiService: ApiService) {}
 
   getButtonToken(projectId: string): Observable<ButtonToken> {
     return this.apiService.get(`project/${projectId}/button`);
@@ -32,41 +32,4 @@ export class DscButtonService {
   ): Observable<any> {
     return this.apiService.patch(`project/${projectId}/button`, { shape, sizes, types });
   }
-
-  getColorShade(type, color, shade) {
-    if (type === 'transparent') {
-      return 'transparent';
-    }
-    const opacity = this.ColorService.colorShades ? this.ColorService.colorShades[shade] * 0.01 : 1;
-    return this.ColorService.mixColorShade(color, shade, opacity);
-  }
-
-  // getColorBoxShadow(boxShadow, colorcode) {
-  //   if (boxShadow.type === 'transparent') {
-  //     return 'transparent';
-  //   }
-  //   const color =
-  //     boxShadow.type === 'fixed'
-  //       ? colorToken.themes[boxShadow.color]
-  //       : colorcode;
-  //   const opacity = boxShadow.opacity;
-  //   return getColorOpacity(color, opacity);
-  // }
-
-  // function getBoxShadow(state) {
-  //   let boxShadowCSS = '';
-  //   btnType[state]['boxShadows'].forEach(boxShadow => {
-  //     const color = getColorBoxShadow(boxShadow, colorcode);
-  //     const style = getBoxShadowCSS(
-  //       boxShadow.x,
-  //       boxShadow.y,
-  //       boxShadow.blur,
-  //       boxShadow.spread,
-  //       color
-  //     );
-  //     boxShadowCSS =
-  //       boxShadowCSS === '' ? `${style}` : `${style}, ${boxShadowCSS}`;
-  //   });
-  //   return boxShadowCSS;
-  // }
 }

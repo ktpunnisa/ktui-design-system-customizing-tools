@@ -40,11 +40,10 @@ export class BaseButtonComponent implements OnInit {
 
   getColor(style) {
     const styleToken = this.buttonStyle[style];
-    const colorCode =
-      styleToken.type === 'custom'
-        ? this.ColorService.colorThemes[this.color]
-        : this.ColorService.colorThemes[styleToken.color];
-    return this.buttonService.getColorShade(styleToken.type, colorCode, styleToken.shade);
+    if (style === 'boxShadows') {
+      return this.ColorService.getBoxShadows(styleToken, this.color);
+    }
+    return this.ColorService.getColorShade(styleToken, this.color);
   }
 
   getButtonStyle() {
@@ -87,7 +86,8 @@ export class BaseButtonComponent implements OnInit {
           color: this.setting === 'type' ? this.getColor('font') : this.base.font,
           'background-color':
             this.setting === 'type' ? this.getColor('background') : this.base.background,
-          'border-color': this.setting === 'type' ? this.getColor('border') : this.base.border
+          'border-color': this.setting === 'type' ? this.getColor('border') : this.base.border,
+          'box-shadow': this.setting === 'type' ? this.getColor('boxShadows') : ''
         }
       : {};
     return { ...shape, ...size, ...type };

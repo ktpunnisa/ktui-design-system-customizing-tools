@@ -35,3 +35,18 @@ export interface Palette {
   height: number;
   borderRadius: number;
 }
+
+export interface ShadeSystem {
+  type: string;
+  color: string;
+  shade: string;
+}
+export interface ShadowSystem {
+  x: number;
+  y: number;
+  blur: number;
+  spread: number;
+  type: string;
+  color: string;
+  opacity: number;
+}
