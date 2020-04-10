@@ -1,0 +1,5 @@
+<div class="row" *ngFor="let row of rows">
+  <div class="display-setting" *ngFor="let col of cols">
+    <ng-container *ngTemplateOutlet="dataRef; context: getContext(row, col)"></ng-container>
+  </div>
+</div>

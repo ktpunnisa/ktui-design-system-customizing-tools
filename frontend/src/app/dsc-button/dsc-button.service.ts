@@ -14,9 +14,11 @@ export class DscButtonService {
   buttonShape: ButtonShape;
   buttonSizes: ButtonSize;
   buttonTypes: ButtonType;
+  shapeName = ['shape'];
+  sizeName = ['size'];
+  stateName = ['normal', 'hover', 'pressed', 'disabled'];
   sizes = ['small', 'medium', 'large'];
   types = ['default', 'outline', 'ghost'];
-  states = ['normal', 'hover', 'pressed', 'disabled'];
 
   constructor(private apiService: ApiService) {}
 

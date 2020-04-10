@@ -2,22 +2,40 @@
   <div class="template">
     <h2>Button Setup</h2>
     <h3>Button Shape</h3>
-    <app-base-button setting="shape"></app-base-button>
+    <app-display-container
+      [dataRef]="dataRefShape"
+      [rows]="ButtonService.shapeName"
+      [cols]="ButtonService.shapeName"
+    >
+      <ng-template #dataRefShape let-data>
+        <app-base-button setting="shape"></app-base-button>
+      </ng-template>
+    </app-display-container>
 
     <h3>Button Size</h3>
     <div class="row">
-      <div class="button-setting" *ngFor="let size of ButtonService.sizes">
-        <app-base-button setting="size" [size]="size"></app-base-button>
-      </div>
+      <app-display-container
+        [dataRef]="dataRefSize"
+        [rows]="ButtonService.sizeName"
+        [cols]="ButtonService.sizes"
+      >
+        <ng-template #dataRefSize let-data>
+          <app-base-button setting="size" [size]="data.col"></app-base-button>
+        </ng-template>
+      </app-display-container>
     </div>
 
     <h3>Button State</h3>
     <div class="row">
-      <div class="button-setting" *ngFor="let type of ButtonService.types">
-        <div class="button-setting" *ngFor="let state of ButtonService.states">
-          <app-base-button setting="type" [type]="type" [state]="state"></app-base-button>
-        </div>
-      </div>
+      <app-display-container
+        [dataRef]="dataRefState"
+        [rows]="ButtonService.stateName"
+        [cols]="ButtonService.types"
+      >
+        <ng-template #dataRefState let-data>
+          <app-base-button setting="type" [type]="data.col" [state]="data.row"></app-base-button>
+        </ng-template>
+      </app-display-container>
     </div>
   </div>
   <app-dsc-button-setting></app-dsc-button-setting>
