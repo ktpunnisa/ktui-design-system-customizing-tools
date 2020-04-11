@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Selected } from './display-container';
 
 @Component({
   selector: 'app-display-container',
@@ -7,8 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DisplayContainerComponent implements OnInit {
   @Input() dataRef;
-  @Input() rows;
-  @Input() cols;
+  @Input() rows: string[];
+  @Input() cols: string[];
+  @Input() isShowColName = true;
+  @Input() selected: Selected;
+
+  @Output() selectedChange = new EventEmitter<Selected>();
 
   constructor() {}
 
@@ -21,5 +26,17 @@ export class DisplayContainerComponent implements OnInit {
         col
       }
     };
+  }
+
+  isSelected(row, col) {
+    return row === this.selected.row && col === this.selected.col;
+  }
+
+  onSelected(row, col) {
+    this.selected = {
+      row,
+      col
+    };
+    this.selectedChange.emit(this.selected);
   }
 }

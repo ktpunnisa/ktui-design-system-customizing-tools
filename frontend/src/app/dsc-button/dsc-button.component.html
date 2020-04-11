@@ -1,23 +1,27 @@
 <div class="container">
   <div class="template">
     <h2>Button Setup</h2>
-    <h3>Button Shape</h3>
-    <app-display-container
-      [dataRef]="dataRefShape"
-      [rows]="ButtonService.shapeName"
-      [cols]="ButtonService.shapeName"
-    >
-      <ng-template #dataRefShape let-data>
-        <app-base-button setting="shape"></app-base-button>
-      </ng-template>
-    </app-display-container>
+    <div class="container-setting">
+      <app-display-container
+        [dataRef]="dataRefShape"
+        [rows]="ButtonService.shapeName"
+        [cols]="ButtonService.shapeName"
+        [isShowColName]="false"
+        [selected]="ButtonService.selected"
+        (selectedChange)="changeSelected($event)"
+      >
+        <ng-template #dataRefShape let-data>
+          <app-base-button setting="shape"></app-base-button>
+        </ng-template>
+      </app-display-container>
 
-    <h3>Button Size</h3>
-    <div class="row">
       <app-display-container
         [dataRef]="dataRefSize"
         [rows]="ButtonService.sizeName"
         [cols]="ButtonService.sizes"
+        [isShowColName]="false"
+        [selected]="ButtonService.selected"
+        (selectedChange)="changeSelected($event)"
       >
         <ng-template #dataRefSize let-data>
           <app-base-button setting="size" [size]="data.col"></app-base-button>
@@ -25,12 +29,14 @@
       </app-display-container>
     </div>
 
-    <h3>Button State</h3>
-    <div class="row">
+    <h2>Button State</h2>
+    <div class="container-setting">
       <app-display-container
         [dataRef]="dataRefState"
-        [rows]="ButtonService.stateName"
+        [rows]="ButtonService.states"
         [cols]="ButtonService.types"
+        [selected]="ButtonService.selected"
+        (selectedChange)="changeSelected($event)"
       >
         <ng-template #dataRefState let-data>
           <app-base-button setting="type" [type]="data.col" [state]="data.row"></app-base-button>

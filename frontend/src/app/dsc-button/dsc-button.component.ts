@@ -27,5 +27,13 @@ export class DscButtonComponent implements OnInit {
       this.ButtonService.buttonTypes = buttonToken.types;
       this.ButtonService.buttonBaseSize = buttonToken.sizes.medium;
     });
+    this.ButtonService.selected = {
+      row: 'shape',
+      col: 'shape'
+    };
+  }
+
+  changeSelected(event) {
+    this.ButtonService.selected = event;
   }
 }

@@ -1,24 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ButtonToken, ButtonSizeValue, ButtonSize, ButtonShape, ButtonType } from './dsc-button';
 import { ApiService } from '../api.service';
-import { DscColorService } from '../dsc-color/dsc-color.service';
+import { ButtonToken, ButtonSizeValue, ButtonSize, ButtonShape, ButtonType } from './dsc-button';
+import { Selected } from '../display-container/display-container';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DscButtonService {
-  buttonToken: ButtonToken;
   buttonBaseSize: ButtonSizeValue;
-
   buttonShape: ButtonShape;
   buttonSizes: ButtonSize;
   buttonTypes: ButtonType;
+
   shapeName = ['shape'];
   sizeName = ['size'];
-  stateName = ['normal', 'hover', 'pressed', 'disabled'];
+  typeName = ['type'];
+  states = ['normal', 'hover', 'pressed', 'disabled'];
   sizes = ['small', 'medium', 'large'];
   types = ['default', 'outline', 'ghost'];
+
+  selected: Selected = {
+    row: 'shape',
+    col: 'shape'
+  };
 
   constructor(private apiService: ApiService) {}
 
