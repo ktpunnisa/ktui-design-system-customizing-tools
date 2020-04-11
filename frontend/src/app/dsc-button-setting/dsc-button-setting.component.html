@@ -4,16 +4,16 @@
       <div class="title">Button Shape</div>
     </div>
     <app-setting-range-slider
-      label="Radius"
+      label="Border Radius"
       min="0"
       max="30"
       [value]="buttonShape.borderRadius"
       (valueChange)="changeShape($event, 'borderRadius')"
     ></app-setting-range-slider>
     <app-setting-range-slider
-      label="Width"
+      label="Border Width"
       min="1"
-      max="10"
+      max="8"
       [value]="buttonShape.borderWidth"
       (valueChange)="changeShape($event, 'borderWidth')"
     ></app-setting-range-slider>
@@ -25,12 +25,16 @@
       <div class="subtitle">- {{ this.ButtonService.selected.col }} size -</div>
     </div>
     <app-setting-range-slider
-      label="Font size"
+      label="Font Size"
       min="1"
       max="30"
       [value]="buttonSize.fontSize"
       (valueChange)="changeSize($event, 'fontSize')"
     ></app-setting-range-slider>
+    <app-padding-setting
+      [padding]="buttonSize.padding"
+      (paddingChange)="changeSize($event, 'padding')"
+    ></app-padding-setting>
   </ng-container>
 
   <ng-container *ngIf="isTypeSetting && ButtonService.buttonTypes">

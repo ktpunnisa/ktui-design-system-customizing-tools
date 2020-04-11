@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
 import { ButtonToken, ButtonSizeValue, ButtonSize, ButtonShape, ButtonType } from './dsc-button';
-import { Selected } from '../display-container/display-container';
+import { Selected } from '../base/display-container/display-container';
 
 @Injectable({
   providedIn: 'root'

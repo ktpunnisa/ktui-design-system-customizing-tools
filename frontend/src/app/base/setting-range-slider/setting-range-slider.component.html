@@ -1,4 +1,14 @@
-<div class="label">{{ label }}</div>
+<div class="label">
+  <div>{{ label }}</div>
+  <input
+    *ngIf="hasCheckbox"
+    type="checkbox"
+    [checked]="checked"
+    [(ngModel)]="checked"
+    (ngModelChange)="checkboxChanged()"
+  />
+</div>
+
 <div class="input-range">
   <input
     type="range"
@@ -6,6 +16,13 @@
     [max]="max"
     [(ngModel)]="value"
     (ngModelChange)="valueChanged()"
+    [disabled]="!checked"
   />
-  <input type="number" [min]="min" [(ngModel)]="value" (ngModelChange)="valueChanged()" />
+  <input
+    type="number"
+    [min]="min"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChanged()"
+    [disabled]="!checked"
+  />
 </div>

@@ -10,8 +10,11 @@ export class SettingRangeSliderComponent implements OnInit {
   @Input() value: number;
   @Input() min: number;
   @Input() max: number;
+  @Input() hasCheckbox = false;
+  @Input() checked = true;
 
   @Output() valueChange = new EventEmitter<number>();
+  @Output() checkBoxChange = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -19,5 +22,9 @@ export class SettingRangeSliderComponent implements OnInit {
 
   valueChanged() {
     this.valueChange.emit(this.value);
+  }
+
+  checkBoxChanged() {
+    this.checkBoxChange.emit(this.checked);
   }
 }

@@ -17,7 +17,8 @@ import { DscButtonSettingComponent } from './dsc-button-setting/dsc-button-setti
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DscColorResolver } from './dsc-color/dsc-color.resolver';
 import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
-import { DisplayContainerComponent } from './display-container/display-container.component';
+import { DisplayContainerComponent } from './base/display-container/display-container.component';
+import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DisplayContainerComponent } from './display-container/display-container
     DscColorSettingComponent,
     DscButtonSettingComponent,
     SidebarComponent,
-    DisplayContainerComponent
+    DisplayContainerComponent,
+    PaddingSettingComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [DscColorResolver, DscButtonResolver],
