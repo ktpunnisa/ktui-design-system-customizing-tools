@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DscButtonService } from '../dsc-button/dsc-button.service';
+import { ButtonShape, ButtonSizeValue, ButtonStyle } from '../dsc-button/dsc-button';
 
 @Component({
   selector: 'app-dsc-button-setting',
@@ -11,7 +12,53 @@ export class DscButtonSettingComponent implements OnInit {
 
   ngOnInit() {}
 
+  get isShapeSetting() {
+    const row = this.ButtonService.selected.row;
+    return this.ButtonService.shapeName.includes(row);
+  }
+
+  get isSizeSetting() {
+    const row = this.ButtonService.selected.row;
+    return this.ButtonService.sizeName.includes(row);
+  }
+
+  get isTypeSetting() {
+    const row = this.ButtonService.selected.row;
+    return this.ButtonService.states.includes(row);
+  }
+
+  get buttonShape() {
+    if (this.isShapeSetting) {
+      return this.ButtonService.buttonShape;
+    }
+    return undefined;
+  }
+
+  get buttonSize() {
+    if (this.isSizeSetting) {
+      const size = this.ButtonService.selected.col;
+      return this.ButtonService.buttonSizes ? this.ButtonService.buttonSizes[size] : undefined;
+    }
+    return undefined;
+  }
+
+  get buttonType() {
+    if (this.isTypeSetting) {
+      const state = this.ButtonService.selected.row;
+      const type = this.ButtonService.selected.col;
+      return this.ButtonService.buttonTypes
+        ? this.ButtonService.buttonTypes[type][state]
+        : undefined;
+    }
+    return undefined;
+  }
+
   changeShape(event, type) {
     this.ButtonService.buttonShape[type] = event;
+  }
+
+  changeSize(event, type) {
+    const size = this.ButtonService.selected.col;
+    this.ButtonService.buttonSizes[size][type] = event;
   }
 }

@@ -24,17 +24,17 @@ export class BaseButtonComponent implements OnInit {
   buttonSize: ButtonSizeValue;
   buttonStyle: ButtonStyle;
 
-  constructor(private buttonService: DscButtonService, private ColorService: DscColorService) {}
+  constructor(private ButtonService: DscButtonService, private ColorService: DscColorService) {}
 
   ngOnInit() {}
 
   setButton() {
-    this.buttonShape = this.buttonService.buttonShape;
-    this.buttonSize = this.buttonService.buttonSizes
-      ? this.buttonService.buttonSizes[this.size]
+    this.buttonShape = this.ButtonService.buttonShape;
+    this.buttonSize = this.ButtonService.buttonSizes
+      ? this.ButtonService.buttonSizes[this.size]
       : undefined;
-    this.buttonStyle = this.buttonService.buttonTypes
-      ? this.buttonService.buttonTypes[this.type][this.state]
+    this.buttonStyle = this.ButtonService.buttonTypes
+      ? this.ButtonService.buttonTypes[this.type][this.state]
       : undefined;
   }
 
@@ -57,28 +57,28 @@ export class BaseButtonComponent implements OnInit {
         }
       : {};
     const size =
-      this.buttonSize && this.buttonService.buttonBaseSize
+      this.buttonSize && this.ButtonService.buttonBaseSize
         ? {
             'font-size':
               this.setting === 'size'
                 ? `${this.buttonSize.fontSize}px`
-                : `${this.buttonService.buttonBaseSize.fontSize}px`,
+                : `${this.ButtonService.buttonBaseSize.fontSize}px`,
             'padding-top':
               this.setting === 'size'
                 ? `${this.buttonSize.padding.top}px`
-                : `${this.buttonService.buttonBaseSize.padding.top}px`,
+                : `${this.ButtonService.buttonBaseSize.padding.top}px`,
             'padding-right':
               this.setting === 'size'
                 ? `${this.buttonSize.padding.right}px`
-                : `${this.buttonService.buttonBaseSize.padding.right}px`,
+                : `${this.ButtonService.buttonBaseSize.padding.right}px`,
             'padding-bottom':
               this.setting === 'size'
                 ? `${this.buttonSize.padding.bottom}px`
-                : `${this.buttonService.buttonBaseSize.padding.bottom}px`,
+                : `${this.ButtonService.buttonBaseSize.padding.bottom}px`,
             'padding-left':
               this.setting === 'size'
                 ? `${this.buttonSize.padding.left}px`
-                : `${this.buttonService.buttonBaseSize.padding.left}px`
+                : `${this.ButtonService.buttonBaseSize.padding.left}px`
           }
         : {};
     const type = this.buttonStyle
