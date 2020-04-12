@@ -1,0 +1,14 @@
+<app-setting-dropdown [label]="label" [selected]="selected">
+  <div class="option">
+    <div *ngFor="let color of ColorService.getColorList(mainColor)">
+      <div class="row data" [class.selected]="isSelected(color)" (click)="onSelect(color)">
+        <app-base-color
+          [color]="color.color"
+          [shade]="color.shade"
+          [customPalette]="customPalette"
+        ></app-base-color>
+        <div class="name">{{ color.name }}</div>
+      </div>
+    </div>
+  </div>
+</app-setting-dropdown>

@@ -12,6 +12,7 @@ export class DscButtonService {
   buttonShape: ButtonShape;
   buttonSizes: ButtonSize;
   buttonTypes: ButtonType;
+  selected: Selected;
 
   shapeName = ['shape'];
   sizeName = ['size'];
@@ -19,11 +20,6 @@ export class DscButtonService {
   states = ['normal', 'hover', 'pressed', 'disabled'];
   sizes = ['small', 'medium', 'large'];
   types = ['default', 'outline', 'ghost'];
-
-  selected: Selected = {
-    row: 'shape',
-    col: 'shape'
-  };
 
   constructor(private apiService: ApiService) {}
 

@@ -11,6 +11,8 @@ export class BaseColorComponent implements OnInit {
   @Input() color = 'primary';
   @Input() shade = 'default';
   @Input() size = 's';
+  @Input() customPalette: Palette;
+
   palette: Palette;
   opacity: number;
   colorGenerated: string;
@@ -19,23 +21,31 @@ export class BaseColorComponent implements OnInit {
 
   ngOnInit() {}
 
+  get hasBorder(): boolean {
+    return this.colorGenerated === '#ffffff' || this.opacity === 1 || this.color === 'transparent';
+  }
+
   getColorStyle() {
-    this.palette = this.ColorService.size[this.size];
+    this.palette = this.customPalette ? this.customPalette : this.ColorService.size[this.size];
     this.opacity = this.ColorService.colorShades
       ? this.ColorService.colorShades[this.shade] * 0.01
       : 1;
-    this.colorGenerated = this.ColorService.mixColorShade(
-      this.ColorService.colorThemes ? this.ColorService.colorThemes[this.color] : 'white',
-      this.shade,
-      this.opacity
-    );
+    this.colorGenerated =
+      this.color !== 'transparent'
+        ? this.ColorService.mixColorShade(
+            this.ColorService.colorThemes ? this.ColorService.colorThemes[this.color] : 'white',
+            this.shade,
+            this.opacity
+          )
+        : 'white';
     return {
       'box-sizing': 'border-box',
       'background-color': this.colorGenerated,
+      'background-image': this.color === 'transparent' ? `url('assets/img/transparent.jpg')` : '',
       width: `${this.palette.width}px`,
       height: `${this.palette.height}px`,
       'border-radius': `${this.palette.borderRadius}px`,
-      border: this.colorGenerated === '#ffffff' || this.opacity === 1 ? '1px solid #E9E9E9' : 'none'
+      border: this.hasBorder ? '1px solid #E9E9E9' : 'none'
     };
   }
 }

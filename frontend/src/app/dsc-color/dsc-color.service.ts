@@ -8,7 +8,8 @@ import {
   ColorTheme,
   ColorToken,
   ShadowSystem,
-  ShadeSystem
+  ShadeSystem,
+  ColorSystem
 } from './dsc-color';
 import { ApiService } from '../api.service';
 
@@ -81,5 +82,48 @@ export class DscColorService {
       boxShadowStyle = boxShadowStyle === '' ? `${style}` : `${style}, ${boxShadowStyle}`;
     });
     return boxShadowStyle;
+  }
+
+  getColorList(mainColor: string): ColorSystem[] {
+    let colorList = [];
+    const transparent = [{ name: 'transparent', color: 'transparent', shade: 'default' }];
+    colorList = colorList.concat(transparent);
+    const colorScale = this.shades.map(shade => {
+      return {
+        name: `${shade} color`,
+        color: mainColor,
+        shade
+      };
+    });
+    colorList = colorList.concat(colorScale);
+    const white = [{ name: 'white', color: 'white', shade: 'default' }];
+    colorList = colorList.concat(white);
+    const grayScale = this.shades.map(shade => {
+      return {
+        name: shade === 'default' ? 'gray' : `${shade} gray`,
+        color: 'gray',
+        shade
+      };
+    });
+    colorList = colorList.concat(grayScale);
+    const black = [{ name: 'black', color: 'black', shade: 'default' }];
+    colorList = colorList.concat(black);
+    return colorList;
+  }
+
+  getColorSystem(colorShade: ShadeSystem, mainColor): ColorSystem {
+    if (colorShade.type === 'transparent') {
+      return { name: 'transparent', color: 'transparent', shade: 'default' };
+    } else if (colorShade.type === 'custom') {
+      return { name: `${colorShade.shade} color`, color: mainColor, shade: colorShade.shade };
+    }
+    return {
+      name:
+        colorShade.shade === 'default'
+          ? colorShade.color
+          : `${colorShade.shade} ${colorShade.color}`,
+      color: colorShade.color,
+      shade: colorShade.shade
+    };
   }
 }

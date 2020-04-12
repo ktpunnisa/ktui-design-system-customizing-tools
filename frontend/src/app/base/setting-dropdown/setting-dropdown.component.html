@@ -1,0 +1,22 @@
+<div class="label">
+  {{ label }}
+</div>
+<div class="select-container">
+  <div class="select" (click)="showDropdown()">
+    <div class="row data">
+      <app-base-color
+        [color]="selected.color"
+        [shade]="selected.shade"
+        [customPalette]="customPalette"
+      ></app-base-color>
+      <div class="name">{{ selected.name }}</div>
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+  </div>
+
+  <div class="dropdown-options-container" *ngIf="showing">
+    <div class="dropdown" (clickOutside)="hideDropdown()">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

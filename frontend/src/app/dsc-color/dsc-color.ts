@@ -50,3 +50,9 @@ export interface ShadowSystem {
   color: string;
   opacity: number;
 }
+
+export interface ColorSystem {
+  name: string;
+  color: string;
+  shade: string;
+}

@@ -44,5 +44,20 @@
         - {{ this.ButtonService.selected.row }} {{ this.ButtonService.selected.col }} button -
       </div>
     </div>
+    <app-color-list-setting
+      label="Font Color"
+      [selected]="this.ColorService.getColorSystem(this.buttonState.font, mainColor)"
+      [mainColor]="mainColor"
+    ></app-color-list-setting>
+    <app-color-list-setting
+      label="Background Color"
+      [selected]="this.ColorService.getColorSystem(this.buttonState.background, mainColor)"
+      [mainColor]="mainColor"
+    ></app-color-list-setting>
+    <app-color-list-setting
+      label="Border Color"
+      [selected]="this.ColorService.getColorSystem(this.buttonState.border, mainColor)"
+      [mainColor]="mainColor"
+    ></app-color-list-setting>
   </ng-container>
 </div>

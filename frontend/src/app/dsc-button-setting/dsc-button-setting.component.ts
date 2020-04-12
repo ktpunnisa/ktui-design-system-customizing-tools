@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DscButtonService } from '../dsc-button/dsc-button.service';
 import { ButtonShape, ButtonSizeValue, ButtonStyle } from '../dsc-button/dsc-button';
+import { DscColorService } from '../dsc-color/dsc-color.service';
 
 @Component({
   selector: 'app-dsc-button-setting',
@@ -8,9 +9,13 @@ import { ButtonShape, ButtonSizeValue, ButtonStyle } from '../dsc-button/dsc-but
   styleUrls: ['./dsc-button-setting.component.scss']
 })
 export class DscButtonSettingComponent implements OnInit {
-  constructor(protected ButtonService: DscButtonService) {}
+  mainColor: string;
 
-  ngOnInit() {}
+  constructor(protected ButtonService: DscButtonService, protected ColorService: DscColorService) {}
+
+  ngOnInit() {
+    this.mainColor = 'primary';
+  }
 
   get isShapeSetting() {
     const row = this.ButtonService.selected.row;
@@ -42,7 +47,7 @@ export class DscButtonSettingComponent implements OnInit {
     return undefined;
   }
 
-  get buttonType() {
+  get buttonState() {
     if (this.isTypeSetting) {
       const state = this.ButtonService.selected.row;
       const type = this.ButtonService.selected.col;
