@@ -29,6 +29,7 @@ export class DscColorService {
     l: { width: 180, height: 120, borderRadius: 8 },
     xl: { width: 210, height: 140, borderRadius: 8 }
   };
+  displayContainer: string;
 
   constructor(private apiService: ApiService) {}
 

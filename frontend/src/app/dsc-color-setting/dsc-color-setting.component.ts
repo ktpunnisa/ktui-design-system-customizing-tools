@@ -11,6 +11,14 @@ export class DscColorSettingComponent implements OnInit {
 
   ngOnInit() {}
 
+  isSelected(state: string) {
+    return state === this.ColorService.displayContainer;
+  }
+
+  onSelect(state: string) {
+    this.ColorService.displayContainer = state;
+  }
+
   changeShade(event, shade) {
     this.ColorService.colorShades[shade] = event;
     this.ColorService.updateColorToken(

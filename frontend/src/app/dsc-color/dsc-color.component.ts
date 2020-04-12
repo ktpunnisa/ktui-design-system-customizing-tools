@@ -8,8 +8,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dsc-color.component.scss']
 })
 export class DscColorComponent implements OnInit {
-  isBase = false;
-
   constructor(private route: ActivatedRoute, protected ColorService: DscColorService) {}
 
   ngOnInit() {
@@ -18,5 +16,6 @@ export class DscColorComponent implements OnInit {
       this.ColorService.colorThemes = colorToken.themes;
       this.ColorService.colorShades = colorToken.shades;
     });
+    this.ColorService.displayContainer = 'base';
   }
 }

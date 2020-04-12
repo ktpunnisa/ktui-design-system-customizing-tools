@@ -22,7 +22,7 @@
   <ng-container *ngIf="isSizeSetting && ButtonService.buttonSizes">
     <div class="title-setting">
       <div class="title">Button Size</div>
-      <div class="subtitle">- {{ this.ButtonService.selected.col }} size -</div>
+      <div class="subtitle">- {{ ButtonService.selected.col }} size -</div>
     </div>
     <app-setting-range-slider
       label="Font Size"
@@ -41,24 +41,24 @@
     <div class="title-setting">
       <div class="title">Button Type</div>
       <div class="subtitle">
-        - {{ this.ButtonService.selected.row }} {{ this.ButtonService.selected.col }} button -
+        - {{ ButtonService.selected.row }} {{ ButtonService.selected.col }} button -
       </div>
     </div>
     <app-color-list-setting
       label="Font Color"
-      [selected]="this.ColorService.getColorSystem(this.buttonState.font, mainColor)"
+      [selected]="ColorService.getColorSystem(this.buttonState.font, mainColor)"
       [mainColor]="mainColor"
       (selectedChange)="changeType($event, 'font')"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Background Color"
-      [selected]="this.ColorService.getColorSystem(this.buttonState.background, mainColor)"
+      [selected]="ColorService.getColorSystem(this.buttonState.background, mainColor)"
       [mainColor]="mainColor"
       (selectedChange)="changeType($event, 'background')"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Border Color"
-      [selected]="this.ColorService.getColorSystem(this.buttonState.border, mainColor)"
+      [selected]="ColorService.getColorSystem(this.buttonState.border, mainColor)"
       [mainColor]="mainColor"
       (selectedChange)="changeType($event, 'border')"
     ></app-color-list-setting>

@@ -3,7 +3,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'kt-component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,8 +44,9 @@ import { ColorListSettingComponent } from './base/color-list-setting/color-list-
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatIconModule
+    // BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonToggleModule
   ],
   providers: [DscColorResolver, DscButtonResolver],
   bootstrap: [AppComponent],

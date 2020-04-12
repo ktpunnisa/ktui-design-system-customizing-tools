@@ -1,6 +1,6 @@
 <div class="container">
   <div class="template">
-    <div *ngIf="isBase">
+    <div *ngIf="ColorService.displayContainer === 'base'">
       <h2>Brand Colors</h2>
       <div class="row">
         <div class="scale-color" *ngFor="let color of ColorService.brandColors">
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div *ngIf="!isBase">
+    <div *ngIf="ColorService.displayContainer === 'scale'">
       <h2>Color Scales</h2>
       <div class="row base-color">
         <div class="scale-color" *ngFor="let color of ColorService.brandColors">

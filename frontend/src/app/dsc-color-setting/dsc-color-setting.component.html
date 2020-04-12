@@ -1,15 +1,35 @@
 <div class="setting">
-  <h3>Color Shades</h3>
-  <ng-container *ngIf="ColorService.colorShades">
-    <div *ngFor="let shade of ColorService.shades">
-      <app-setting-range-slider
-        *ngIf="shade !== 'default'"
-        [label]="shade"
-        min="0"
-        max="100"
-        [value]="ColorService.colorShades[shade]"
-        (valueChange)="changeShade($event, shade)"
-      ></app-setting-range-slider>
+  <div class="btn-group">
+    <button
+      class="btn left-btn"
+      [class.selected]="this.isSelected('base')"
+      (click)="onSelect('base')"
+    >
+      Base
+    </button>
+    <button
+      class="btn right-btn"
+      [class.selected]="this.isSelected('scale')"
+      (click)="onSelect('scale')"
+    >
+      Scale
+    </button>
+  </div>
+  <div *ngIf="ColorService.displayContainer === 'scale'">
+    <div class="title-setting">
+      <div class="title">Color Shade</div>
     </div>
-  </ng-container>
+    <ng-container *ngIf="ColorService.colorShades">
+      <div *ngFor="let shade of ColorService.shades">
+        <app-setting-range-slider
+          *ngIf="shade !== 'default'"
+          [label]="shade"
+          min="0"
+          max="100"
+          [value]="ColorService.colorShades[shade]"
+          (valueChange)="changeShade($event, shade)"
+        ></app-setting-range-slider>
+      </div>
+    </ng-container>
+  </div>
 </div>
