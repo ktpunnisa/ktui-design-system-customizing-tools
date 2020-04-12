@@ -48,16 +48,19 @@
       label="Font Color"
       [selected]="this.ColorService.getColorSystem(this.buttonState.font, mainColor)"
       [mainColor]="mainColor"
+      (selectedChange)="changeType($event, 'font')"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Background Color"
       [selected]="this.ColorService.getColorSystem(this.buttonState.background, mainColor)"
       [mainColor]="mainColor"
+      (selectedChange)="changeType($event, 'background')"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Border Color"
       [selected]="this.ColorService.getColorSystem(this.buttonState.border, mainColor)"
       [mainColor]="mainColor"
+      (selectedChange)="changeType($event, 'border')"
     ></app-color-list-setting>
   </ng-container>
 </div>

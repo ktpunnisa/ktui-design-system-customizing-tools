@@ -1,16 +1,64 @@
-.data {
-  display: flex;
-  padding: 8px 8px;
-  cursor: pointer;
-  align-items: center;
+@import '../../../styles.scss';
 
-  .name {
-    font-size: 15px;
-    margin-left: 8px;
+@mixin container-style {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.select-container {
+  position: relative;
+
+  .select {
+    @include container-style();
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    margin-bottom: 16px;
+    cursor: pointer;
   }
 
-  &:hover,
-  &.selected {
-    background-color: #e5e5e5;
+  .data {
+    align-items: center;
+
+    .name {
+      font-size: 15px;
+      margin-left: 8px;
+    }
+  }
+
+  .option-list {
+    padding: 8px 8px;
+    cursor: pointer;
+    &:hover,
+    &.selected {
+      background-color: #e5e5e5;
+    }
+  }
+
+  .dropdown-options-container {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+
+    .overlay {
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .dropdown {
+      @include container-style();
+      position: relative;
+      overflow: auto;
+      max-height: 200px;
+      padding: 4px 0;
+    }
   }
 }

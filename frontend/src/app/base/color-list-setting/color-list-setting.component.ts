@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Palette, ColorSystem } from 'src/app/dsc-color/dsc-color';
 import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
 
@@ -11,11 +11,15 @@ export class ColorListSettingComponent implements OnInit {
   @Input() label: string;
   @Input() selected: ColorSystem;
   @Input() mainColor: string;
+
+  @Output() selectedChange = new EventEmitter<ColorSystem>();
+
   customPalette: Palette = {
     width: 20,
     height: 20,
     borderRadius: 4
   };
+  showing: boolean;
 
   constructor(protected ColorService: DscColorService) {}
 
@@ -27,5 +31,19 @@ export class ColorListSettingComponent implements OnInit {
 
   onSelect(color: ColorSystem) {
     this.selected = color;
+    this.selectedChanged();
+    this.hideDropdown();
+  }
+
+  selectedChanged() {
+    this.selectedChange.emit(this.selected);
+  }
+
+  showDropdown() {
+    this.showing = true;
+  }
+
+  hideDropdown() {
+    this.showing = false;
   }
 }

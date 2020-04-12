@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DscButtonService } from '../dsc-button/dsc-button.service';
 import { ButtonShape, ButtonSizeValue, ButtonStyle } from '../dsc-button/dsc-button';
 import { DscColorService } from '../dsc-color/dsc-color.service';
+import { ColorSystem } from '../dsc-color/dsc-color';
 
 @Component({
   selector: 'app-dsc-button-setting',
@@ -58,12 +59,41 @@ export class DscButtonSettingComponent implements OnInit {
     return undefined;
   }
 
-  changeShape(event, type) {
-    this.ButtonService.buttonShape[type] = event;
+  changeShape(event, style) {
+    this.ButtonService.buttonShape[style] = event;
   }
 
-  changeSize(event, type) {
+  changeSize(event, style) {
     const size = this.ButtonService.selected.col;
-    this.ButtonService.buttonSizes[size][type] = event;
+    this.ButtonService.buttonSizes[size][style] = event;
+  }
+
+  changeType(event, style) {
+    const state = this.ButtonService.selected.row;
+    const type = this.ButtonService.selected.col;
+    const buttonStyle = this.convertToButtonType(event);
+    this.ButtonService.buttonTypes[type][state][style] = buttonStyle;
+  }
+
+  convertToButtonType(event) {
+    if (event.color === 'transparent') {
+      return {
+        type: 'transparent',
+        color: '',
+        shade: ''
+      };
+    }
+    if (this.ColorService.naturalColors.includes(event.color)) {
+      return {
+        type: 'fixed',
+        color: event.color,
+        shade: event.shade
+      };
+    }
+    return {
+      type: 'custom',
+      color: '',
+      shade: event.shade
+    };
   }
 }

@@ -21,7 +21,6 @@ import { DscColorResolver } from './dsc-color/dsc-color.resolver';
 import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
 import { DisplayContainerComponent } from './base/display-container/display-container.component';
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
-import { SettingDropdownComponent } from './base/setting-dropdown/setting-dropdown.component';
 import { ColorListSettingComponent } from './base/color-list-setting/color-list-setting.component';
 
 @NgModule({
@@ -37,7 +36,6 @@ import { ColorListSettingComponent } from './base/color-list-setting/color-list-
     SidebarComponent,
     DisplayContainerComponent,
     PaddingSettingComponent,
-    SettingDropdownComponent,
     ColorListSettingComponent
   ],
   imports: [
