@@ -1,0 +1,21 @@
+<div class="label">
+  {{ label }}
+</div>
+
+<div class="select-container" (click)="showDropdown()" *ngIf="!showing">
+  <div class="row data">
+    <app-base-color [color]="color.color" size="xs"></app-base-color>
+    <div class="name">{{ color.name }}</div>
+  </div>
+  <i class="material-icons">keyboard_arrow_right</i>
+</div>
+
+<div class="dropdown-container" *ngIf="showing">
+  <div class="row top">
+    <div class="row data">
+      <app-base-color [color]="color.color" size="xs"></app-base-color>
+      <div class="name">{{ color.name }}</div>
+    </div>
+    <i class="material-icons" (click)="hideDropdown()">keyboard_arrow_down</i>
+  </div>
+</div>

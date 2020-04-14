@@ -24,6 +24,7 @@ export class DscColorService {
   naturalColors = ['white', 'gray', 'black'];
   shades = ['lightest', 'lighter', 'light', 'default', 'dark', 'darker'];
   size: PaletteSize = {
+    xs: { width: 20, height: 20, borderRadius: 4 },
     s: { width: 112, height: 40, borderRadius: 4 },
     m: { width: 112, height: 52, borderRadius: 4 },
     l: { width: 180, height: 120, borderRadius: 8 },
@@ -31,7 +32,9 @@ export class DscColorService {
   };
   displayContainer: string;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+    this.displayContainer = 'base';
+  }
 
   getColorToken(projectId: string): Observable<ColorToken> {
     return this.apiService.get(`project/${projectId}/color`);

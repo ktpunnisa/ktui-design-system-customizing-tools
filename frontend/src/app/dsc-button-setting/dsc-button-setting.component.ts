@@ -61,11 +61,27 @@ export class DscButtonSettingComponent implements OnInit {
 
   changeShape(event, style) {
     this.ButtonService.buttonShape[style] = event;
+    this.ButtonService.updateButtonToken(
+      'test',
+      this.ButtonService.buttonShape,
+      null,
+      null
+    ).subscribe(res => {
+      console.log('update button shape');
+    });
   }
 
   changeSize(event, style) {
     const size = this.ButtonService.selected.col;
     this.ButtonService.buttonSizes[size][style] = event;
+    this.ButtonService.updateButtonToken(
+      'test',
+      null,
+      this.ButtonService.buttonSizes,
+      null
+    ).subscribe(res => {
+      console.log('update button size');
+    });
   }
 
   changeType(event, style) {
@@ -73,6 +89,14 @@ export class DscButtonSettingComponent implements OnInit {
     const type = this.ButtonService.selected.col;
     const buttonStyle = this.convertToButtonType(event);
     this.ButtonService.buttonTypes[type][state][style] = buttonStyle;
+    this.ButtonService.updateButtonToken(
+      'test',
+      null,
+      null,
+      this.ButtonService.buttonTypes
+    ).subscribe(res => {
+      console.log('update type');
+    });
   }
 
   convertToButtonType(event) {

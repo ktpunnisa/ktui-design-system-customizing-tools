@@ -11,7 +11,6 @@ export class BaseColorComponent implements OnInit {
   @Input() color = 'primary';
   @Input() shade = 'default';
   @Input() size = 's';
-  @Input() customPalette: Palette;
 
   palette: Palette;
   opacity: number;
@@ -26,14 +25,16 @@ export class BaseColorComponent implements OnInit {
   }
 
   getColorStyle() {
-    this.palette = this.customPalette ? this.customPalette : this.ColorService.size[this.size];
+    this.palette = this.ColorService.size[this.size];
     this.opacity = this.ColorService.colorShades
       ? this.ColorService.colorShades[this.shade] * 0.01
       : 1;
     this.colorGenerated =
       this.color !== 'transparent'
         ? this.ColorService.mixColorShade(
-            this.ColorService.colorThemes ? this.ColorService.colorThemes[this.color] : 'white',
+            this.ColorService.colorThemes[this.color]
+              ? this.ColorService.colorThemes[this.color]
+              : this.color,
             this.shade,
             this.opacity
           )

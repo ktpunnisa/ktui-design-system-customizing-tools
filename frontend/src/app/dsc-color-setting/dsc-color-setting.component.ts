@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DscColorService } from '../dsc-color/dsc-color.service';
+import { ColorSystem } from '../dsc-color/dsc-color';
 
 @Component({
   selector: 'app-dsc-color-setting',
@@ -21,12 +22,18 @@ export class DscColorSettingComponent implements OnInit {
 
   changeShade(event, shade) {
     this.ColorService.colorShades[shade] = event;
-    this.ColorService.updateColorToken(
-      'test',
-      this.ColorService.colorThemes,
-      this.ColorService.colorShades
-    ).subscribe(res => {
-      console.log(res);
-    });
+    this.ColorService.updateColorToken('test', null, this.ColorService.colorShades).subscribe(
+      res => {
+        console.log('update color');
+      }
+    );
+  }
+
+  getColorSystem(color): ColorSystem {
+    return {
+      name: this.ColorService.colorThemes[color].toUpperCase(),
+      color: this.ColorService.colorThemes[color],
+      shade: 'default'
+    };
   }
 }

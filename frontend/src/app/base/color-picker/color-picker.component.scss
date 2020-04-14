@@ -1,0 +1,45 @@
+@import '../../../styles.scss';
+
+@mixin container-style {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: white;
+  padding: 4px 8px;
+  margin-bottom: 12px;
+}
+
+@mixin top-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+}
+
+.data {
+  align-items: center;
+
+  .name {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+}
+
+.select-container {
+  @include container-style();
+  @include top-setting();
+  cursor: pointer;
+}
+
+.dropdown-container {
+  @include container-style();
+  height: 220px;
+
+  .top {
+    @include top-setting();
+    width: 100%;
+  }
+
+  i {
+    cursor: pointer;
+  }
+}

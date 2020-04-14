@@ -16,6 +16,5 @@ export class DscColorComponent implements OnInit {
       this.ColorService.colorThemes = colorToken.themes;
       this.ColorService.colorShades = colorToken.shades;
     });
-    this.ColorService.displayContainer = 'base';
   }
 }

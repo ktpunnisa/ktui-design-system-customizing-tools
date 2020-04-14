@@ -13,12 +13,6 @@ export class ColorListSettingComponent implements OnInit {
   @Input() mainColor: string;
 
   @Output() selectedChange = new EventEmitter<ColorSystem>();
-
-  customPalette: Palette = {
-    width: 20,
-    height: 20,
-    borderRadius: 4
-  };
   showing: boolean;
 
   constructor(protected ColorService: DscColorService) {}

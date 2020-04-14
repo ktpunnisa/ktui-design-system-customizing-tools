@@ -3,8 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'kt-component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +22,7 @@ import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
 import { DisplayContainerComponent } from './base/display-container/display-container.component';
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
 import { ColorListSettingComponent } from './base/color-list-setting/color-list-setting.component';
+import { ColorPickerComponent } from './base/color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
@@ -37,16 +37,16 @@ import { ColorListSettingComponent } from './base/color-list-setting/color-list-
     SidebarComponent,
     DisplayContainerComponent,
     PaddingSettingComponent,
-    ColorListSettingComponent
+    ColorListSettingComponent,
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    // BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonToggleModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [DscColorResolver, DscButtonResolver],
   bootstrap: [AppComponent],

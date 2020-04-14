@@ -4,11 +4,7 @@
 <div class="select-container">
   <div class="select" (click)="showDropdown()">
     <div class="row data">
-      <app-base-color
-        [color]="selected.color"
-        [shade]="selected.shade"
-        [customPalette]="customPalette"
-      ></app-base-color>
+      <app-base-color [color]="selected.color" [shade]="selected.shade" size="xs"></app-base-color>
       <div class="name">{{ selected.name }}</div>
     </div>
     <i class="material-icons">keyboard_arrow_down</i>
@@ -22,11 +18,7 @@
           [class.selected]="isSelected(color)"
           (click)="onSelect(color)"
         >
-          <app-base-color
-            [color]="color.color"
-            [shade]="color.shade"
-            [customPalette]="customPalette"
-          ></app-base-color>
+          <app-base-color [color]="color.color" [shade]="color.shade" size="xs"></app-base-color>
           <div class="name">{{ color.name }}</div>
         </div>
       </div>

@@ -24,6 +24,7 @@ export interface ColorShade {
 }
 
 export interface PaletteSize {
+  xs: Palette;
   s: Palette;
   m: Palette;
   l: Palette;
