@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ColorPickerModule } from '@iplab/ngx-color-picker';
 import 'kt-component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +47,8 @@ import { ColorPickerComponent } from './base/color-picker/color-picker.component
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    ColorPickerModule
   ],
   providers: [DscColorResolver, DscButtonResolver],
   bootstrap: [AppComponent],

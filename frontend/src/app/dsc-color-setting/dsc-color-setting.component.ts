@@ -24,7 +24,16 @@ export class DscColorSettingComponent implements OnInit {
     this.ColorService.colorShades[shade] = event;
     this.ColorService.updateColorToken('test', null, this.ColorService.colorShades).subscribe(
       res => {
-        console.log('update color');
+        console.log('update shade');
+      }
+    );
+  }
+
+  changeTheme(event, color) {
+    this.ColorService.colorThemes[color] = event;
+    this.ColorService.updateColorToken('test', this.ColorService.colorThemes, null).subscribe(
+      res => {
+        console.log('update theme');
       }
     );
   }

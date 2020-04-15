@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  <div *ngIf="ColorService.displayContainer === 'scale'" class="section">
+  <div *ngIf="ColorService.displayContainer === 'scale'" class="container-shade">
     <div class="title-setting">
       <div class="title">Color Shade</div>
     </div>
@@ -34,19 +34,31 @@
     </ng-container>
   </div>
 
-  <div class="section">
+  <div class="container-color">
     <div class="title-setting">
       <div class="title">Color Theme</div>
     </div>
     <ng-container *ngIf="ColorService.colorThemes">
       <div *ngFor="let color of ColorService.brandColors">
-        <app-color-picker [label]="color" [color]="getColorSystem(color)"></app-color-picker>
+        <app-color-picker
+          [label]="color"
+          [colorSystem]="getColorSystem(color)"
+          (colorChange)="changeTheme($event, color)"
+        ></app-color-picker>
       </div>
       <div *ngFor="let color of ColorService.systemColors">
-        <app-color-picker [label]="color" [color]="getColorSystem(color)"></app-color-picker>
+        <app-color-picker
+          [label]="color"
+          [colorSystem]="getColorSystem(color)"
+          (colorChange)="changeTheme($event, color)"
+        ></app-color-picker>
       </div>
       <div *ngFor="let color of ColorService.naturalColors">
-        <app-color-picker [label]="color" [color]="getColorSystem(color)"></app-color-picker>
+        <app-color-picker
+          [label]="color"
+          [colorSystem]="getColorSystem(color)"
+          (colorChange)="changeTheme($event, color)"
+        ></app-color-picker>
       </div>
     </ng-container>
   </div>

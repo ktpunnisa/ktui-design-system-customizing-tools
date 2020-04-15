@@ -1,4 +1,4 @@
-@import '../../styles.scss';
+@import "../../styles.scss";
 
 .btn-group {
   width: 100%;
@@ -33,6 +33,10 @@
   border-radius: 0px 4px 4px 0px;
 }
 
-.section {
+.container-shade {
   margin-bottom: 32px;
+}
+
+.container-color {
+  margin-bottom: 100px;
 }

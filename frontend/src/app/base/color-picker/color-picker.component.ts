@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ColorSystem } from 'src/app/dsc-color/dsc-color';
+import { ColorPickerControl } from '@iplab/ngx-color-picker';
+import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
 
 @Component({
   selector: 'app-color-picker',
@@ -8,10 +10,14 @@ import { ColorSystem } from 'src/app/dsc-color/dsc-color';
 })
 export class ColorPickerComponent implements OnInit {
   @Input() label: string;
-  @Input() color: ColorSystem;
+  @Input() colorSystem: ColorSystem;
   showing: boolean;
 
-  constructor() {}
+  @Output() colorChange = new EventEmitter<string>();
+
+  chromeControl = new ColorPickerControl().hidePresets().hideAlphaChannel();
+
+  constructor(protected ColorService: DscColorService) {}
 
   ngOnInit() {}
 
@@ -21,5 +27,9 @@ export class ColorPickerComponent implements OnInit {
 
   hideDropdown() {
     this.showing = false;
+  }
+
+  changeColor(event) {
+    this.colorChange.emit(event);
   }
 }

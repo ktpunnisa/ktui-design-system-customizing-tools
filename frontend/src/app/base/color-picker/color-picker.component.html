@@ -4,8 +4,8 @@
 
 <div class="select-container" (click)="showDropdown()" *ngIf="!showing">
   <div class="row data">
-    <app-base-color [color]="color.color" size="xs"></app-base-color>
-    <div class="name">{{ color.name }}</div>
+    <app-base-color [color]="colorSystem.color" size="xs"></app-base-color>
+    <div class="name">{{ colorSystem.name }}</div>
   </div>
   <i class="material-icons">keyboard_arrow_right</i>
 </div>
@@ -13,9 +13,15 @@
 <div class="dropdown-container" *ngIf="showing">
   <div class="row top">
     <div class="row data">
-      <app-base-color [color]="color.color" size="xs"></app-base-color>
-      <div class="name">{{ color.name }}</div>
+      <app-base-color [color]="colorSystem.color" size="xs"></app-base-color>
+      <div class="name">{{ colorSystem.name }}</div>
     </div>
     <i class="material-icons" (click)="hideDropdown()">keyboard_arrow_down</i>
   </div>
+  <chrome-picker
+    class="color-picker"
+    [color]="this.colorSystem.color"
+    (colorChange)="changeColor($event)"
+    [control]="chromeControl"
+  ></chrome-picker>
 </div>
