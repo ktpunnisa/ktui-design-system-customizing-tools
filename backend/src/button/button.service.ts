@@ -10,6 +10,9 @@ import {
 
 @Injectable()
 export class ButtonService {
+  fs = require('fs');
+  util = require('util');
+
   constructor(@InjectModel('Button') private buttonModel: Model<ButtonToken>) {}
 
   async insertButton(
@@ -40,6 +43,21 @@ export class ButtonService {
     };
   }
 
+  async generateToken(projectId: string) {
+    const button = this.getButton(projectId);
+    button.then(button => {
+      this.fs.writeFileSync(
+        '/Users/ktpunnisa/Documents/senior_project/db/button.js',
+        `export default ${this.util.inspect(button, {
+          showHidden: false,
+          depth: null,
+        })};`,
+        'utf-8',
+      );
+    });
+    return button;
+  }
+
   async updateButton(
     projectId: string,
     shape: ButtonShape,
@@ -60,6 +78,7 @@ export class ButtonService {
       updatedButton[0].types = types;
     }
     updatedButton[0].save();
+    return 'update button';
   }
 
   async deleteButton(projectId: string) {
@@ -72,6 +91,7 @@ export class ButtonService {
     if (result.n === 0) {
       throw new NotFoundException('Could not find button.');
     }
+    return 'delete button';
   }
 
   private async findButton(projectId: string): Promise<ButtonToken> {

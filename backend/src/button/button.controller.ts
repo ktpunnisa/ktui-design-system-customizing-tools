@@ -39,6 +39,11 @@ export class ButtonController {
     return this.buttonService.getButton(projectId);
   }
 
+  @Get('token')
+  generaToken(@Param('projectId') projectId: string) {
+    return this.buttonService.generateToken(projectId);
+  }
+
   @Patch()
   async updateButton(
     @Param('projectId') projectId: string,
@@ -46,13 +51,11 @@ export class ButtonController {
     @Body('sizes') sizes: ButtonSize,
     @Body('types') types: ButtonType,
   ) {
-    await this.buttonService.updateButton(projectId, shape, sizes, types);
-    return null;
+    return this.buttonService.updateButton(projectId, shape, sizes, types);
   }
 
   @Delete()
   async removeButton(@Param('projectId') projectId: string) {
-    await this.buttonService.deleteButton(projectId);
-    return null;
+    return this.buttonService.deleteButton(projectId);
   }
 }

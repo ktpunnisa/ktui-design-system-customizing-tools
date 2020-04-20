@@ -9,6 +9,9 @@ import {
 
 @Injectable()
 export class ColorService {
+  fs = require('fs');
+  util = require('util');
+
   constructor(@InjectModel('Color') private colorModel: Model<ColorToken>) {}
 
   async insertColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
@@ -32,6 +35,21 @@ export class ColorService {
     };
   }
 
+  async generateToken(projectId: string) {
+    const color = this.getColor(projectId);
+    color.then(color => {
+      this.fs.writeFileSync(
+        '/Users/ktpunnisa/Documents/senior_project/db/color.js',
+        `export default ${this.util.inspect(color, {
+          showHidden: false,
+          depth: null,
+        })};`,
+        'utf-8',
+      );
+    });
+    return color;
+  }
+
   async updateColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
     if (!projectId) {
       throw new NotFoundException('project_id does not exist!');
@@ -44,6 +62,7 @@ export class ColorService {
       updatedColor[0].shades = shades;
     }
     updatedColor[0].save();
+    return 'update color';
   }
 
   async deleteColor(projectId: string) {
@@ -56,6 +75,7 @@ export class ColorService {
     if (result.n === 0) {
       throw new NotFoundException('Could not find color.');
     }
+    return 'delete color';
   }
 
   private async findColor(projectId: string): Promise<ColorToken> {

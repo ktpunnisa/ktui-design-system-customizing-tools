@@ -33,19 +33,22 @@ export class ColorController {
     return this.colorService.getColor(projectId);
   }
 
+  @Get('token')
+  generaToken(@Param('projectId') projectId: string) {
+    return this.colorService.generateToken(projectId);
+  }
+
   @Patch()
   async updateColor(
     @Param('projectId') projectId: string,
     @Body('themes') themes: ColorTheme,
     @Body('shades') shades: ColorShade,
   ) {
-    await this.colorService.updateColor(projectId, themes, shades);
-    return null;
+    return this.colorService.updateColor(projectId, themes, shades);
   }
 
   @Delete()
   async removeColor(@Param('projectId') projectId: string) {
-    await this.colorService.deleteColor(projectId);
-    return null;
+    return this.colorService.deleteColor(projectId);
   }
 }
