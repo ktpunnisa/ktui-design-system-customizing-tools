@@ -22,7 +22,11 @@ export class ColorService {
 
   staticDir = this.configService.get('staticDir');
 
-  async insertColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
+  async insertColor(
+    projectId: string,
+    themes?: ColorTheme,
+    shades?: ColorShade,
+  ) {
     const newColor = new this.colorModel({
       project_id: projectId,
       themes: themes ? themes : colorToken.themes,
@@ -43,11 +47,11 @@ export class ColorService {
     };
   }
 
-  async generateToken(projectId: string) {
+  async generateToken(projectId: string, folderDir?: string) {
     const color = this.getColor(projectId);
     color.then(color => {
       this.fs.writeFileSync(
-        this.path.join(this.staticDir, 'color.js'),
+        this.path.join(folderDir ? folderDir : this.staticDir, 'color.js'),
         `export default ${this.util.inspect(color, {
           showHidden: false,
           depth: null,
@@ -55,7 +59,8 @@ export class ColorService {
         'utf-8',
       );
     });
-    return color;
+    console.log('generate color token');
+    return 'generate color token';
   }
 
   async updateColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
