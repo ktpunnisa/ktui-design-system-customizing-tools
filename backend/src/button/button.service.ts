@@ -1,6 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { ConfigService } from '@nestjs/config';
+
 import {
   ButtonToken,
   ButtonType,
@@ -12,8 +14,14 @@ import {
 export class ButtonService {
   fs = require('fs');
   util = require('util');
+  path = require('path');
 
-  constructor(@InjectModel('Button') private buttonModel: Model<ButtonToken>) {}
+  constructor(
+    @InjectModel('Button') private buttonModel: Model<ButtonToken>,
+    private configService: ConfigService,
+  ) {}
+
+  staticDir = this.configService.get('staticDir');
 
   async insertButton(
     projectId: string,
@@ -47,7 +55,7 @@ export class ButtonService {
     const button = this.getButton(projectId);
     button.then(button => {
       this.fs.writeFileSync(
-        '/Users/ktpunnisa/Documents/senior_project/db/button.js',
+        this.path.join(this.staticDir, 'button.js'),
         `export default ${this.util.inspect(button, {
           showHidden: false,
           depth: null,

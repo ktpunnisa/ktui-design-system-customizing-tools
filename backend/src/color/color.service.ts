@@ -1,6 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { ConfigService } from '@nestjs/config';
+
 import {
   ColorToken,
   ColorTheme,
@@ -11,8 +13,14 @@ import {
 export class ColorService {
   fs = require('fs');
   util = require('util');
+  path = require('path');
 
-  constructor(@InjectModel('Color') private colorModel: Model<ColorToken>) {}
+  constructor(
+    @InjectModel('Color') private colorModel: Model<ColorToken>,
+    private configService: ConfigService,
+  ) {}
+
+  staticDir = this.configService.get('staticDir');
 
   async insertColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
     const newColor = new this.colorModel({
@@ -39,7 +47,7 @@ export class ColorService {
     const color = this.getColor(projectId);
     color.then(color => {
       this.fs.writeFileSync(
-        '/Users/ktpunnisa/Documents/senior_project/db/color.js',
+        this.path.join(this.staticDir, 'color.js'),
         `export default ${this.util.inspect(color, {
           showHidden: false,
           depth: null,
