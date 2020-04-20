@@ -8,7 +8,7 @@ import {
   ColorTheme,
   ColorShade,
 } from '../interfaces/color.interface';
-
+import colorToken from '../style-tokens/color';
 @Injectable()
 export class ColorService {
   fs = require('fs');
@@ -25,8 +25,8 @@ export class ColorService {
   async insertColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
     const newColor = new this.colorModel({
       project_id: projectId,
-      themes,
-      shades,
+      themes: themes ? themes : colorToken.themes,
+      shades: shades ? shades : colorToken.shades,
     });
     const result = await newColor.save();
     return result.id as string;
@@ -93,7 +93,7 @@ export class ColorService {
     } catch (error) {
       throw new NotFoundException('Could not find color.');
     }
-    if (!color) {
+    if (color.length === 0) {
       throw new NotFoundException('Could not find color.');
     }
     return color;

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { ColorController } from './color.controller';
@@ -11,5 +11,6 @@ import { ColorSchema } from '../schemas/color.schema';
   ],
   controllers: [ColorController],
   providers: [ColorService],
+  exports: [ColorService],
 })
 export class ColorModule {}

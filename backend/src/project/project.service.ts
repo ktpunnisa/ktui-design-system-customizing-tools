@@ -26,24 +26,45 @@ export class ProjectService {
     return result.id as string;
   }
 
-  async getProject(userId: string) {
+  async getAllProjects(userId: string) {
     if (!userId) {
       throw new NotFoundException('user_id does not exist!');
     }
-    const project = await this.findProject(userId);
-    return project;
+    const projects = await this.findAllProjects(userId);
+    return projects;
   }
 
-  private async findProject(userId: string): Promise<Project> {
+  async getProject(projectId: string) {
+    if (!projectId) {
+      throw new NotFoundException('project_id does not exist!');
+    }
+    const projects = await this.findProject(projectId);
+    return projects;
+  }
+
+  private async findAllProjects(userId: string): Promise<Project> {
     let project;
     try {
       project = await this.projectModel.find({ creator_id: userId }).exec();
     } catch (error) {
-      throw new NotFoundException('Could not find project.');
+      throw new NotFoundException('Could not find projects.');
     }
-    if (!project) {
-      throw new NotFoundException('Could not find project.');
+    if (project.length === 0) {
+      throw new NotFoundException('Could not find projects.');
     }
     return project;
+  }
+
+  private async findProject(projectId: string): Promise<Project> {
+    let project;
+    try {
+      project = await this.projectModel.find({ _id: projectId }).exec();
+    } catch (error) {
+      throw new NotFoundException('Could not find project.');
+    }
+    if (project.length === 0) {
+      throw new NotFoundException('Could not find project.');
+    }
+    return project[0];
   }
 }

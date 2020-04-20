@@ -9,6 +9,7 @@ import {
   ButtonShape,
   ButtonSize,
 } from 'src/interfaces/button.interface';
+import buttonToken from '../style-tokens/button';
 
 @Injectable()
 export class ButtonService {
@@ -31,9 +32,9 @@ export class ButtonService {
   ) {
     const newButton = new this.buttonModel({
       project_id: projectId,
-      shape,
-      sizes,
-      types,
+      shape: shape ? shape : buttonToken.shape,
+      sizes: sizes ? sizes : buttonToken.sizes,
+      types: types ? types : buttonToken.types,
     });
     const result = await newButton.save();
     return result.id as string;
@@ -109,7 +110,7 @@ export class ButtonService {
     } catch (error) {
       throw new NotFoundException('Could not find button.');
     }
-    if (!button) {
+    if (button.length === 0) {
       throw new NotFoundException('Could not find button.');
     }
     return button;

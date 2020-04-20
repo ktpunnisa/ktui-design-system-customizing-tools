@@ -9,6 +9,6 @@ export class DscButtonResolver implements Resolve<ButtonToken> {
   constructor(private ColorService: DscButtonService) {}
 
   resolve(): Observable<ButtonToken> {
-    return this.ColorService.getButtonToken('test');
+    return this.ColorService.getButtonToken('5e9d79ea81f8ad60d9c429df');
   }
 }
