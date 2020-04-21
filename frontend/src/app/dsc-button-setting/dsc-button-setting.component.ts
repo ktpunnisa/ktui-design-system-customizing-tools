@@ -62,7 +62,7 @@ export class DscButtonSettingComponent implements OnInit {
   changeShape(event, style) {
     this.ButtonService.buttonShape[style] = event;
     this.ButtonService.updateButtonToken(
-      'test',
+      '5e9d79ea81f8ad60d9c429df',
       this.ButtonService.buttonShape,
       null,
       null
@@ -75,7 +75,7 @@ export class DscButtonSettingComponent implements OnInit {
     const size = this.ButtonService.selected.col;
     this.ButtonService.buttonSizes[size][style] = event;
     this.ButtonService.updateButtonToken(
-      'test',
+      '5e9d79ea81f8ad60d9c429df',
       null,
       this.ButtonService.buttonSizes,
       null
@@ -90,7 +90,7 @@ export class DscButtonSettingComponent implements OnInit {
     const buttonStyle = this.convertToButtonType(event);
     this.ButtonService.buttonTypes[type][state][style] = buttonStyle;
     this.ButtonService.updateButtonToken(
-      'test',
+      '5e9d79ea81f8ad60d9c429df',
       null,
       null,
       this.ButtonService.buttonTypes

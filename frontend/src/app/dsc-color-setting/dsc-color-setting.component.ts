@@ -22,20 +22,24 @@ export class DscColorSettingComponent implements OnInit {
 
   changeShade(event, shade) {
     this.ColorService.colorShades[shade] = event;
-    this.ColorService.updateColorToken('test', null, this.ColorService.colorShades).subscribe(
-      res => {
-        console.log('update shade');
-      }
-    );
+    this.ColorService.updateColorToken(
+      '5e9d79ea81f8ad60d9c429df',
+      null,
+      this.ColorService.colorShades
+    ).subscribe(res => {
+      console.log('update shade');
+    });
   }
 
   changeTheme(event, color) {
     this.ColorService.colorThemes[color] = event;
-    this.ColorService.updateColorToken('test', this.ColorService.colorThemes, null).subscribe(
-      res => {
-        console.log('update theme');
-      }
-    );
+    this.ColorService.updateColorToken(
+      '5e9d79ea81f8ad60d9c429df',
+      this.ColorService.colorThemes,
+      null
+    ).subscribe(res => {
+      console.log('update theme');
+    });
   }
 
   getColorSystem(color): ColorSystem {
