@@ -48,17 +48,15 @@ export class ColorService {
   }
 
   async generateToken(projectId: string, folderDir?: string) {
-    const color = this.getColor(projectId);
-    color.then(color => {
-      this.fs.writeFileSync(
-        this.path.join(folderDir ? folderDir : this.staticDir, 'color.js'),
-        `export default ${this.util.inspect(color, {
-          showHidden: false,
-          depth: null,
-        })};`,
-        'utf-8',
-      );
-    });
+    const color = await this.getColor(projectId);
+    await this.fs.writeFileSync(
+      this.path.join(folderDir ? folderDir : this.staticDir, 'color.js'),
+      `export default ${this.util.inspect(color, {
+        showHidden: false,
+        depth: null,
+      })};`,
+      'utf-8',
+    );
     console.log('generate color token');
     return 'generate color token';
   }

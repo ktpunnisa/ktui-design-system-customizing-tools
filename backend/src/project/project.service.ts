@@ -45,38 +45,38 @@ export class ProjectService {
 
   async cloneLibrary(projectId: string) {
     const project = await this.getProject(projectId);
-    this.shell.cd(this.staticDir);
-    this.shell.exec(
+    await this.shell.cd(this.staticDir);
+    await this.shell.exec(
       `git clone https://github.com/ktpunnisa/kt-web-component.git ${project.name}-library`,
     );
     console.log(`clone ${project.name}-library`);
-    return this.path.join(this.staticDir, `${project.name}-library`);
+    return await this.path.join(this.staticDir, `${project.name}-library`);
   }
 
   async generateFolder(projectId: string, libraryDir: string) {
-    const tokenDir = this.path.join(libraryDir, 'src', 'style-tokens');
+    const tokenDir = await this.path.join(libraryDir, 'src', 'style-tokens');
     if (!this.fs.existsSync(tokenDir)) {
-      this.fs.mkdirSync(tokenDir);
+      await this.fs.mkdirSync(tokenDir);
     }
     console.log('generate style-tokens folder');
     const project = await this.getProject(projectId);
-    const libraryZipDir = this.path.join(
+    const libraryZipDir = await this.path.join(
       this.staticDir,
       'library',
       `${project.name}-library`,
     );
     if (!this.fs.existsSync(libraryZipDir)) {
-      this.fs.mkdirSync(libraryZipDir);
+      await this.fs.mkdirSync(libraryZipDir);
     }
     console.log('generate zip folder');
     return { tokenDir, libraryZipDir };
   }
 
   async buildLibrary(libraryDir: string) {
-    this.shell.cd(libraryDir);
-    this.shell.exec('npm install');
+    await this.shell.cd(libraryDir);
+    await this.shell.exec('npm install');
     console.log('install node_module');
-    this.shell.exec('npm run build');
+    await this.shell.exec('npm run build');
     console.log('build Library');
   }
 
@@ -85,16 +85,18 @@ export class ProjectService {
     libraryDir: string,
     libraryZipDir: string,
   ) {
-    this.shell.cd(libraryDir);
-    this.shell.cp('package.json', `${libraryZipDir}/package.json`);
+    await this.shell.cd(libraryDir);
+    await this.shell.cp('package.json', `${libraryZipDir}/package.json`);
     console.log('copy package.json');
-    this.shell.cp('-R', 'public', `${libraryZipDir}/public`);
+    await this.shell.cp('-R', 'public', `${libraryZipDir}/public`);
     console.log('copy public');
 
     const project = await this.getProject(projectId);
-    const zipDir = this.path.join(this.staticDir, 'library');
-    this.shell.cd(zipDir);
-    this.shell.exec(`zip -r ${project.name}-library.zip ${libraryZipDir}`);
+    const zipDir = await this.path.join(this.staticDir, 'library');
+    await this.shell.cd(zipDir);
+    await this.shell.exec(
+      `zip -r ${project.name}-library.zip ${project.name}-library`,
+    );
     console.log('zip library');
   }
 

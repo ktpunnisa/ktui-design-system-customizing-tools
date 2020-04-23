@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorPickerModule } from '@iplab/ngx-color-picker';
-import 'kt-component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

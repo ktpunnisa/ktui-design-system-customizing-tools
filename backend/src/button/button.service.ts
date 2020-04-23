@@ -53,17 +53,15 @@ export class ButtonService {
   }
 
   async generateToken(projectId: string, folderDir?: string) {
-    const button = this.getButton(projectId);
-    button.then(button => {
-      this.fs.writeFileSync(
-        this.path.join(folderDir ? folderDir : this.staticDir, 'button.js'),
-        `export default ${this.util.inspect(button, {
-          showHidden: false,
-          depth: null,
-        })};`,
-        'utf-8',
-      );
-    });
+    const button = await this.getButton(projectId);
+    await this.fs.writeFileSync(
+      this.path.join(folderDir ? folderDir : this.staticDir, 'button.js'),
+      `export default ${this.util.inspect(button, {
+        showHidden: false,
+        depth: null,
+      })};`,
+      'utf-8',
+    );
     console.log('generate button token');
     return 'generate button token';
   }
