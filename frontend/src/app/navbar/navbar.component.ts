@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LibraryGeneratorService } from './library-generator.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  constructor(private LibGeneratorService: LibraryGeneratorService) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  exportLibrary() {
+    this.LibGeneratorService.getLibrary('library/test-library.zip').subscribe(response => {
+      window.location.href = response.url;
+    });
   }
-
 }
