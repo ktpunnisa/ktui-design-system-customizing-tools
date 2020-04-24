@@ -6,7 +6,7 @@ import { Project } from 'src/interfaces/project.interface';
 
 @Injectable()
 export class ProjectService {
-  fs = require('fs');
+  fs = require('fs-extra');
   util = require('util');
   path = require('path');
   shell = require('shelljs');
@@ -56,7 +56,9 @@ export class ProjectService {
   async generateFolder(projectId: string, libraryDir: string) {
     const tokenDir = await this.path.join(libraryDir, 'src', 'style-tokens');
     if (!this.fs.existsSync(tokenDir)) {
-      await this.fs.mkdirSync(tokenDir);
+      await this.fs.mkdir(tokenDir, err => {
+        if (err) throw err;
+      });
     }
     console.log('generate style-tokens folder');
     const project = await this.getProject(projectId);
@@ -66,7 +68,26 @@ export class ProjectService {
       `${project.name}-library`,
     );
     if (!this.fs.existsSync(libraryZipDir)) {
-      await this.fs.mkdirSync(libraryZipDir);
+      await this.fs.mkdir(libraryZipDir, err => {
+        if (err) throw err;
+      });
+    } else {
+      this.fs.readdir(libraryZipDir, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+          const pathFile = this.path.join(libraryZipDir, file);
+          if (this.fs.lstatSync(pathFile).isDirectory()) {
+            this.fs.remove(pathFile, err => {
+              if (err) throw err;
+            });
+          } else {
+            this.fs.unlink(pathFile, err => {
+              if (err) throw err;
+            });
+          }
+        }
+      });
     }
     console.log('generate zip folder');
     return { tokenDir, libraryZipDir };
@@ -97,7 +118,7 @@ export class ProjectService {
     await this.shell.exec(
       `zip -r ${project.name}-library.zip ${project.name}-library`,
     );
-    console.log('zip library');
+    return `library/${project.name}-library.zip`;
   }
 
   async deleteProject(projectId: string) {

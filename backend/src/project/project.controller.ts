@@ -52,8 +52,11 @@ export class ProjectController {
     await this.colorService.generateToken(projectId, tokenDir);
     await this.buttonService.generateToken(projectId, tokenDir);
     await this.projectService.buildLibrary(libraryDir);
-    await this.projectService.zipLibrary(projectId, libraryDir, libraryZipDir);
-    return 'generate finish';
+    return await this.projectService.zipLibrary(
+      projectId,
+      libraryDir,
+      libraryZipDir,
+    );
   }
 
   @Delete(':projectId')
