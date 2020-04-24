@@ -11,6 +11,7 @@ export class DisplayContainerComponent implements OnInit {
   @Input() rows: string[];
   @Input() cols: string[];
   @Input() isShowColName = true;
+  @Input() useSelector = true;
   @Input() selected: Selected;
 
   @Output() selectedChange = new EventEmitter<Selected>();

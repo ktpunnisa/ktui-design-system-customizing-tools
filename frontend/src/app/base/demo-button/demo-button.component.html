@@ -1,0 +1,9 @@
+<button
+  [ngStyle]="getButtonStyle()"
+  (mousedown)="setState('pressed', 'down')"
+  (mouseup)="setState('hover', 'up')"
+  (mouseover)="setState('hover', 'over')"
+  (mouseleave)="setState('normal', 'leave')"
+>
+  {{ name }}
+</button>

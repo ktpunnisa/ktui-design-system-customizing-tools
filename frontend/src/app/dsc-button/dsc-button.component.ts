@@ -12,7 +12,7 @@ export class DscButtonComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     protected ButtonService: DscButtonService,
-    private ColorService: DscColorService
+    protected ColorService: DscColorService
   ) {}
 
   ngOnInit() {

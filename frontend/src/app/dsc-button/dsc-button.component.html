@@ -1,7 +1,7 @@
 <div class="container">
   <div class="template">
     <h2>Button Setup</h2>
-    <div class="container-setup">
+    <div class="container-a">
       <app-display-container
         [dataRef]="dataRefShape"
         [rows]="ButtonService.shapeName"
@@ -30,7 +30,7 @@
     </div>
 
     <h2>Button State</h2>
-    <div class="container-state">
+    <div class="container-a">
       <app-display-container
         [dataRef]="dataRefState"
         [rows]="ButtonService.states"
@@ -40,6 +40,20 @@
       >
         <ng-template #dataRefState let-data>
           <app-base-button setting="type" [type]="data.col" [state]="data.row"></app-base-button>
+        </ng-template>
+      </app-display-container>
+    </div>
+
+    <h2>Button Demo</h2>
+    <div>
+      <app-display-container
+        [dataRef]="dataRefDemo"
+        [rows]="ColorService.allColors"
+        [cols]="ButtonService.types"
+        [useSelector]="false"
+      >
+        <ng-template #dataRefDemo let-data>
+          <app-demo-button [color]="data.row" [type]="data.col"></app-demo-button>
         </ng-template>
       </app-display-container>
     </div>

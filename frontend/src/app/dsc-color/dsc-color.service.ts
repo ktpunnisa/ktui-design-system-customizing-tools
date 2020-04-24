@@ -22,6 +22,7 @@ export class DscColorService {
   brandColors = ['primary', 'secondary'];
   systemColors = ['success', 'info', 'warning', 'danger'];
   naturalColors = ['white', 'gray', 'black'];
+  allColors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
   shades = ['lightest', 'lighter', 'light', 'default', 'dark', 'darker'];
   size: PaletteSize = {
     xs: { width: 20, height: 20, borderRadius: 4 },
