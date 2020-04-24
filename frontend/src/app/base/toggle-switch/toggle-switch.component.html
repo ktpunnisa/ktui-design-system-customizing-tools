@@ -1,0 +1,14 @@
+<div class="row">
+  <label class="switch">
+    <input
+      type="checkbox"
+      [checked]="checked"
+      [(ngModel)]="checked"
+      (ngModelChange)="toggleChanged()"
+    />
+    <span class="slider round"></span>
+  </label>
+  <div class="text">
+    {{ label }}
+  </div>
+</div>

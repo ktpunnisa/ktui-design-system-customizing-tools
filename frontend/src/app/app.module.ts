@@ -25,6 +25,7 @@ import { ColorListSettingComponent } from './base/color-list-setting/color-list-
 import { ColorPickerComponent } from './base/color-picker/color-picker.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DemoButtonComponent } from './base/demo-button/demo-button.component';
+import { ToggleSwitchComponent } from './base/toggle-switch/toggle-switch.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DemoButtonComponent } from './base/demo-button/demo-button.component';
     ColorListSettingComponent,
     ColorPickerComponent,
     NavbarComponent,
-    DemoButtonComponent
+    DemoButtonComponent,
+    ToggleSwitchComponent
   ],
   imports: [
     BrowserModule,

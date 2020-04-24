@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { DscButtonService } from 'src/app/dsc-button/dsc-button.service';
 import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
 import { ButtonShape, ButtonSizeValue, ButtonState } from 'src/app/dsc-button/dsc-button';
@@ -8,11 +8,11 @@ import { ButtonShape, ButtonSizeValue, ButtonState } from 'src/app/dsc-button/ds
   templateUrl: './demo-button.component.html',
   styleUrls: ['./demo-button.component.scss']
 })
-export class DemoButtonComponent implements OnInit {
+export class DemoButtonComponent implements OnInit, OnChanges {
   @Input() name = 'Button';
   @Input() type = 'default';
   @Input() color = 'primary';
-  @Input() isDisabled = false;
+  @Input() isEnable = true;
   state = 'normal';
 
   buttonShape: ButtonShape;
@@ -22,7 +22,11 @@ export class DemoButtonComponent implements OnInit {
   constructor(private ButtonService: DscButtonService, private ColorService: DscColorService) {}
 
   ngOnInit() {
-    this.setState('normal', '');
+    this.setInitState(this.isEnable);
+  }
+
+  ngOnChanges() {
+    this.setInitState(this.isEnable);
   }
 
   setButton() {
@@ -33,9 +37,16 @@ export class DemoButtonComponent implements OnInit {
       : undefined;
   }
 
+  setInitState(isEnable: boolean) {
+    if (isEnable) {
+      this.setState('normal', '');
+    } else {
+      this.setState('disabled', '');
+    }
+  }
+
   setState(state, mouse) {
-    console.log(state, mouse);
-    this.state = this.isDisabled ? 'disabled' : state;
+    this.state = this.isEnable ? state : 'disabled';
   }
 
   getColor(state, style) {
@@ -48,6 +59,9 @@ export class DemoButtonComponent implements OnInit {
 
   getButtonStyle() {
     this.setButton();
+    if (!this.isEnable) {
+      this.state = 'disabled';
+    }
     const shape = this.buttonShape
       ? {
           width: 'fit-Content',

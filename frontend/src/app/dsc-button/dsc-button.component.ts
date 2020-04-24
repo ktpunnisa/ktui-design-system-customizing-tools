@@ -9,6 +9,8 @@ import { DscColorService } from '../dsc-color/dsc-color.service';
   styleUrls: ['./dsc-button.component.scss']
 })
 export class DscButtonComponent implements OnInit {
+  isEnable = true;
+
   constructor(
     private route: ActivatedRoute,
     protected ButtonService: DscButtonService,
@@ -35,5 +37,9 @@ export class DscButtonComponent implements OnInit {
 
   changeSelected(event) {
     this.ButtonService.selected = event;
+  }
+
+  changeEnable(event) {
+    this.isEnable = event;
   }
 }

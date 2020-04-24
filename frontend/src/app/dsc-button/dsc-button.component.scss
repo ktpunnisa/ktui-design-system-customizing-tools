@@ -1,7 +1,10 @@
-.container-a {
+.container-mg {
   margin-bottom: 40px;
 }
 
-h2 {
+.header {
+  display: flex;
+  align-items: center;
   margin-bottom: 24px;
+  justify-content: space-between;
 }

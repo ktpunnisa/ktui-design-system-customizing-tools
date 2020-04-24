@@ -1,7 +1,7 @@
 <div class="container">
   <div class="template">
-    <h2>Button Setup</h2>
-    <div class="container-a">
+    <h2 class="header">Button Setup</h2>
+    <div class="container-mg">
       <app-display-container
         [dataRef]="dataRefShape"
         [rows]="ButtonService.shapeName"
@@ -29,8 +29,8 @@
       </app-display-container>
     </div>
 
-    <h2>Button State</h2>
-    <div class="container-a">
+    <h2 class="header">Button State</h2>
+    <div class="container-mg">
       <app-display-container
         [dataRef]="dataRefState"
         [rows]="ButtonService.states"
@@ -44,7 +44,15 @@
       </app-display-container>
     </div>
 
-    <h2>Button Demo</h2>
+    <div class="row header">
+      <h2>Button Demo</h2>
+      <app-toggle-switch
+        label="Enable"
+        [checked]="isEnable"
+        (toggleChange)="changeEnable($event)"
+      ></app-toggle-switch>
+    </div>
+
     <div>
       <app-display-container
         [dataRef]="dataRefDemo"
@@ -53,7 +61,11 @@
         [useSelector]="false"
       >
         <ng-template #dataRefDemo let-data>
-          <app-demo-button [color]="data.row" [type]="data.col"></app-demo-button>
+          <app-demo-button
+            [color]="data.row"
+            [type]="data.col"
+            [isEnable]="isEnable"
+          ></app-demo-button>
         </ng-template>
       </app-display-container>
     </div>
