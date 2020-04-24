@@ -23,6 +23,7 @@ import { DisplayContainerComponent } from './base/display-container/display-cont
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
 import { ColorListSettingComponent } from './base/color-list-setting/color-list-setting.component';
 import { ColorPickerComponent } from './base/color-picker/color-picker.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ColorPickerComponent } from './base/color-picker/color-picker.component
     DisplayContainerComponent,
     PaddingSettingComponent,
     ColorListSettingComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
