@@ -28,6 +28,7 @@ export class DscColorService {
     xs: { width: 20, height: 20, borderRadius: 4 },
     s: { width: 112, height: 40, borderRadius: 4 },
     m: { width: 112, height: 52, borderRadius: 4 },
+    ml: { width: 120, height: 80, borderRadius: 4 },
     l: { width: 180, height: 120, borderRadius: 8 },
     xl: { width: 210, height: 140, borderRadius: 8 }
   };

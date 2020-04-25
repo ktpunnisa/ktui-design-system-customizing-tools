@@ -27,6 +27,7 @@ export interface PaletteSize {
   xs: Palette;
   s: Palette;
   m: Palette;
+  ml: Palette;
   l: Palette;
   xl: Palette;
 }

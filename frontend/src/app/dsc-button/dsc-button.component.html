@@ -52,23 +52,20 @@
         (toggleChange)="changeEnable($event)"
       ></app-toggle-switch>
     </div>
-
-    <div>
-      <app-display-container
-        [dataRef]="dataRefDemo"
-        [rows]="ColorService.allColors"
-        [cols]="ButtonService.types"
-        [useSelector]="false"
-      >
-        <ng-template #dataRefDemo let-data>
-          <app-demo-button
-            [color]="data.row"
-            [type]="data.col"
-            [isEnable]="isEnable"
-          ></app-demo-button>
-        </ng-template>
-      </app-display-container>
-    </div>
+    <app-display-container
+      [dataRef]="dataRefDemo"
+      [rows]="ColorService.allColors"
+      [cols]="ButtonService.types"
+      [useSelector]="false"
+    >
+      <ng-template #dataRefDemo let-data>
+        <app-demo-button
+          [color]="data.row"
+          [type]="data.col"
+          [isEnable]="isEnable"
+        ></app-demo-button>
+      </ng-template>
+    </app-display-container>
   </div>
   <app-dsc-button-setting></app-dsc-button-setting>
 </div>

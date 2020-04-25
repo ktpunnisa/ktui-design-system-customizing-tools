@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="template-no-setting">
+    <div class="component">
+      <div class="row header">
+        <h2>Color</h2>
+        <app-toggle-switch
+          label="Enable"
+          [checked]="isEnable"
+          (toggleChange)="changeEnable($event)"
+        ></app-toggle-switch>
+      </div>
+      <div class="row color">
+        <div class="scale-color" *ngFor="let color of ColorService.brandColors">
+          <app-base-color [color]="color" size="l"></app-base-color>
+          <div class="name">{{ color }}</div>
+        </div>
+        <div class="scale-color" *ngFor="let color of ColorService.systemColors">
+          <app-base-color [color]="color" size="ml"></app-base-color>
+          <div class="name">{{ color }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="component">
+      <div class="header">
+        <h2>Button</h2>
+      </div>
+      <div class="row" *ngFor="let color of ColorService.brandColors">
+        <div class="item" *ngFor="let type of ButtonService.types">
+          <app-demo-button [color]="color" [type]="type" [isEnable]="isEnable"></app-demo-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
