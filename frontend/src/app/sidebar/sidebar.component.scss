@@ -1,16 +1,36 @@
 @import "../../styles.scss";
 
+@import "../../styles.scss";
+
 .menubar {
   left: 0;
   width: 200px;
-  padding: 48px 20px;
+  padding: 48px 0px;
   border-right: 1px solid $border-color;
   display: flex;
   flex-direction: column;
 }
 
-a {
-  text-decoration: none;
-  color: #2a3034;
-  margin: 8px;
+.menu-list {
+  margin-bottom: 20px;
+}
+
+.header {
+  font-size: 20px;
+  margin: 0px 20px 12px 20px;
+}
+
+.btn {
+  text-align: left;
+  color: $label-color;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 16px;
+  width: 100%;
+  padding: 8px 28px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: $border-color;
 }

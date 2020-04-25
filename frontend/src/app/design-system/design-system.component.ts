@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DscButtonService } from '../dsc-button/dsc-button.service';
 import { DscColorService } from '../dsc-color/dsc-color.service';
+import { DscProjectService } from '../dsc-project.service';
 
 @Component({
   selector: 'app-design-system',
@@ -14,7 +15,8 @@ export class DesignSystemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     protected ButtonService: DscButtonService,
-    protected ColorService: DscColorService
+    protected ColorService: DscColorService,
+    private ProjectService: DscProjectService
   ) {}
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class DesignSystemComponent implements OnInit {
       this.ButtonService.buttonTypes = buttonToken.types;
       this.ButtonService.buttonBaseSize = buttonToken.sizes.medium;
     });
+    this.ProjectService.selectedMenu = 'design system';
   }
 
   changeEnable(event) {

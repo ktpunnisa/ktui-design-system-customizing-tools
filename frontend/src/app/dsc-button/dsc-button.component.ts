@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DscButtonService } from './dsc-button.service';
 import { ActivatedRoute } from '@angular/router';
 import { DscColorService } from '../dsc-color/dsc-color.service';
+import { DscProjectService } from '../dsc-project.service';
 
 @Component({
   selector: 'app-dsc-button',
@@ -14,7 +15,8 @@ export class DscButtonComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     protected ButtonService: DscButtonService,
-    protected ColorService: DscColorService
+    protected ColorService: DscColorService,
+    private ProjectService: DscProjectService
   ) {}
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class DscButtonComponent implements OnInit {
       row: 'shape',
       col: 'shape'
     };
+    this.ProjectService.selectedMenu = 'button';
   }
 
   changeSelected(event) {

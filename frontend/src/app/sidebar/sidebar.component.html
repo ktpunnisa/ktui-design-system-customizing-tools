@@ -1,5 +1,58 @@
 <div class="menubar sidebar">
-  <a routerLink="/">Design System</a>
-  <a routerLink="/color">Color</a>
-  <a routerLink="/button">Button</a>
+  <div class="menu-list">
+    <div class="header">Overview</div>
+    <button
+      class="btn"
+      routerLink="/"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('design system')"
+      (click)="onSelect('design system')"
+    >
+      Design System
+    </button>
+  </div>
+
+  <div class="menu-list">
+    <div class="header">Styles</div>
+    <button
+      class="btn"
+      routerLink="/color"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('color')"
+      (click)="onSelect('color')"
+    >
+      Color
+    </button>
+  </div>
+
+  <div class="menu-list">
+    <div class="header">Components</div>
+    <button
+      class="btn"
+      routerLink="/button"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('button')"
+      (click)="onSelect('button')"
+    >
+      Button
+    </button>
+    <!-- <button
+      class="btn"
+      routerLink="/link"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('link')"
+      (click)="onSelect('link')"
+    >
+      Link
+    </button>
+    <button
+      class="btn"
+      routerLink="/input"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('input')"
+      (click)="onSelect('input')"
+    >
+      Input
+    </button> -->
+  </div>
 </div>
