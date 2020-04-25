@@ -27,6 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DemoButtonComponent } from './base/demo-button/demo-button.component';
 import { ToggleSwitchComponent } from './base/toggle-switch/toggle-switch.component';
 import { DesignSystemComponent } from './design-system/design-system.component';
+import { LoadingComponent } from './base/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DesignSystemComponent } from './design-system/design-system.component';
     NavbarComponent,
     DemoButtonComponent,
     ToggleSwitchComponent,
-    DesignSystemComponent
+    DesignSystemComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
