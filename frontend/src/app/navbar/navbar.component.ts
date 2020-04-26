@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LibraryGeneratorService } from './library-generator.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LibGeneratorComponent } from '../lib-generator/lib-generator.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +8,15 @@ import { LibraryGeneratorService } from './library-generator.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private LibGeneratorService: LibraryGeneratorService) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {}
 
-  exportLibrary() {
-    this.LibGeneratorService.getLibrary('library/test-library.zip').subscribe(response => {
-      window.location.href = response.url;
+  openDialog(): void {
+    this.dialog.open(LibGeneratorComponent, {
+      width: '350px',
+      height: '250px',
+      data: { projectId: '5e9d79ea81f8ad60d9c429df', projectName: 'test' }
     });
   }
 }

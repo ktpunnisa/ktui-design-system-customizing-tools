@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorPickerModule } from '@iplab/ngx-color-picker';
 
@@ -28,6 +29,7 @@ import { DemoButtonComponent } from './base/demo-button/demo-button.component';
 import { ToggleSwitchComponent } from './base/toggle-switch/toggle-switch.component';
 import { DesignSystemComponent } from './design-system/design-system.component';
 import { LoadingComponent } from './base/loading/loading.component';
+import { LibGeneratorComponent } from './lib-generator/lib-generator.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { LoadingComponent } from './base/loading/loading.component';
     DemoButtonComponent,
     ToggleSwitchComponent,
     DesignSystemComponent,
-    LoadingComponent
+    LoadingComponent,
+    LibGeneratorComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +60,11 @@ import { LoadingComponent } from './base/loading/loading.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatDialogModule,
     ColorPickerModule
   ],
   providers: [DscColorResolver, DscButtonResolver],
+  entryComponents: [LibGeneratorComponent],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA // Tells Angular we will have custom tags in our templates
