@@ -11,14 +11,14 @@ export class LibGeneratorService {
   constructor(private apiService: ApiService) {}
 
   libraryURL(fileName): string {
-    return resolve(environment.staticURL, fileName || '');
-  }
-
-  getLibrary(fileName: string) {
-    return this.apiService.get(fileName, { responseType: 'arraybuffer' });
+    return resolve(environment.apiPath, fileName || '');
   }
 
   generateLibrary(projectId: string): Observable<any> {
     return this.apiService.get(`project/${projectId}/generate`);
+  }
+
+  getLibrary(projectId: string, filePath: string): Observable<any> {
+    return this.apiService.get(`project/${projectId}/library`, { filePath });
   }
 }

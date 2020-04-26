@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiPath: 'http://localhost:3000/',
-  staticURL: '/Users/ktpunnisa/Documents/senior_project/db/'
+  apiPath: 'http://localhost:3000/'
 };
 
 /*

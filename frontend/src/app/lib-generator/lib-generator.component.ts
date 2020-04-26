@@ -15,6 +15,7 @@ export interface DialogData {
 export class LibGeneratorComponent {
   isLoading = false;
   filePath: string;
+  fileName: string;
 
   constructor(
     private dialogRef: MatDialogRef<LibGeneratorComponent>,
@@ -22,11 +23,26 @@ export class LibGeneratorComponent {
     private libGeneratorService: LibGeneratorService
   ) {
     dialogRef.disableClose = true;
+    this.fileName = data.projectName;
     this.isLoading = true;
     this.libGeneratorService.generateLibrary(data.projectId).subscribe(response => {
       this.isLoading = false;
       this.filePath = response.filePath;
     });
+  }
+
+  download() {
+    const a: any = document.createElement('a');
+    document.body.appendChild(a);
+
+    a.style = 'display: none';
+    const url = this.libGeneratorService.libraryURL(this.filePath);
+    a.href = url;
+    a.download = `${this.fileName}-library.zip`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+
+    this.onCloseDialog();
   }
 
   onCloseDialog() {
