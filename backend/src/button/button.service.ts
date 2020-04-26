@@ -63,7 +63,7 @@ export class ButtonService {
       'utf-8',
     );
     console.log('generate button token');
-    return 'generate button token';
+    return { message: 'generate button token' };
   }
 
   async updateButton(
@@ -86,7 +86,7 @@ export class ButtonService {
       updatedButton[0].types = types;
     }
     updatedButton[0].save();
-    return 'update button';
+    return { message: 'update button' };
   }
 
   async deleteButton(projectId: string) {
@@ -99,7 +99,7 @@ export class ButtonService {
     if (result.n === 0) {
       throw new NotFoundException('Could not find button.');
     }
-    return 'delete button';
+    return { message: 'delete button' };
   }
 
   private async findButton(projectId: string): Promise<ButtonToken> {

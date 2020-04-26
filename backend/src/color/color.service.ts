@@ -58,7 +58,7 @@ export class ColorService {
       'utf-8',
     );
     console.log('generate color token');
-    return 'generate color token';
+    return { message: 'generate color token' };
   }
 
   async updateColor(projectId: string, themes: ColorTheme, shades: ColorShade) {
@@ -73,7 +73,7 @@ export class ColorService {
       updatedColor[0].shades = shades;
     }
     updatedColor[0].save();
-    return 'update color';
+    return { message: 'update color' };
   }
 
   async deleteColor(projectId: string) {
@@ -86,7 +86,7 @@ export class ColorService {
     if (result.n === 0) {
       throw new NotFoundException('Could not find color.');
     }
-    return 'delete color';
+    return { message: 'delete color' };
   }
 
   private async findColor(projectId: string): Promise<ColorToken> {

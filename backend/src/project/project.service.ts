@@ -118,7 +118,10 @@ export class ProjectService {
     await this.shell.exec(
       `zip -r ${project.name}-library.zip ${project.name}-library`,
     );
-    return `library/${project.name}-library.zip`;
+    console.log('zip library');
+    return {
+      filePath: `library/${project.name}-library.zip`,
+    };
   }
 
   async deleteProject(projectId: string) {
