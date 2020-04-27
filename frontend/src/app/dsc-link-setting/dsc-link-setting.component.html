@@ -1,0 +1,30 @@
+<div class="setting">
+  <ng-container *ngIf="isSizeSetting && LinkService.linkSizes">
+    <div class="title-setting">
+      <div class="title">Link Size</div>
+      <div class="subtitle">- {{ LinkService.selected.col }} size -</div>
+    </div>
+    <app-setting-range-slider
+      label="Font Size"
+      min="1"
+      max="30"
+      [value]="linkSize.fontSize"
+      (valueChange)="changeSize($event, 'fontSize')"
+    ></app-setting-range-slider>
+  </ng-container>
+
+  <ng-container *ngIf="isTypeSetting && LinkService.linkTypes">
+    <div class="title-setting">
+      <div class="title">Link Type</div>
+      <div class="subtitle">
+        - {{ LinkService.selected.row }} {{ LinkService.selected.col }} link -
+      </div>
+    </div>
+    <app-color-list-setting
+      label="Font Color"
+      [selected]="ColorService.getColorSystem(this.linkState.font, mainColor)"
+      [mainColor]="mainColor"
+      (selectedChange)="changeType($event, 'font')"
+    ></app-color-list-setting>
+  </ng-container>
+</div>

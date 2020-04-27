@@ -20,6 +20,7 @@ import { DscButtonSettingComponent } from './dsc-button-setting/dsc-button-setti
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DscColorResolver } from './dsc-color/dsc-color.resolver';
 import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
+import { DscLinkResolver } from './dsc-link/dsc-link.resolver';
 import { DisplayContainerComponent } from './base/display-container/display-container.component';
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
 import { ColorListSettingComponent } from './base/color-list-setting/color-list-setting.component';
@@ -30,6 +31,10 @@ import { ToggleSwitchComponent } from './base/toggle-switch/toggle-switch.compon
 import { DesignSystemComponent } from './design-system/design-system.component';
 import { LoadingComponent } from './base/loading/loading.component';
 import { LibGeneratorComponent } from './lib-generator/lib-generator.component';
+import { DscLinkComponent } from './dsc-link/dsc-link.component';
+import { DscLinkSettingComponent } from './dsc-link-setting/dsc-link-setting.component';
+import { BaseLinkComponent } from './base/base-link/base-link.component';
+import { DemoLinkComponent } from './base/demo-link/demo-link.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,11 @@ import { LibGeneratorComponent } from './lib-generator/lib-generator.component';
     ToggleSwitchComponent,
     DesignSystemComponent,
     LoadingComponent,
-    LibGeneratorComponent
+    LibGeneratorComponent,
+    DscLinkComponent,
+    DscLinkSettingComponent,
+    BaseLinkComponent,
+    DemoLinkComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +72,7 @@ import { LibGeneratorComponent } from './lib-generator/lib-generator.component';
     MatDialogModule,
     ColorPickerModule
   ],
-  providers: [DscColorResolver, DscButtonResolver],
+  providers: [DscColorResolver, DscButtonResolver, DscLinkResolver],
   entryComponents: [LibGeneratorComponent],
   bootstrap: [AppComponent],
   schemas: [

@@ -5,7 +5,6 @@ export interface ButtonToken {
 }
 
 export interface ButtonShape {
-  [x: string]: any;
   borderRadius: number;
   borderStyle: string;
   borderWidth: number;

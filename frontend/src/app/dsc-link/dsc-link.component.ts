@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DscButtonService } from '../dsc-button/dsc-button.service';
+import { DscLinkService } from './dsc-link.service';
 import { DscColorService } from '../dsc-color/dsc-color.service';
 import { DscProjectService } from '../dsc-project.service';
-import { DscLinkService } from '../dsc-link/dsc-link.service';
 
 @Component({
-  selector: 'app-design-system',
-  templateUrl: './design-system.component.html',
-  styleUrls: ['./design-system.component.scss']
+  selector: 'app-dsc-link',
+  templateUrl: './dsc-link.component.html',
+  styleUrls: ['./dsc-link.component.scss']
 })
-export class DesignSystemComponent implements OnInit {
-  isEnable = true;
-
+export class DscLinkComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    protected ColorService: DscColorService,
-    protected ButtonService: DscButtonService,
     protected LinkService: DscLinkService,
+    protected ColorService: DscColorService,
     private ProjectService: DscProjectService
   ) {}
 
@@ -27,21 +23,19 @@ export class DesignSystemComponent implements OnInit {
       this.ColorService.colorThemes = colorToken.themes;
       this.ColorService.colorShades = colorToken.shades;
 
-      const buttonToken = data.button;
-      this.ButtonService.buttonShape = buttonToken.shape;
-      this.ButtonService.buttonSizes = buttonToken.sizes;
-      this.ButtonService.buttonTypes = buttonToken.types;
-      this.ButtonService.buttonBaseSize = buttonToken.sizes.medium;
-
       const linkToken = data.link;
       this.LinkService.linkSizes = linkToken.sizes;
       this.LinkService.linkTypes = linkToken.types;
       this.LinkService.linkBaseSize = linkToken.sizes.medium;
     });
-    this.ProjectService.selectedMenu = 'design system';
+    this.LinkService.selected = {
+      row: 'size',
+      col: 'small'
+    };
+    this.ProjectService.selectedMenu = 'link';
   }
 
-  changeEnable(event) {
-    this.isEnable = event;
+  changeSelected(event) {
+    this.LinkService.selected = event;
   }
 }

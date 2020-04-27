@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="template">
+    <h2 class="header">Link Setup</h2>
+    <div class="component-mg">
+      <app-display-container
+        [dataRef]="dataRefSize"
+        [rows]="LinkService.sizeName"
+        [cols]="LinkService.sizes"
+        [selected]="LinkService.selected"
+        (selectedChange)="changeSelected($event)"
+      >
+        <ng-template #dataRefSize let-data>
+          <app-base-link setting="size" [size]="data.col"></app-base-link>
+        </ng-template>
+      </app-display-container>
+    </div>
+
+    <h2 class="header">Link State</h2>
+    <div class="component-mg">
+      <app-display-container
+        [dataRef]="dataRefState"
+        [rows]="LinkService.states"
+        [cols]="LinkService.types"
+        [selected]="LinkService.selected"
+        (selectedChange)="changeSelected($event)"
+      >
+        <ng-template #dataRefState let-data>
+          <app-base-link setting="type" [type]="data.col" [state]="data.row"></app-base-link>
+        </ng-template>
+      </app-display-container>
+    </div>
+
+    <h2 class="header">Link Demo</h2>
+    <app-display-container
+      [dataRef]="dataRefDemo"
+      [rows]="ColorService.allColors"
+      [cols]="LinkService.types"
+      [useSelector]="false"
+    >
+      <ng-template #dataRefDemo let-data>
+        <app-demo-link [color]="data.row" [type]="data.col"></app-demo-link>
+      </ng-template>
+    </app-display-container>
+  </div>
+  <app-dsc-link-setting></app-dsc-link-setting>
+</div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="template-no-setting">
-    <div class="component">
+    <div class="component-mg">
       <div class="row header">
         <h2>Color</h2>
         <app-toggle-switch
@@ -21,13 +21,26 @@
       </div>
     </div>
 
-    <div class="component">
-      <div class="header">
-        <h2>Button</h2>
+    <div class="row">
+      <div class="component-mg">
+        <div class="header">
+          <h2>Button</h2>
+        </div>
+        <div class="row" *ngFor="let color of ColorService.brandColors">
+          <div class="item" *ngFor="let type of ButtonService.types">
+            <app-demo-button [color]="color" [type]="type" [isEnable]="isEnable"></app-demo-button>
+          </div>
+        </div>
       </div>
-      <div class="row" *ngFor="let color of ColorService.brandColors">
-        <div class="item" *ngFor="let type of ButtonService.types">
-          <app-demo-button [color]="color" [type]="type" [isEnable]="isEnable"></app-demo-button>
+
+      <div class="component-mg component-ml">
+        <div class="header">
+          <h2>Link</h2>
+        </div>
+        <div class="row" *ngFor="let color of ColorService.brandColors">
+          <div class="item" *ngFor="let type of LinkService.types">
+            <app-demo-link [color]="color" [type]="type"></app-demo-link>
+          </div>
         </div>
       </div>
     </div>
