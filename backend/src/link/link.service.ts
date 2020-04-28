@@ -35,7 +35,6 @@ export class LinkService {
     }
     const link = await this.findLink(projectId);
     return {
-      shape: link[0].shape,
       sizes: link[0].sizes,
       types: link[0].types,
     };

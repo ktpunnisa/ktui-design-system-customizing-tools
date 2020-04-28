@@ -15,6 +15,7 @@ export interface LinkSize extends Document {
 
 export interface LinkSizeValue extends Document {
   fontSize: number;
+  fontWeight: number;
 }
 
 export interface LinkType extends Document {

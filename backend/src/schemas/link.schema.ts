@@ -3,6 +3,7 @@ import * as mongoose from 'mongoose';
 export const LinkSizeValue = new mongoose.Schema(
   {
     fontSize: Number,
+    fontWeight: Number,
   },
   { _id: false, id: false },
 );

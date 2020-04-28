@@ -1,11 +1,13 @@
 export default {
   sizes: {
-    small: { fontSize: 14 },
+    small: { fontSize: 14, fontWeight: 500 },
     medium: {
       fontSize: 16,
+      fontWeight: 600,
     },
     large: {
       fontSize: 18,
+      fontWeight: 700,
     },
   },
   types: {
