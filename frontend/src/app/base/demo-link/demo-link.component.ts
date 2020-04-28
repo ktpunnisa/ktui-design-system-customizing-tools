@@ -39,7 +39,8 @@ export class DemoLinkComponent implements OnInit {
     this.setLink();
     const size = this.linkSize
       ? {
-          'font-size': `${this.linkSize.fontSize}px`
+          'font-size': `${this.linkSize.fontSize}px`,
+          'font-weight': this.linkSize.fontWeight
         }
       : {};
 

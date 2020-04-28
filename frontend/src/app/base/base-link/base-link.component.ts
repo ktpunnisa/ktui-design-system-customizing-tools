@@ -46,7 +46,11 @@ export class BaseLinkComponent implements OnInit {
             'font-size':
               this.setting === 'size'
                 ? `${this.linkSize.fontSize}px`
-                : `${this.LinkService.linkBaseSize.fontSize}px`
+                : `${this.LinkService.linkBaseSize.fontSize}px`,
+            'font-weight':
+              this.setting === 'size'
+                ? this.linkSize.fontWeight
+                : this.LinkService.linkBaseSize.fontWeight
           }
         : {};
     const type = this.linkStyle

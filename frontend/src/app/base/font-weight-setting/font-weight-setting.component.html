@@ -1,0 +1,29 @@
+<div class="label">
+  Font Weight
+</div>
+<div class="select-container">
+  <div class="select" (click)="showDropdown()">
+    <div class="row data">
+      <div class="name" [ngStyle]="getFontWeightStyle(selected)">
+        {{ selected }} {{ selectedName }}
+      </div>
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+  </div>
+
+  <div class="dropdown-options-container" *ngIf="showing">
+    <div class="dropdown" (clickOutside)="hideDropdown()">
+      <div *ngFor="let font of fontWeight">
+        <div
+          class="row data option-list"
+          [class.selected]="isSelected(font.weight)"
+          (click)="onSelect(font.weight)"
+        >
+          <div class="name row" [ngStyle]="getFontWeightStyle(font.weight)">
+            {{ font.weight }} {{ font.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

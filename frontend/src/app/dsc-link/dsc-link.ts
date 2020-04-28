@@ -11,6 +11,7 @@ export interface LinkSize {
 
 export interface LinkSizeValue {
   fontSize: number;
+  fontWeight: number;
 }
 
 export interface LinkType {

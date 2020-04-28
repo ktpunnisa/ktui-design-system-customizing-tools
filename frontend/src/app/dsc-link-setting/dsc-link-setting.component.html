@@ -11,6 +11,10 @@
       [value]="linkSize.fontSize"
       (valueChange)="changeSize($event, 'fontSize')"
     ></app-setting-range-slider>
+    <app-font-weight-setting
+      [selected]="linkSize.fontWeight"
+      (selectedChange)="changeSize($event, 'fontWeight')"
+    ></app-font-weight-setting>
   </ng-container>
 
   <ng-container *ngIf="isTypeSetting && LinkService.linkTypes">

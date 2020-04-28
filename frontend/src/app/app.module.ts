@@ -35,6 +35,7 @@ import { DscLinkComponent } from './dsc-link/dsc-link.component';
 import { DscLinkSettingComponent } from './dsc-link-setting/dsc-link-setting.component';
 import { BaseLinkComponent } from './base/base-link/base-link.component';
 import { DemoLinkComponent } from './base/demo-link/demo-link.component';
+import { FontWeightSettingComponent } from './base/font-weight-setting/font-weight-setting.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { DemoLinkComponent } from './base/demo-link/demo-link.component';
     DscLinkComponent,
     DscLinkSettingComponent,
     BaseLinkComponent,
-    DemoLinkComponent
+    DemoLinkComponent,
+    FontWeightSettingComponent
   ],
   imports: [
     BrowserModule,
