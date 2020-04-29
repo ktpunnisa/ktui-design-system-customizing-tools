@@ -11,6 +11,7 @@ import { ProjectService } from './project.service';
 import { ColorService } from 'src/color/color.service';
 import { ButtonService } from 'src/button/button.service';
 import { LinkService } from 'src/link/link.service';
+import { InputService } from 'src/input/input.service';
 
 @Controller()
 export class ProjectController {
@@ -19,6 +20,7 @@ export class ProjectController {
     private readonly colorService: ColorService,
     private readonly buttonService: ButtonService,
     private readonly linkService: LinkService,
+    private readonly inputService: InputService,
   ) {}
   @Get()
   getAllColor(@Query('userId') userId: string) {
@@ -42,6 +44,7 @@ export class ProjectController {
     await this.colorService.insertColor(generatedId);
     await this.buttonService.insertButton(generatedId);
     await this.linkService.insertLink(generatedId);
+    await this.inputService.insertInput(generatedId);
     return { id: generatedId };
   }
 
@@ -55,6 +58,7 @@ export class ProjectController {
     await this.colorService.generateToken(projectId, tokenDir);
     await this.buttonService.generateToken(projectId, tokenDir);
     await this.linkService.generateToken(projectId, tokenDir);
+    await this.inputService.generateToken(projectId, tokenDir);
     await this.projectService.buildLibrary(libraryDir);
     return await this.projectService.zipLibrary(
       projectId,
@@ -68,6 +72,7 @@ export class ProjectController {
     await this.colorService.deleteColor(projectId);
     await this.buttonService.deleteButton(projectId);
     await this.linkService.deleteLink(projectId);
+    await this.inputService.deleteInput(projectId);
     return this.projectService.deleteProject(projectId);
   }
 }

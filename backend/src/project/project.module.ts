@@ -6,6 +6,7 @@ import { ProjectSchema } from 'src/schemas/project.schema';
 import { ColorModule } from 'src/color/color.module';
 import { ButtonModule } from 'src/button/button.module';
 import { LinkModule } from 'src/link/link.module';
+import { InputModule } from 'src/input/input.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { LinkModule } from 'src/link/link.module';
     ColorModule,
     ButtonModule,
     LinkModule,
+    InputModule,
   ],
   controllers: [ProjectController],
   providers: [ProjectService],

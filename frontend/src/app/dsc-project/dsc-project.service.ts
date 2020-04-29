@@ -20,12 +20,8 @@ export class DscProjectService {
     return this.apiService.get('project');
   }
 
-  addProject(name: string, creator: string): Observable<any> {
-    return this.apiService.post('project', { projectName: name, creator });
-  }
-
-  generateProject(projectId: string): Observable<any> {
-    return this.apiService.post(`project/${projectId}/generate`, {});
+  addProject(projectName: string, creatorId: string): Observable<any> {
+    return this.apiService.post('project', { projectName, creatorId });
   }
 
   deleteProject(projectId: string): Observable<any> {
