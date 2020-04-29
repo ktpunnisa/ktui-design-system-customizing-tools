@@ -72,7 +72,6 @@ export class DemoInputComponent implements OnInit, OnChanges {
   }
 
   setState(state, mouse) {
-    console.log(state, mouse);
     this.state = this.isEnable ? (this.isError ? 'error' : state) : 'disabled';
   }
 

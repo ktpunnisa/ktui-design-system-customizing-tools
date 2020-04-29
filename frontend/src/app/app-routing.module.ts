@@ -27,25 +27,25 @@ const routes: Routes = [
   {
     path: 'color',
     component: DscColorComponent,
-    resolve: { color: DscColorResolver },
+    resolve: { project: DscProjectResolver, color: DscColorResolver },
     runGuardsAndResolvers: 'always'
   },
   {
     path: 'button',
     component: DscButtonComponent,
-    resolve: { color: DscColorResolver, button: DscButtonResolver },
+    resolve: { project: DscProjectResolver, color: DscColorResolver, button: DscButtonResolver },
     runGuardsAndResolvers: 'always'
   },
   {
     path: 'link',
     component: DscLinkComponent,
-    resolve: { color: DscColorResolver, link: DscLinkResolver },
+    resolve: { project: DscProjectResolver, color: DscColorResolver, link: DscLinkResolver },
     runGuardsAndResolvers: 'always'
   },
   {
     path: 'input',
     component: DscInputComponent,
-    resolve: { color: DscColorResolver, input: DscInputResolver },
+    resolve: { project: DscProjectResolver, color: DscColorResolver, input: DscInputResolver },
     runGuardsAndResolvers: 'always'
   }
 ];

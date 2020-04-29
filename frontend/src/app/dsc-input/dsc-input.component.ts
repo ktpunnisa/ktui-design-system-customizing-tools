@@ -21,6 +21,9 @@ export class DscInputComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      const project = data.project;
+      this.ProjectService.currentProject = project;
+
       const colorToken = data.color;
       this.ColorService.colorThemes = colorToken.themes;
       this.ColorService.colorShades = colorToken.shades;
