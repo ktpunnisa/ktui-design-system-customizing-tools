@@ -1,0 +1,9 @@
+<div [ngStyle]="getLabelStyle()">Label</div>
+<input
+  [ngStyle]="getInputStyle()"
+  (focus)="setState('focus', 'down')"
+  (blur)="setState('normal', 'leave')"
+  [(ngModel)]="value"
+  placeholder="placeholder"
+  [disabled]="!isEnable"
+/>

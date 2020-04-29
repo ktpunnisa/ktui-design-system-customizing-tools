@@ -4,6 +4,7 @@ import { DscButtonService } from '../dsc-button/dsc-button.service';
 import { DscColorService } from '../dsc-color/dsc-color.service';
 import { DscProjectService } from '../dsc-project.service';
 import { DscLinkService } from '../dsc-link/dsc-link.service';
+import { DscInputService } from '../dsc-input/dsc-input.service';
 
 @Component({
   selector: 'app-design-system',
@@ -18,6 +19,7 @@ export class DesignSystemComponent implements OnInit {
     protected ColorService: DscColorService,
     protected ButtonService: DscButtonService,
     protected LinkService: DscLinkService,
+    protected InputService: DscInputService,
     private ProjectService: DscProjectService
   ) {}
 
@@ -37,6 +39,12 @@ export class DesignSystemComponent implements OnInit {
       this.LinkService.linkSizes = linkToken.sizes;
       this.LinkService.linkTypes = linkToken.types;
       this.LinkService.linkBaseSize = linkToken.sizes.medium;
+
+      const inputToken = data.input;
+      this.InputService.dInputShape = inputToken.shape;
+      this.InputService.dInputSizes = inputToken.sizes;
+      this.InputService.dInputTypes = inputToken.types;
+      this.InputService.dInputBaseSize = inputToken.sizes.medium;
     });
     this.ProjectService.selectedMenu = 'design system';
   }

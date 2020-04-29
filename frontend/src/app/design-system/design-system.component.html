@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row component-display">
       <div class="component-mg">
         <div class="header">
           <h2>Button</h2>
@@ -33,13 +33,29 @@
         </div>
       </div>
 
-      <div class="component-mg component-ml">
+      <div class="component-mg">
         <div class="header">
           <h2>Link</h2>
         </div>
-        <div class="row" *ngFor="let color of ColorService.brandColors">
+        <div class="row" *ngFor="let color of ColorService.systemColors">
           <div class="item" *ngFor="let type of LinkService.types">
             <app-demo-link [color]="color" [type]="type"></app-demo-link>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-mg">
+        <div class="header">
+          <h2>Input</h2>
+        </div>
+        <div class="row" *ngFor="let state of InputService.typeStates">
+          <div class="item" *ngFor="let type of InputService.types">
+            <app-demo-input
+              [type]="type"
+              [value]="state"
+              [isError]="state === 'error'"
+              [isEnable]="isEnable"
+            ></app-demo-input>
           </div>
         </div>
       </div>

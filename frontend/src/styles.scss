@@ -58,6 +58,11 @@ button {
     justify-content: space-between;
   }
 
+  .component-display {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .component-mg {
     margin-bottom: 40px;
   }
@@ -77,10 +82,8 @@ button {
 }
 
 .template-no-setting {
-  width: 100%;
   margin-left: 240px;
   padding: 40px 64px;
-  overflow-y: scroll;
 
   @extend .template-setting;
 }

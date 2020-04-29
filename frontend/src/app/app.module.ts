@@ -40,6 +40,7 @@ import { FontWeightSettingComponent } from './base/font-weight-setting/font-weig
 import { DscInputComponent } from './dsc-input/dsc-input.component';
 import { DscInputSettingComponent } from './dsc-input-setting/dsc-input-setting.component';
 import { BaseInputComponent } from './base/base-input/base-input.component';
+import { DemoInputComponent } from './base/demo-input/demo-input.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { BaseInputComponent } from './base/base-input/base-input.component';
     FontWeightSettingComponent,
     DscInputComponent,
     DscInputSettingComponent,
-    BaseInputComponent
+    BaseInputComponent,
+    DemoInputComponent
   ],
   imports: [
     BrowserModule,

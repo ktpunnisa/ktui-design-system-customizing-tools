@@ -16,7 +16,7 @@ export class DscInputService {
 
   shapeName = ['shape'];
   sizeName = ['size'];
-  typeName = ['type'];
+  typeStates = ['normal', 'error'];
   states = ['normal', 'focus', 'disabled', 'error'];
   sizes = ['small', 'medium', 'large'];
   types = ['default'];

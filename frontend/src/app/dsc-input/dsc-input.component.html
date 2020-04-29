@@ -58,14 +58,19 @@
     </div>
     <app-display-container
       [dataRef]="dataRefDemo"
-      [rows]="InputService.types"
+      [rows]="InputService.typeStates"
       [cols]="InputService.types"
       itemSize="l"
       [isShowColName]="false"
       [useSelector]="false"
     >
       <ng-template #dataRefDemo let-data>
-        <!-- <app-demo-input [type]="data.col" [isEnable]="isEnable"></app-demo-input> -->
+        <app-demo-input
+          [type]="data.col"
+          [value]="data.row"
+          [isError]="data.row === 'error'"
+          [isEnable]="isEnable"
+        ></app-demo-input>
       </ng-template>
     </app-display-container>
   </div>

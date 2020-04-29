@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: '',
     component: DesignSystemComponent,
-    resolve: { color: DscColorResolver, button: DscButtonResolver, link: DscLinkResolver },
+    resolve: {
+      color: DscColorResolver,
+      button: DscButtonResolver,
+      link: DscLinkResolver,
+      input: DscInputResolver
+    },
     runGuardsAndResolvers: 'always'
   },
   {
