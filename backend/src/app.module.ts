@@ -12,6 +12,7 @@ import { routes } from './routes';
 import { RouterModule } from 'nest-router';
 import { ButtonModule } from './button/button.module';
 import { LinkModule } from './link/link.module';
+import { InputModule } from './input/input.module';
 import configuration from './configuration';
 
 @Module({
@@ -30,6 +31,7 @@ import configuration from './configuration';
     ColorModule,
     ButtonModule,
     LinkModule,
+    InputModule,
   ],
   controllers: [AppController],
   providers: [AppService],
