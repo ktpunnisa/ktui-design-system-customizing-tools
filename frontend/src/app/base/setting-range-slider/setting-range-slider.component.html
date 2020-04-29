@@ -15,14 +15,16 @@
     [min]="min"
     [max]="max"
     [(ngModel)]="value"
-    (ngModelChange)="valueChanged()"
+    (ngModelChange)="valueChanged($event, 'change')"
+    (blur)="valueChanged($event, 'output')"
     [disabled]="!checked"
   />
   <input
     type="number"
     [min]="min"
     [(ngModel)]="value"
-    (ngModelChange)="valueChanged()"
+    (ngModelChange)="valueChanged($event, 'change')"
+    (blur)="valueChanged($event, 'output')"
     [disabled]="!checked"
   />
 </div>

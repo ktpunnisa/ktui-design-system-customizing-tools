@@ -43,30 +43,34 @@ export class DscLinkSettingComponent implements OnInit {
     return undefined;
   }
 
-  changeSize(event, style) {
+  changeSize(event, style, valueType) {
     const size = this.LinkService.selected.col;
     this.LinkService.linkSizes[size][style] = event;
-    this.LinkService.updateLinkToken(
-      '5e9d79ea81f8ad60d9c429df',
-      this.LinkService.linkSizes,
-      null
-    ).subscribe(res => {
-      console.log('update link size');
-    });
+    if (valueType === 'output') {
+      this.LinkService.updateLinkToken(
+        '5e9d79ea81f8ad60d9c429df',
+        this.LinkService.linkSizes,
+        null
+      ).subscribe(res => {
+        console.log('update link size');
+      });
+    }
   }
 
-  changeType(event, style) {
+  changeType(event, style, valueType) {
     const state = this.LinkService.selected.row;
     const type = this.LinkService.selected.col;
     const linkStyle = this.convertToLinkType(event);
     this.LinkService.linkTypes[type][state][style] = linkStyle;
-    this.LinkService.updateLinkToken(
-      '5e9d79ea81f8ad60d9c429df',
-      null,
-      this.LinkService.linkTypes
-    ).subscribe(res => {
-      console.log('update type');
-    });
+    if (valueType === 'output') {
+      this.LinkService.updateLinkToken(
+        '5e9d79ea81f8ad60d9c429df',
+        null,
+        this.LinkService.linkTypes
+      ).subscribe(res => {
+        console.log('update type');
+      });
+    }
   }
 
   convertToLinkType(event) {

@@ -9,11 +9,12 @@
       min="1"
       max="30"
       [value]="linkSize.fontSize"
-      (valueChange)="changeSize($event, 'fontSize')"
+      (valueChange)="changeSize($event, 'fontSize', 'change')"
+      (valueOutput)="changeSize($event, 'fontSize', 'output')"
     ></app-setting-range-slider>
     <app-font-weight-setting
       [selected]="linkSize.fontWeight"
-      (selectedChange)="changeSize($event, 'fontWeight')"
+      (selectedChange)="changeSize($event, 'fontWeight', 'output')"
     ></app-font-weight-setting>
   </ng-container>
 
@@ -28,7 +29,7 @@
       label="Font Color"
       [selected]="ColorService.getColorSystem(this.linkState.font, mainColor)"
       [mainColor]="mainColor"
-      (selectedChange)="changeType($event, 'font')"
+      (selectedChange)="changeType($event, 'font', 'output')"
     ></app-color-list-setting>
   </ng-container>
 </div>

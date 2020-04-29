@@ -14,14 +14,15 @@ export class SettingRangeSliderComponent implements OnInit {
   @Input() checked = true;
 
   @Output() valueChange = new EventEmitter<number>();
+  @Output() valueOutput = new EventEmitter<number>();
   @Output() checkBoxChange = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  valueChanged() {
-    this.valueChange.emit(this.value);
+  valueChanged(event, valueType) {
+    valueType === 'output' ? this.valueOutput.emit(this.value) : this.valueChange.emit(this.value);
   }
 
   checkBoxChanged() {

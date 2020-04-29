@@ -28,7 +28,8 @@
           min="0"
           max="100"
           [value]="ColorService.colorShades[shade]"
-          (valueChange)="changeShade($event, shade)"
+          (valueChange)="changeShade($event, shade, 'change')"
+          (valueOutput)="changeShade($event, shade, 'output')"
         ></app-setting-range-slider>
       </div>
     </ng-container>
@@ -43,21 +44,21 @@
         <app-color-picker
           [label]="color"
           [colorSystem]="getColorSystem(color)"
-          (colorChange)="changeTheme($event, color)"
+          (colorChange)="changeTheme($event, color, 'output')"
         ></app-color-picker>
       </div>
       <div *ngFor="let color of ColorService.systemColors">
         <app-color-picker
           [label]="color"
           [colorSystem]="getColorSystem(color)"
-          (colorChange)="changeTheme($event, color)"
+          (colorChange)="changeTheme($event, color, 'output')"
         ></app-color-picker>
       </div>
       <div *ngFor="let color of ColorService.naturalColors">
         <app-color-picker
           [label]="color"
           [colorSystem]="getColorSystem(color)"
-          (colorChange)="changeTheme($event, color)"
+          (colorChange)="changeTheme($event, color, 'output')"
         ></app-color-picker>
       </div>
     </ng-container>

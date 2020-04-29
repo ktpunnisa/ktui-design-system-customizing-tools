@@ -59,44 +59,50 @@ export class DscButtonSettingComponent implements OnInit {
     return undefined;
   }
 
-  changeShape(event, style) {
+  changeShape(event, style, type) {
     this.ButtonService.buttonShape[style] = event;
-    this.ButtonService.updateButtonToken(
-      '5e9d79ea81f8ad60d9c429df',
-      this.ButtonService.buttonShape,
-      null,
-      null
-    ).subscribe(res => {
-      console.log('update button shape');
-    });
+    if (type === 'output') {
+      this.ButtonService.updateButtonToken(
+        '5e9d79ea81f8ad60d9c429df',
+        this.ButtonService.buttonShape,
+        null,
+        null
+      ).subscribe(res => {
+        console.log('update button shape');
+      });
+    }
   }
 
-  changeSize(event, style) {
+  changeSize(event, style, type) {
     const size = this.ButtonService.selected.col;
-    this.ButtonService.buttonSizes[size][style] = event;
-    this.ButtonService.updateButtonToken(
-      '5e9d79ea81f8ad60d9c429df',
-      null,
-      this.ButtonService.buttonSizes,
-      null
-    ).subscribe(res => {
-      console.log('update button size');
-    });
+    if (type === 'output') {
+      this.ButtonService.buttonSizes[size][style] = event;
+      this.ButtonService.updateButtonToken(
+        '5e9d79ea81f8ad60d9c429df',
+        null,
+        this.ButtonService.buttonSizes,
+        null
+      ).subscribe(res => {
+        console.log('update button size');
+      });
+    }
   }
 
-  changeType(event, style) {
+  changeType(event, style, valueType) {
     const state = this.ButtonService.selected.row;
     const type = this.ButtonService.selected.col;
     const buttonStyle = this.convertToButtonType(event);
     this.ButtonService.buttonTypes[type][state][style] = buttonStyle;
-    this.ButtonService.updateButtonToken(
-      '5e9d79ea81f8ad60d9c429df',
-      null,
-      null,
-      this.ButtonService.buttonTypes
-    ).subscribe(res => {
-      console.log('update type');
-    });
+    if (valueType === 'output') {
+      this.ButtonService.updateButtonToken(
+        '5e9d79ea81f8ad60d9c429df',
+        null,
+        null,
+        this.ButtonService.buttonTypes
+      ).subscribe(res => {
+        console.log('update type');
+      });
+    }
   }
 
   convertToButtonType(event) {

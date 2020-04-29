@@ -20,26 +20,30 @@ export class DscColorSettingComponent implements OnInit {
     this.ColorService.displayContainer = state;
   }
 
-  changeShade(event, shade) {
+  changeShade(event, shade, valueType) {
     this.ColorService.colorShades[shade] = event;
-    this.ColorService.updateColorToken(
-      '5e9d79ea81f8ad60d9c429df',
-      null,
-      this.ColorService.colorShades
-    ).subscribe(res => {
-      console.log('update shade');
-    });
+    if (valueType === 'output') {
+      this.ColorService.updateColorToken(
+        '5e9d79ea81f8ad60d9c429df',
+        null,
+        this.ColorService.colorShades
+      ).subscribe(res => {
+        console.log('update shade');
+      });
+    }
   }
 
-  changeTheme(event, color) {
+  changeTheme(event, color, valueType) {
     this.ColorService.colorThemes[color] = event;
-    this.ColorService.updateColorToken(
-      '5e9d79ea81f8ad60d9c429df',
-      this.ColorService.colorThemes,
-      null
-    ).subscribe(res => {
-      console.log('update theme');
-    });
+    if (valueType === 'output') {
+      this.ColorService.updateColorToken(
+        '5e9d79ea81f8ad60d9c429df',
+        this.ColorService.colorThemes,
+        null
+      ).subscribe(res => {
+        console.log('update theme');
+      });
+    }
   }
 
   getColorSystem(color): ColorSystem {

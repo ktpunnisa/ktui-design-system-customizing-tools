@@ -8,14 +8,16 @@
       min="0"
       max="30"
       [value]="buttonShape.borderRadius"
-      (valueChange)="changeShape($event, 'borderRadius')"
+      (valueChange)="changeShape($event, 'borderRadius', 'change')"
+      (valueOutput)="changeShape($event, 'borderRadius', 'output')"
     ></app-setting-range-slider>
     <app-setting-range-slider
       label="Border Width"
       min="1"
       max="8"
       [value]="buttonShape.borderWidth"
-      (valueChange)="changeShape($event, 'borderWidth')"
+      (valueChange)="changeShape($event, 'borderWidth', 'change')"
+      (valueOutput)="changeShape($event, 'borderWidth', 'output')"
     ></app-setting-range-slider>
   </ng-container>
 
@@ -29,11 +31,13 @@
       min="1"
       max="30"
       [value]="buttonSize.fontSize"
-      (valueChange)="changeSize($event, 'fontSize')"
+      (valueChange)="changeSize($event, 'fontSize', 'change')"
+      (valueOutput)="changeSize($event, 'fontSize', 'output')"
     ></app-setting-range-slider>
     <app-padding-setting
       [padding]="buttonSize.padding"
-      (paddingChange)="changeSize($event, 'padding')"
+      (paddingChange)="changeSize($event, 'padding', 'change')"
+      (paddingOutput)="changeSize($event, 'padding', 'output')"
     ></app-padding-setting>
   </ng-container>
 
@@ -48,19 +52,19 @@
       label="Font Color"
       [selected]="ColorService.getColorSystem(this.buttonState.font, mainColor)"
       [mainColor]="mainColor"
-      (selectedChange)="changeType($event, 'font')"
+      (selectedChange)="changeType($event, 'font', 'output')"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Background Color"
       [selected]="ColorService.getColorSystem(this.buttonState.background, mainColor)"
       [mainColor]="mainColor"
-      (selectedChange)="changeType($event, 'background')"
+      (selectedChange)="changeType($event, 'background', 'output')"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Border Color"
       [selected]="ColorService.getColorSystem(this.buttonState.border, mainColor)"
       [mainColor]="mainColor"
-      (selectedChange)="changeType($event, 'border')"
+      (selectedChange)="changeType($event, 'border', 'output')"
     ></app-color-list-setting>
   </ng-container>
 </div>

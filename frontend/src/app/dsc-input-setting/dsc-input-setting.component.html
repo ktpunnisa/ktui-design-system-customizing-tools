@@ -9,7 +9,8 @@
       min="0"
       max="12"
       [value]="labelShape.margin.bottom"
-      (valueChange)="changeShape($event, 'label', 'margin')"
+      (valueChange)="changeShape($event, 'label', 'margin', 'change')"
+      (valueOutput)="changeShape($event, 'label', 'margin', 'output')"
     ></app-setting-range-slider>
     <div class="title-type">Input</div>
     <app-setting-range-slider
@@ -17,14 +18,16 @@
       min="0"
       max="30"
       [value]="inputShape.borderRadius"
-      (valueChange)="changeShape($event, 'input', 'borderRadius')"
+      (valueChange)="changeShape($event, 'input', 'borderRadius', 'change')"
+      (valueOutput)="changeShape($event, 'input', 'borderRadius', 'output')"
     ></app-setting-range-slider>
     <app-setting-range-slider
       label="Border Width"
       min="1"
       max="8"
       [value]="inputShape.borderWidth"
-      (valueChange)="changeShape($event, 'input', 'borderWidth')"
+      (valueChange)="changeShape($event, 'input', 'borderWidth', 'change')"
+      (valueOutput)="changeShape($event, 'input', 'borderWidth', 'output')"
     ></app-setting-range-slider>
   </ng-container>
 
@@ -39,11 +42,12 @@
       min="1"
       max="30"
       [value]="labelSize.fontSize"
-      (valueChange)="changeSize($event, 'label', 'fontSize')"
+      (valueChange)="changeSize($event, 'label', 'fontSize', 'change')"
+      (valueOutput)="changeSize($event, 'label', 'fontSize', 'output')"
     ></app-setting-range-slider>
     <app-font-weight-setting
       [selected]="labelSize.fontWeight"
-      (selectedChange)="changeSize($event, 'label', 'fontWeight')"
+      (selectedChange)="changeSize($event, 'label', 'fontWeight', 'output')"
     ></app-font-weight-setting>
     <div class="title-type">Input</div>
     <app-setting-range-slider
@@ -51,11 +55,13 @@
       min="1"
       max="30"
       [value]="inputSize.fontSize"
-      (valueChange)="changeSize($event, 'input', 'fontSize')"
+      (valueChange)="changeSize($event, 'input', 'fontSize', 'change')"
+      (valueOutput)="changeSize($event, 'input', 'fontSize', 'output')"
     ></app-setting-range-slider>
     <app-padding-setting
       [padding]="inputSize.padding"
-      (paddingChange)="changeSize($event, 'input', 'padding')"
+      (paddingChange)="changeSize($event, 'input', 'padding', 'change')"
+      (paddingOutput)="changeSize($event, 'input', 'padding', 'output')"
     ></app-padding-setting>
   </ng-container>
 

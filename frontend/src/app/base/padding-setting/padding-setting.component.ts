@@ -1,5 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Padding } from './padding-setting';
+
+export interface Padding {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
 
 @Component({
   selector: 'app-padding-setting',
@@ -10,6 +16,7 @@ export class PaddingSettingComponent implements OnInit {
   @Input() padding: Padding;
 
   @Output() paddingChange = new EventEmitter<Padding>();
+  @Output() paddingOutput = new EventEmitter<Padding>();
 
   constructor() {}
 
@@ -23,8 +30,8 @@ export class PaddingSettingComponent implements OnInit {
     return this.padding.right;
   }
 
-  changePadding(event, type) {
-    if (type === 'vertical') {
+  changePadding(event, paddingType, valueType) {
+    if (paddingType === 'vertical') {
       this.padding = {
         ...this.padding,
         top: event,
@@ -37,6 +44,9 @@ export class PaddingSettingComponent implements OnInit {
         left: event
       };
     }
-    this.paddingChange.emit(this.padding);
+
+    valueType === 'output'
+      ? this.paddingOutput.emit(this.padding)
+      : this.paddingChange.emit(this.padding);
   }
 }

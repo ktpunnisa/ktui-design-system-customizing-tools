@@ -80,48 +80,54 @@ export class DscInputSettingComponent implements OnInit {
     return undefined;
   }
 
-  changeShape(event, dType, style) {
+  changeShape(event, dType, style, valueType) {
     if (dType === 'label' && style === 'margin') {
       this.InputService.dInputShape[dType][style].bottom = event;
     } else {
       this.InputService.dInputShape[dType][style] = event;
     }
-    this.InputService.updateInputToken(
-      '5e9d79ea81f8ad60d9c429df',
-      this.InputService.dInputShape,
-      null,
-      null
-    ).subscribe(res => {
-      console.log('update input shape');
-    });
+    if (valueType === 'output') {
+      this.InputService.updateInputToken(
+        '5e9d79ea81f8ad60d9c429df',
+        this.InputService.dInputShape,
+        null,
+        null
+      ).subscribe(res => {
+        console.log('update input shape');
+      });
+    }
   }
 
-  changeSize(event, dType, style) {
+  changeSize(event, dType, style, valueType) {
     const size = this.InputService.selected.col;
     this.InputService.dInputSizes[size][dType][style] = event;
-    this.InputService.updateInputToken(
-      '5e9d79ea81f8ad60d9c429df',
-      null,
-      this.InputService.dInputSizes,
-      null
-    ).subscribe(res => {
-      console.log('update input size');
-    });
+    if (valueType === 'output') {
+      this.InputService.updateInputToken(
+        '5e9d79ea81f8ad60d9c429df',
+        null,
+        this.InputService.dInputSizes,
+        null
+      ).subscribe(res => {
+        console.log('update input size');
+      });
+    }
   }
 
-  changeType(event, dType, style) {
+  changeType(event, dType, style, valueType) {
     const state = this.InputService.selected.row;
     const type = this.InputService.selected.col;
     const inputStyle = this.convertToInputType(event);
     this.InputService.dInputTypes[type][state][dType][style] = inputStyle;
-    this.InputService.updateInputToken(
-      '5e9d79ea81f8ad60d9c429df',
-      null,
-      null,
-      this.InputService.dInputTypes
-    ).subscribe(res => {
-      console.log('update type');
-    });
+    if (valueType === 'output') {
+      this.InputService.updateInputToken(
+        '5e9d79ea81f8ad60d9c429df',
+        null,
+        null,
+        this.InputService.dInputTypes
+      ).subscribe(res => {
+        console.log('update type');
+      });
+    }
   }
 
   convertToInputType(event) {
