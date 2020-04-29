@@ -9,13 +9,18 @@
     <div class="name-item">{{ row }}</div>
     <div class="row display-item">
       <ng-container *ngIf="useSelector">
-        <div class="item cursor" *ngFor="let col of cols" (click)="onSelected(row, col)">
+        <div
+          class="item cursor"
+          [ngStyle]="itemHeight"
+          *ngFor="let col of cols"
+          (click)="onSelected(row, col)"
+        >
           <div [ngClass]="{ selected: isSelected(row, col) }"></div>
           <ng-container *ngTemplateOutlet="dataRef; context: getContext(row, col)"></ng-container>
         </div>
       </ng-container>
       <ng-container *ngIf="!useSelector">
-        <div class="item" *ngFor="let col of cols">
+        <div class="item" [ngStyle]="itemHeight" *ngFor="let col of cols">
           <ng-container *ngTemplateOutlet="dataRef; context: getContext(row, col)"></ng-container>
         </div>
       </ng-container>

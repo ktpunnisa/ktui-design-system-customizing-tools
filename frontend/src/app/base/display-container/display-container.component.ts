@@ -13,6 +13,7 @@ export class DisplayContainerComponent implements OnInit {
   @Input() isShowColName = true;
   @Input() useSelector = true;
   @Input() selected: Selected;
+  @Input() itemSize = 'm';
 
   @Output() selectedChange = new EventEmitter<Selected>();
 
@@ -39,5 +40,14 @@ export class DisplayContainerComponent implements OnInit {
       col
     };
     this.selectedChange.emit(this.selected);
+  }
+
+  get itemHeight() {
+    if (this.itemSize === 's') {
+      return { height: '60px' };
+    } else if (this.itemSize === 'm') {
+      return { height: '80px' };
+    }
+    return { height: '100px' };
   }
 }

@@ -6,6 +6,7 @@
         [dataRef]="dataRefShape"
         [rows]="InputService.shapeName"
         [cols]="InputService.shapeName"
+        itemSize="l"
         [isShowColName]="false"
         [selected]="InputService.selected"
         (selectedChange)="changeSelected($event)"
@@ -19,6 +20,7 @@
         [dataRef]="dataRefSize"
         [rows]="InputService.sizeName"
         [cols]="InputService.sizes"
+        itemSize="l"
         [isShowColName]="false"
         [selected]="InputService.selected"
         (selectedChange)="changeSelected($event)"
@@ -35,6 +37,7 @@
         [dataRef]="dataRefState"
         [rows]="InputService.states"
         [cols]="InputService.types"
+        itemSize="l"
         [isShowColName]="false"
         [selected]="InputService.selected"
         (selectedChange)="changeSelected($event)"
@@ -55,13 +58,14 @@
     </div>
     <app-display-container
       [dataRef]="dataRefDemo"
-      [rows]="ColorService.allColors"
+      [rows]="InputService.types"
       [cols]="InputService.types"
+      itemSize="l"
       [isShowColName]="false"
       [useSelector]="false"
     >
       <ng-template #dataRefDemo let-data>
-        <!-- <app-demo-input [color]="data.row" [type]="data.col" [isEnable]="isEnable"></app-demo-input> -->
+        <!-- <app-demo-input [type]="data.col" [isEnable]="isEnable"></app-demo-input> -->
       </ng-template>
     </app-display-container>
   </div>

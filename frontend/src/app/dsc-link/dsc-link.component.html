@@ -6,6 +6,7 @@
         [dataRef]="dataRefSize"
         [rows]="LinkService.sizeName"
         [cols]="LinkService.sizes"
+        itemSize="s"
         [selected]="LinkService.selected"
         (selectedChange)="changeSelected($event)"
       >
@@ -21,6 +22,7 @@
         [dataRef]="dataRefState"
         [rows]="LinkService.states"
         [cols]="LinkService.types"
+        itemSize="s"
         [selected]="LinkService.selected"
         (selectedChange)="changeSelected($event)"
       >
@@ -35,6 +37,7 @@
       [dataRef]="dataRefDemo"
       [rows]="ColorService.allColors"
       [cols]="LinkService.types"
+      itemSize="s"
       [useSelector]="false"
     >
       <ng-template #dataRefDemo let-data>

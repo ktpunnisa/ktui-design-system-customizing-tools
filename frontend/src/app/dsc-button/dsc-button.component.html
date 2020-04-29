@@ -6,6 +6,7 @@
         [dataRef]="dataRefShape"
         [rows]="ButtonService.shapeName"
         [cols]="ButtonService.shapeName"
+        itemSize="m"
         [isShowColName]="false"
         [selected]="ButtonService.selected"
         (selectedChange)="changeSelected($event)"
@@ -19,6 +20,7 @@
         [dataRef]="dataRefSize"
         [rows]="ButtonService.sizeName"
         [cols]="ButtonService.sizes"
+        itemSize="m"
         [isShowColName]="false"
         [selected]="ButtonService.selected"
         (selectedChange)="changeSelected($event)"
@@ -35,6 +37,7 @@
         [dataRef]="dataRefState"
         [rows]="ButtonService.states"
         [cols]="ButtonService.types"
+        itemSize="m"
         [selected]="ButtonService.selected"
         (selectedChange)="changeSelected($event)"
       >
