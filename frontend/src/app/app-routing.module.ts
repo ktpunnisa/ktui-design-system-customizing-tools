@@ -7,6 +7,8 @@ import { DscButtonComponent } from './dsc-button/dsc-button.component';
 import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
 import { DscLinkComponent } from './dsc-link/dsc-link.component';
 import { DscLinkResolver } from './dsc-link/dsc-link.resolver';
+import { DscInputComponent } from './dsc-input/dsc-input.component';
+import { DscInputResolver } from './dsc-input/dsc-input.resolver';
 
 const routes: Routes = [
   {
@@ -31,6 +33,12 @@ const routes: Routes = [
     path: 'link',
     component: DscLinkComponent,
     resolve: { color: DscColorResolver, link: DscLinkResolver },
+    runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'input',
+    component: DscInputComponent,
+    resolve: { color: DscColorResolver, input: DscInputResolver },
     runGuardsAndResolvers: 'always'
   }
 ];

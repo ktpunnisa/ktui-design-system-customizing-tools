@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="template">
+    <h2 class="header">Input Setup</h2>
+    <div class="component-mg">
+      <app-display-container
+        [dataRef]="dataRefShape"
+        [rows]="InputService.shapeName"
+        [cols]="InputService.shapeName"
+        [isShowColName]="false"
+        [selected]="InputService.selected"
+        (selectedChange)="changeSelected($event)"
+      >
+        <ng-template #dataRefShape let-data>
+          <app-base-input setting="shape"></app-base-input>
+        </ng-template>
+      </app-display-container>
+
+      <app-display-container
+        [dataRef]="dataRefSize"
+        [rows]="InputService.sizeName"
+        [cols]="InputService.sizes"
+        [isShowColName]="false"
+        [selected]="InputService.selected"
+        (selectedChange)="changeSelected($event)"
+      >
+        <ng-template #dataRefSize let-data>
+          <app-base-input setting="size" [size]="data.col"></app-base-input>
+        </ng-template>
+      </app-display-container>
+    </div>
+
+    <h2 class="header">Input State</h2>
+    <div class="component-mg">
+      <app-display-container
+        [dataRef]="dataRefState"
+        [rows]="InputService.states"
+        [cols]="InputService.types"
+        [isShowColName]="false"
+        [selected]="InputService.selected"
+        (selectedChange)="changeSelected($event)"
+      >
+        <ng-template #dataRefState let-data>
+          <app-base-input setting="type" [type]="data.col" [state]="data.row"></app-base-input>
+        </ng-template>
+      </app-display-container>
+    </div>
+
+    <div class="row header">
+      <h2>Input Demo</h2>
+      <app-toggle-switch
+        label="Enable"
+        [checked]="isEnable"
+        (toggleChange)="changeEnable($event)"
+      ></app-toggle-switch>
+    </div>
+    <app-display-container
+      [dataRef]="dataRefDemo"
+      [rows]="ColorService.allColors"
+      [cols]="InputService.types"
+      [isShowColName]="false"
+      [useSelector]="false"
+    >
+      <ng-template #dataRefDemo let-data>
+        <!-- <app-demo-input [color]="data.row" [type]="data.col" [isEnable]="isEnable"></app-demo-input> -->
+      </ng-template>
+    </app-display-container>
+  </div>
+  <app-dsc-input-setting></app-dsc-input-setting>
+</div>

@@ -21,6 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DscColorResolver } from './dsc-color/dsc-color.resolver';
 import { DscButtonResolver } from './dsc-button/dsc-button.resolver';
 import { DscLinkResolver } from './dsc-link/dsc-link.resolver';
+import { DscInputResolver } from './dsc-input/dsc-input.resolver';
 import { DisplayContainerComponent } from './base/display-container/display-container.component';
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
 import { ColorListSettingComponent } from './base/color-list-setting/color-list-setting.component';
@@ -36,6 +37,9 @@ import { DscLinkSettingComponent } from './dsc-link-setting/dsc-link-setting.com
 import { BaseLinkComponent } from './base/base-link/base-link.component';
 import { DemoLinkComponent } from './base/demo-link/demo-link.component';
 import { FontWeightSettingComponent } from './base/font-weight-setting/font-weight-setting.component';
+import { DscInputComponent } from './dsc-input/dsc-input.component';
+import { DscInputSettingComponent } from './dsc-input-setting/dsc-input-setting.component';
+import { BaseInputComponent } from './base/base-input/base-input.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,10 @@ import { FontWeightSettingComponent } from './base/font-weight-setting/font-weig
     DscLinkSettingComponent,
     BaseLinkComponent,
     DemoLinkComponent,
-    FontWeightSettingComponent
+    FontWeightSettingComponent,
+    DscInputComponent,
+    DscInputSettingComponent,
+    BaseInputComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +81,7 @@ import { FontWeightSettingComponent } from './base/font-weight-setting/font-weig
     MatDialogModule,
     ColorPickerModule
   ],
-  providers: [DscColorResolver, DscButtonResolver, DscLinkResolver],
+  providers: [DscColorResolver, DscButtonResolver, DscLinkResolver, DscInputResolver],
   entryComponents: [LibGeneratorComponent],
   bootstrap: [AppComponent],
   schemas: [
