@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LibGeneratorComponent } from '../lib-generator/lib-generator.component';
+import { DscProjectService } from '../dsc-project/dsc-project.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { LibGeneratorComponent } from '../lib-generator/lib-generator.component'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, protected ProjectService: DscProjectService) {}
 
   ngOnInit() {}
 

@@ -9,12 +9,14 @@ import { DscLinkComponent } from './dsc-link/dsc-link.component';
 import { DscLinkResolver } from './dsc-link/dsc-link.resolver';
 import { DscInputComponent } from './dsc-input/dsc-input.component';
 import { DscInputResolver } from './dsc-input/dsc-input.resolver';
+import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: DesignSystemComponent,
     resolve: {
+      project: DscProjectResolver,
       color: DscColorResolver,
       button: DscButtonResolver,
       link: DscLinkResolver,

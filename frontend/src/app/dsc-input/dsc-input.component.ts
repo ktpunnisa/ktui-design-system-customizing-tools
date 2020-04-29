@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DscInputService } from './dsc-input.service';
 import { DscColorService } from '../dsc-color/dsc-color.service';
-import { DscProjectService } from '../dsc-project.service';
+import { DscProjectService } from '../dsc-project/dsc-project.service';
 
 @Component({
   selector: 'app-dsc-input',

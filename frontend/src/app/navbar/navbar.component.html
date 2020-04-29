@@ -3,8 +3,8 @@
     <div class="nav-list">
       <button class="link-btn">All Project</button>
     </div>
-    <div class="nav-list">
-      Project Name
+    <div class="nav-list" *ngIf="ProjectService.currentProject.name">
+      {{ ProjectService.currentProject.name }} library
     </div>
     <div class="nav-list">
       <button class="export-btn" (click)="openDialog()">Export</button>

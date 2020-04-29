@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DscButtonService } from '../dsc-button/dsc-button.service';
 import { DscColorService } from '../dsc-color/dsc-color.service';
-import { DscProjectService } from '../dsc-project.service';
+import { DscProjectService } from '../dsc-project/dsc-project.service';
 import { DscLinkService } from '../dsc-link/dsc-link.service';
 import { DscInputService } from '../dsc-input/dsc-input.service';
 
@@ -16,15 +16,18 @@ export class DesignSystemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private ProjectService: DscProjectService,
     protected ColorService: DscColorService,
     protected ButtonService: DscButtonService,
     protected LinkService: DscLinkService,
-    protected InputService: DscInputService,
-    private ProjectService: DscProjectService
+    protected InputService: DscInputService
   ) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      const project = data.project;
+      this.ProjectService.currentProject = project;
+
       const colorToken = data.color;
       this.ColorService.colorThemes = colorToken.themes;
       this.ColorService.colorShades = colorToken.shades;

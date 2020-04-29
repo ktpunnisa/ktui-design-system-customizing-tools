@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DscProjectService } from '../dsc-project.service';
+import { DscProjectService } from '../dsc-project/dsc-project.service';
 
 @Component({
   selector: 'app-sidebar',

@@ -41,6 +41,8 @@ import { DscInputComponent } from './dsc-input/dsc-input.component';
 import { DscInputSettingComponent } from './dsc-input-setting/dsc-input-setting.component';
 import { BaseInputComponent } from './base/base-input/base-input.component';
 import { DemoInputComponent } from './base/demo-input/demo-input.component';
+import { DscProjectComponent } from './dsc-project/dsc-project.component';
+import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ import { DemoInputComponent } from './base/demo-input/demo-input.component';
     DscInputComponent,
     DscInputSettingComponent,
     BaseInputComponent,
-    DemoInputComponent
+    DemoInputComponent,
+    DscProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,13 @@ import { DemoInputComponent } from './base/demo-input/demo-input.component';
     MatDialogModule,
     ColorPickerModule
   ],
-  providers: [DscColorResolver, DscButtonResolver, DscLinkResolver, DscInputResolver],
+  providers: [
+    DscColorResolver,
+    DscButtonResolver,
+    DscLinkResolver,
+    DscInputResolver,
+    DscProjectResolver
+  ],
   entryComponents: [LibGeneratorComponent],
   bootstrap: [AppComponent],
   schemas: [
