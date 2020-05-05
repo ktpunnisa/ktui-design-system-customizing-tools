@@ -60,8 +60,12 @@ export class DscLinkSettingComponent implements OnInit {
   changeType(event, style, valueType) {
     const state = this.LinkService.selected.row;
     const type = this.LinkService.selected.col;
-    const linkStyle = this.convertToLinkType(event);
-    this.LinkService.linkTypes[type][state][style] = linkStyle;
+    if (style === 'textDecoration') {
+      this.LinkService.linkTypes[type][state][style] = event ? 'underline' : 'none';
+    } else {
+      const linkStyle = this.convertToLinkType(event);
+      this.LinkService.linkTypes[type][state][style] = linkStyle;
+    }
     if (valueType === 'output') {
       this.LinkService.updateLinkToken(
         '5e9d79ea81f8ad60d9c429df',

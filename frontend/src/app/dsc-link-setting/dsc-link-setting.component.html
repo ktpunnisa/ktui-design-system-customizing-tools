@@ -31,5 +31,11 @@
       [mainColor]="mainColor"
       (selectedChange)="changeType($event, 'font', 'output')"
     ></app-color-list-setting>
+    <app-checkbox
+      label="Text Decoration"
+      name="underline"
+      [checked]="linkState.textDecoration === 'underline'"
+      (checkBoxChange)="changeType($event, 'textDecoration', 'output')"
+    ></app-checkbox>
   </ng-container>
 </div>

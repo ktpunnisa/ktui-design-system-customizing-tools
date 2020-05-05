@@ -44,6 +44,7 @@ import { DemoInputComponent } from './base/demo-input/demo-input.component';
 import { DscProjectComponent } from './dsc-project/dsc-project.component';
 import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 import { CardProjectComponent } from './base/card-project/card-project.component';
+import { CheckboxComponent } from './base/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { CardProjectComponent } from './base/card-project/card-project.component
     BaseInputComponent,
     DemoInputComponent,
     DscProjectComponent,
-    CardProjectComponent
+    CardProjectComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
