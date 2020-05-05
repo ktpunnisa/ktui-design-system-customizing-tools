@@ -34,6 +34,7 @@ export interface DInputSize extends Document {
 }
 
 export interface DInputSizeValue extends Document {
+  mainColor: string;
   label: LabelSizeValue;
   input: InputSizeValue;
 }

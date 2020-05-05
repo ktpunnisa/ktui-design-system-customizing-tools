@@ -77,7 +77,8 @@ export class DemoInputComponent implements OnInit, OnChanges {
 
   getColor(state, type, style) {
     const styleToken = this.dInputType[state][type][style];
-    return this.ColorService.getColorShade(styleToken, 'primary');
+    const mainColor = this.dInputType[state].mainColor;
+    return this.ColorService.getColorShade(styleToken, mainColor);
   }
   getLabelStyle() {
     this.setLabel();

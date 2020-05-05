@@ -29,23 +29,26 @@ export default {
   types: {
     default: {
       normal: {
-        label: { font: { type: 'fixed', color: 'black', shade: 'base' } },
+        mainColor: 'primary',
+        label: { font: { type: 'fixed', color: 'black', shade: 'default' } },
         input: {
-          font: { type: 'fixed', color: 'black', shade: 'base' },
-          background: { type: 'fixed', color: 'white', shade: 'base' },
-          border: { type: 'fixed', color: 'gray', shade: 'base' },
+          font: { type: 'fixed', color: 'black', shade: 'default' },
+          background: { type: 'fixed', color: 'white', shade: 'default' },
+          border: { type: 'fixed', color: 'gray', shade: 'default' },
         },
       },
       focus: {
-        label: { font: { type: 'fixed', color: 'info', shade: 'base' } },
+        mainColor: 'info',
+        label: { font: { type: 'custom', color: '', shade: 'default' } },
         input: {
-          font: { type: 'fixed', color: 'black', shade: 'base' },
-          background: { type: 'fixed', color: 'white', shade: 'base' },
-          border: { type: 'fixed', color: 'info', shade: 'base' },
+          font: { type: 'fixed', color: 'black', shade: 'default' },
+          background: { type: 'fixed', color: 'white', shade: 'default' },
+          border: { type: 'custom', color: '', shade: 'default' },
         },
       },
       disabled: {
-        label: { font: { type: 'fixed', color: 'gray', shade: 'base' } },
+        mainColor: 'primary',
+        label: { font: { type: 'fixed', color: 'gray', shade: 'default' } },
         input: {
           font: { type: 'fixed', color: 'gray', shade: 'light' },
           background: { type: 'fixed', color: 'gray', shade: 'lightest' },
@@ -53,11 +56,12 @@ export default {
         },
       },
       error: {
-        label: { font: { type: 'fixed', color: 'danger', shade: 'base' } },
+        mainColor: 'danger',
+        label: { font: { type: 'custom', color: '', shade: 'default' } },
         input: {
-          font: { type: 'fixed', color: 'black', shade: 'base' },
-          background: { type: 'fixed', color: 'danger', shade: 'lightest' },
-          border: { type: 'fixed', color: 'danger', shade: 'base' },
+          font: { type: 'fixed', color: 'black', shade: 'default' },
+          background: { type: 'custom', color: '', shade: 'lightest' },
+          border: { type: 'custom', color: '', shade: 'default' },
         },
       },
     },

@@ -118,6 +118,7 @@ export class DscColorService {
   }
 
   getColorSystem(colorShade: ShadeSystem, mainColor): ColorSystem {
+    console.log(colorShade, mainColor);
     if (colorShade.type === 'transparent') {
       return { name: 'transparent', color: 'transparent', shade: 'default' };
     } else if (colorShade.type === 'custom') {

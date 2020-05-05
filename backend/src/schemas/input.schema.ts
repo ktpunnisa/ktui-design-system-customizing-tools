@@ -128,6 +128,7 @@ export const LabelStyle = new mongoose.Schema(
 
 export const DInputStyle = new mongoose.Schema(
   {
+    mainColor: String,
     label: LabelStyle,
     input: InputStyle,
   },

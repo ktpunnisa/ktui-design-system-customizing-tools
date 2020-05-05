@@ -65,6 +65,7 @@ export interface DInputState {
 }
 
 export interface DInputStyle {
+  mainColor: string;
   label: LabelStyle;
   input: InputStyle;
 }

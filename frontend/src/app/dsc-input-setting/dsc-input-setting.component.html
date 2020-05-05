@@ -3,32 +3,38 @@
     <div class="title-setting">
       <div class="title">Input Shape</div>
     </div>
-    <div class="title-type">Label</div>
-    <app-setting-range-slider
-      label="Margin Bottom"
-      min="0"
-      max="12"
-      [value]="labelShape.margin.bottom"
-      (valueChange)="changeShape($event, 'label', 'margin', 'change')"
-      (valueOutput)="changeShape($event, 'label', 'margin', 'output')"
-    ></app-setting-range-slider>
-    <div class="title-type">Input</div>
-    <app-setting-range-slider
-      label="Border Radius"
-      min="0"
-      max="30"
-      [value]="inputShape.borderRadius"
-      (valueChange)="changeShape($event, 'input', 'borderRadius', 'change')"
-      (valueOutput)="changeShape($event, 'input', 'borderRadius', 'output')"
-    ></app-setting-range-slider>
-    <app-setting-range-slider
-      label="Border Width"
-      min="1"
-      max="8"
-      [value]="inputShape.borderWidth"
-      (valueChange)="changeShape($event, 'input', 'borderWidth', 'change')"
-      (valueOutput)="changeShape($event, 'input', 'borderWidth', 'output')"
-    ></app-setting-range-slider>
+
+    <div class="component-mg">
+      <div class="title-type">Label</div>
+      <app-setting-range-slider
+        label="Margin Bottom"
+        min="0"
+        max="12"
+        [value]="labelShape.margin.bottom"
+        (valueChange)="changeShape($event, 'label', 'margin', 'change')"
+        (valueOutput)="changeShape($event, 'label', 'margin', 'output')"
+      ></app-setting-range-slider>
+    </div>
+
+    <div class="component-mg">
+      <div class="title-type">Input</div>
+      <app-setting-range-slider
+        label="Border Radius"
+        min="0"
+        max="30"
+        [value]="inputShape.borderRadius"
+        (valueChange)="changeShape($event, 'input', 'borderRadius', 'change')"
+        (valueOutput)="changeShape($event, 'input', 'borderRadius', 'output')"
+      ></app-setting-range-slider>
+      <app-setting-range-slider
+        label="Border Width"
+        min="1"
+        max="8"
+        [value]="inputShape.borderWidth"
+        (valueChange)="changeShape($event, 'input', 'borderWidth', 'change')"
+        (valueOutput)="changeShape($event, 'input', 'borderWidth', 'output')"
+      ></app-setting-range-slider>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="isSizeSetting && InputService.dInputSizes">
@@ -36,33 +42,38 @@
       <div class="title">Input Size</div>
       <div class="subtitle">- {{ InputService.selected.col }} size -</div>
     </div>
-    <div class="title-type">Label</div>
-    <app-setting-range-slider
-      label="Font Size"
-      min="1"
-      max="30"
-      [value]="labelSize.fontSize"
-      (valueChange)="changeSize($event, 'label', 'fontSize', 'change')"
-      (valueOutput)="changeSize($event, 'label', 'fontSize', 'output')"
-    ></app-setting-range-slider>
-    <app-font-weight-setting
-      [selected]="labelSize.fontWeight"
-      (selectedChange)="changeSize($event, 'label', 'fontWeight', 'output')"
-    ></app-font-weight-setting>
-    <div class="title-type">Input</div>
-    <app-setting-range-slider
-      label="Font Size"
-      min="1"
-      max="30"
-      [value]="inputSize.fontSize"
-      (valueChange)="changeSize($event, 'input', 'fontSize', 'change')"
-      (valueOutput)="changeSize($event, 'input', 'fontSize', 'output')"
-    ></app-setting-range-slider>
-    <app-padding-setting
-      [padding]="inputSize.padding"
-      (paddingChange)="changeSize($event, 'input', 'padding', 'change')"
-      (paddingOutput)="changeSize($event, 'input', 'padding', 'output')"
-    ></app-padding-setting>
+    <div class="component-mg">
+      <div class="title-type">Label</div>
+      <app-setting-range-slider
+        label="Font Size"
+        min="1"
+        max="30"
+        [value]="labelSize.fontSize"
+        (valueChange)="changeSize($event, 'label', 'fontSize', 'change')"
+        (valueOutput)="changeSize($event, 'label', 'fontSize', 'output')"
+      ></app-setting-range-slider>
+      <app-font-weight-setting
+        [selected]="labelSize.fontWeight"
+        (selectedChange)="changeSize($event, 'label', 'fontWeight', 'output')"
+      ></app-font-weight-setting>
+    </div>
+
+    <div class="component-mg">
+      <div class="title-type">Input</div>
+      <app-setting-range-slider
+        label="Font Size"
+        min="1"
+        max="30"
+        [value]="inputSize.fontSize"
+        (valueChange)="changeSize($event, 'input', 'fontSize', 'change')"
+        (valueOutput)="changeSize($event, 'input', 'fontSize', 'output')"
+      ></app-setting-range-slider>
+      <app-padding-setting
+        [padding]="inputSize.padding"
+        (paddingChange)="changeSize($event, 'input', 'padding', 'change')"
+        (paddingOutput)="changeSize($event, 'input', 'padding', 'output')"
+      ></app-padding-setting>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="isTypeSetting && InputService.dInputTypes">
@@ -71,32 +82,43 @@
       <div class="subtitle">- {{ InputService.selected.row }} input -</div>
     </div>
 
-    <app-color-theme-setting [selected]="inputState.border.color"></app-color-theme-setting>
-    <div class="title-type">Label</div>
-    <app-color-list-setting
-      label="Font Color"
-      [selected]="ColorService.getColorSystem(this.labelState.font, 'primary')"
-      (selectedChange)="changeType($event, 'label', 'font')"
-      [mainColor]="inputState.border.color"
-    ></app-color-list-setting>
-    <div class="title-type">Input</div>
-    <app-color-list-setting
-      label="Font Color"
-      [selected]="ColorService.getColorSystem(this.inputState.font, 'primary')"
-      (selectedChange)="changeType($event, 'input', 'font')"
-      [mainColor]="inputState.border.color"
-    ></app-color-list-setting>
-    <app-color-list-setting
-      label="Background Color"
-      [selected]="ColorService.getColorSystem(this.inputState.background, 'primary')"
-      (selectedChange)="changeType($event, 'input', 'background')"
-      [mainColor]="inputState.border.color"
-    ></app-color-list-setting>
-    <app-color-list-setting
-      label="Border Color"
-      [selected]="ColorService.getColorSystem(this.inputState.border, 'primary')"
-      (selectedChange)="changeType($event, 'input', 'border')"
-      [mainColor]="inputState.border.color"
-    ></app-color-list-setting>
+    <div class="component-mg">
+      <app-color-theme-setting
+        [selected]="mainColorState"
+        (selectedChange)="changeType($event, 'mainColor', '', 'output')"
+      ></app-color-theme-setting>
+    </div>
+
+    <div class="component-mg">
+      <div class="title-type">Label</div>
+      <app-color-list-setting
+        label="Font Color"
+        [selected]="ColorService.getColorSystem(this.labelState.font, mainColorState)"
+        (selectedChange)="changeType($event, 'label', 'font', 'output')"
+        [mainColor]="mainColorState"
+      ></app-color-list-setting>
+    </div>
+
+    <div class="component-mg">
+      <div class="title-type">Input</div>
+      <app-color-list-setting
+        label="Font Color"
+        [selected]="ColorService.getColorSystem(this.inputState.font, mainColorState)"
+        (selectedChange)="changeType($event, 'input', 'font', 'output')"
+        [mainColor]="mainColorState"
+      ></app-color-list-setting>
+      <app-color-list-setting
+        label="Background Color"
+        [selected]="ColorService.getColorSystem(this.inputState.background, mainColorState)"
+        (selectedChange)="changeType($event, 'input', 'background', 'output')"
+        [mainColor]="mainColorState"
+      ></app-color-list-setting>
+      <app-color-list-setting
+        label="Border Color"
+        [selected]="ColorService.getColorSystem(this.inputState.border, mainColorState)"
+        (selectedChange)="changeType($event, 'input', 'border')"
+        [mainColor]="mainColorState"
+      ></app-color-list-setting>
+    </div>
   </ng-container>
 </div>

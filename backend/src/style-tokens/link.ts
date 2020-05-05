@@ -13,7 +13,7 @@ export default {
   types: {
     default: {
       normal: {
-        font: { type: 'custom', color: '', shade: 'base' },
+        font: { type: 'custom', color: '', shade: 'default' },
         textDecoration: 'underline',
       },
       hover: {
@@ -25,17 +25,17 @@ export default {
         textDecoration: 'underline',
       },
       visited: {
-        font: { type: 'custom', color: '', shade: 'base' },
+        font: { type: 'custom', color: '', shade: 'default' },
         textDecoration: 'underline',
       },
     },
     nav: {
       normal: {
-        font: { type: 'fixed', color: 'black', shade: 'base' },
+        font: { type: 'fixed', color: 'black', shade: 'default' },
         textDecoration: 'none',
       },
       hover: {
-        font: { type: 'custom', color: '', shade: 'base' },
+        font: { type: 'custom', color: '', shade: 'default' },
         textDecoration: 'underline',
       },
       pressed: {
@@ -43,7 +43,7 @@ export default {
         textDecoration: 'underline',
       },
       visited: {
-        font: { type: 'fixed', color: 'black', shade: 'base' },
+        font: { type: 'fixed', color: 'black', shade: 'default' },
         textDecoration: 'none',
       },
     },

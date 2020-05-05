@@ -58,7 +58,8 @@ export class BaseInputComponent implements OnInit {
 
   getColor(type, style) {
     const styleToken = type === 'label' ? this.labelStyle[style] : this.inputStyle[style];
-    return this.ColorService.getColorShade(styleToken, 'primary');
+    const mainColor = this.InputService.dInputTypes[this.type][this.state].mainColor;
+    return this.ColorService.getColorShade(styleToken, mainColor);
   }
 
   getLabelStyle() {

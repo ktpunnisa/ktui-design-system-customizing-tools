@@ -58,6 +58,17 @@ export class DscInputSettingComponent implements OnInit {
     return undefined;
   }
 
+  get mainColorState() {
+    if (this.isTypeSetting) {
+      const state = this.InputService.selected.row;
+      const type = this.InputService.selected.col;
+      return this.InputService.dInputTypes
+        ? this.InputService.dInputTypes[type][state].mainColor
+        : undefined;
+    }
+    return undefined;
+  }
+
   get labelState() {
     if (this.isTypeSetting) {
       const state = this.InputService.selected.row;
@@ -116,8 +127,12 @@ export class DscInputSettingComponent implements OnInit {
   changeType(event, dType, style, valueType) {
     const state = this.InputService.selected.row;
     const type = this.InputService.selected.col;
-    const inputStyle = this.convertToInputType(event);
-    this.InputService.dInputTypes[type][state][dType][style] = inputStyle;
+    if (dType === 'mainColor') {
+      this.InputService.dInputTypes[type][state][dType] = event;
+    } else {
+      const inputStyle = this.convertToInputType(event);
+      this.InputService.dInputTypes[type][state][dType][style] = inputStyle;
+    }
     if (valueType === 'output') {
       this.InputService.updateInputToken(
         '5e9d79ea81f8ad60d9c429df',
