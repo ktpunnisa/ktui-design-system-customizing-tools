@@ -22,13 +22,14 @@ export class ProjectController {
     private readonly linkService: LinkService,
     private readonly inputService: InputService,
   ) {}
+
   @Get()
-  getAllColor(@Query('userId') userId: string) {
-    return this.projectService.getAllProjects(userId);
+  async getAllProject(@Query('userId') userId: string) {
+    return await this.projectService.getAllProjects(userId);
   }
 
   @Get(':projectId')
-  getColor(@Param('projectId') projectId: string) {
+  getProject(@Param('projectId') projectId: string) {
     return this.projectService.getProject(projectId);
   }
 
