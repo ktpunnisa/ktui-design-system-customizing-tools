@@ -43,6 +43,7 @@ import { BaseInputComponent } from './base/base-input/base-input.component';
 import { DemoInputComponent } from './base/demo-input/demo-input.component';
 import { DscProjectComponent } from './dsc-project/dsc-project.component';
 import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
+import { CardProjectComponent } from './base/card-project/card-project.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
     DscInputSettingComponent,
     BaseInputComponent,
     DemoInputComponent,
-    DscProjectComponent
+    DscProjectComponent,
+    CardProjectComponent
   ],
   imports: [
     BrowserModule,

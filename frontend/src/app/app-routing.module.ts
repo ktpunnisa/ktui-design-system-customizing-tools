@@ -10,8 +10,17 @@ import { DscLinkResolver } from './dsc-link/dsc-link.resolver';
 import { DscInputComponent } from './dsc-input/dsc-input.component';
 import { DscInputResolver } from './dsc-input/dsc-input.resolver';
 import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
+import { DscProjectComponent } from './dsc-project/dsc-project.component';
 
 const routes: Routes = [
+  {
+    path: 'project',
+    component: DscProjectComponent,
+    resolve: {
+      project: DscProjectResolver
+    },
+    runGuardsAndResolvers: 'always'
+  },
   {
     path: '',
     component: DesignSystemComponent,

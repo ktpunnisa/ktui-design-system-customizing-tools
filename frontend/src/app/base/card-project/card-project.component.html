@@ -1,0 +1,17 @@
+<div class="card" [ngStyle]="getBackgroundColor('primary')">
+  <div class="body">
+    <div class="delete" (click)="delete()">
+      <i class="material-icons" [ngStyle]="getColor('danger')">delete</i>
+    </div>
+    <div class="text">{{ name }}</div>
+    <div class="row line">
+      <div class="dot" [ngStyle]="getBackgroundColor('warning')"></div>
+      <div class="underline" [ngStyle]="getBackgroundColor('warning')"></div>
+      <div class="dot" [ngStyle]="getBackgroundColor('warning')"></div>
+    </div>
+  </div>
+  <div class="main-line" [ngStyle]="getBackgroundColor('secondary')"></div>
+  <div class="action">
+    <button (click)="design()" [ngStyle]="getBackgroundColor('info')">Design now!</button>
+  </div>
+</div>

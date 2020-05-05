@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+
+.project-layout {
+  display: flex;
+  width: 960px;
+  padding: 40px 64px;
+  margin: 0 auto;
+  margin-top: 48px;
+  justify-content: center;
+}
+
+.bg-project {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: $light-color;
+}
