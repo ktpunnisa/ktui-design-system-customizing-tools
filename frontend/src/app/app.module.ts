@@ -45,6 +45,7 @@ import { DscProjectComponent } from './dsc-project/dsc-project.component';
 import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 import { CardProjectComponent } from './base/card-project/card-project.component';
 import { CheckboxComponent } from './base/checkbox/checkbox.component';
+import { ColorThemeSettingComponent } from './base/color-theme-setting/color-theme-setting.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { CheckboxComponent } from './base/checkbox/checkbox.component';
     DemoInputComponent,
     DscProjectComponent,
     CardProjectComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    ColorThemeSettingComponent
   ],
   imports: [
     BrowserModule,

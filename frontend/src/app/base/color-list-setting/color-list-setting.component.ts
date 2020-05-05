@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Palette, ColorSystem } from 'src/app/dsc-color/dsc-color';
+import { ColorSystem } from 'src/app/dsc-color/dsc-color';
 import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
 
 @Component({

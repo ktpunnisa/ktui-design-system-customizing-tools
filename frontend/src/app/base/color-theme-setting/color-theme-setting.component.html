@@ -1,0 +1,27 @@
+<div class="label">
+  Main Color
+</div>
+<div class="select-container">
+  <div class="select" (click)="showDropdown()">
+    <div class="row data">
+      <app-base-color [color]="selected" size="xs"></app-base-color>
+      <div class="name">{{ selected }}</div>
+    </div>
+    <i class="material-icons">keyboard_arrow_down</i>
+  </div>
+
+  <div class="dropdown-options-container" *ngIf="showing">
+    <div class="dropdown" (clickOutside)="hideDropdown()">
+      <div *ngFor="let color of ColorService.allColors">
+        <div
+          class="row data option-list"
+          [class.selected]="isSelected(color)"
+          (click)="onSelect(color)"
+        >
+          <app-base-color [color]="color" size="xs"></app-base-color>
+          <div class="name">{{ color }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

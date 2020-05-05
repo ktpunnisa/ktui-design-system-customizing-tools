@@ -70,27 +70,33 @@
       <div class="title">Input Type</div>
       <div class="subtitle">- {{ InputService.selected.row }} input -</div>
     </div>
-    <!-- <div class="title-type">Label</div>
+
+    <app-color-theme-setting [selected]="inputState.border.color"></app-color-theme-setting>
+    <div class="title-type">Label</div>
     <app-color-list-setting
       label="Font Color"
       [selected]="ColorService.getColorSystem(this.labelState.font, 'primary')"
       (selectedChange)="changeType($event, 'label', 'font')"
+      [mainColor]="inputState.border.color"
     ></app-color-list-setting>
     <div class="title-type">Input</div>
     <app-color-list-setting
       label="Font Color"
       [selected]="ColorService.getColorSystem(this.inputState.font, 'primary')"
       (selectedChange)="changeType($event, 'input', 'font')"
+      [mainColor]="inputState.border.color"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Background Color"
       [selected]="ColorService.getColorSystem(this.inputState.background, 'primary')"
       (selectedChange)="changeType($event, 'input', 'background')"
+      [mainColor]="inputState.border.color"
     ></app-color-list-setting>
     <app-color-list-setting
       label="Border Color"
       [selected]="ColorService.getColorSystem(this.inputState.border, 'primary')"
       (selectedChange)="changeType($event, 'input', 'border')"
-    ></app-color-list-setting> -->
+      [mainColor]="inputState.border.color"
+    ></app-color-list-setting>
   </ng-container>
 </div>
