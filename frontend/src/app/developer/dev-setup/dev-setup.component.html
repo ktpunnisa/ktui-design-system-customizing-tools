@@ -1,1 +1,113 @@
-<p>dev-setup works!</p>
+<div class="container">
+  <div class="template-no-setting">
+    <h1 class="component-mg">Getting Started with kt-component</h1>
+
+    <div class="component-mg">
+      <h2>For Angular</h2>
+      <div class="row detail">
+        1) Add Custom Elements Schema in your project including
+        <div class="tag">CUSTOM_ELEMENTS_SCHEMA</div>
+        in
+        <div class="tag">src/app/app.module.ts</div>
+      </div>
+      <div class="code-box">
+        <code>
+          import {{ '{' }} BrowserModule {{ '}' }} from '@angular/platform-browser'; <br />
+          import {{ '{' }} NgModule, <b>CUSTOM_ELEMENTS_SCHEMA</b> {{ '}' }} from '@angular/core';
+          <br />
+          import {{ '{' }} AppComponent {{ '}' }} from './app.component'; <br /><br />
+          @NgModule({{ '{' }} <br />
+          &nbsp;&nbsp;declarations: [ <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;AppComponent <br />
+          &nbsp;&nbsp;], <br />
+          &nbsp;&nbsp;imports: [ <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;BrowserModule <br />
+          &nbsp;&nbsp;], <br />
+          &nbsp;&nbsp;providers: [], <br />
+          &nbsp;&nbsp;bootstrap: [AppComponent], <br />
+          <b>
+            &nbsp;&nbsp;schemas: [ <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;CUSTOM_ELEMENTS_SCHEMA <br />
+            &nbsp;&nbsp;] <br />
+          </b>
+
+          }) <br />
+          <br />
+          export class AppModule {{ '{' }} {{ '}' }} <br />
+        </code>
+      </div>
+      <div class="row detail">
+        2) Install
+        <div class="tag">kt-component</div>
+        in your project.
+      </div>
+      <div class="code-box">
+        <code>npm install <path/to/package> </code>
+      </div>
+      <div class="row detail">
+        2) Import
+        <div class="tag">kt-component</div>
+        in
+        <div class="tag">src/app/app.module.ts</div>
+        .
+      </div>
+      <div class="code-box">
+        <code>import 'kt-component' </code>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>For React</h2>
+      <div class="row detail">
+        1) Install
+        <div class="tag">kt-component</div>
+        in your project.
+      </div>
+      <div class="code-box">
+        <code>npm install <path/to/package> </code>
+      </div>
+      <div class="row detail">
+        2) Import
+        <div class="tag">kt-component</div>
+        in
+        <div class="tag">src/App.js</div>
+      </div>
+      <div class="code-box">
+        <code>import 'kt-component' </code>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>For Vue.js</h2>
+      <div class="row detail">
+        1) Add
+        <div class="tag">vue.config.js</div>
+        in the root folder of the project and do this for linked modules.
+      </div>
+      <div class="code-box">
+        <code>
+          module.exports = {{ '{' }} <br />
+          chainWebpack: config => config.resolve.symlinks(false) <br />
+          {{ '}' }}
+        </code>
+      </div>
+      <div class="row detail">
+        2) Install
+        <div class="tag">kt-component</div>
+        in your project.
+      </div>
+      <div class="code-box">
+        <code>npm install <path/to/package> </code>
+      </div>
+      <div class="row detail">
+        3) Import
+        <div class="tag">kt-component</div>
+        in
+        <div class="tag">src/App.vue</div>
+      </div>
+      <div class="code-box">
+        <code>import 'kt-component' </code>
+      </div>
+    </div>
+  </div>
+</div>

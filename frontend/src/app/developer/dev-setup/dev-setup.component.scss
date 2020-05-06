@@ -1,0 +1,21 @@
+@import "../../../styles.scss";
+
+.tag {
+  background-color: $border-color;
+  width: fit-content;
+  padding: 2px 4px;
+  margin: 0px 4px;
+}
+
+.detail {
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.code-box {
+  background-color: $border-color;
+  padding: 12px;
+  border-left: 4px solid #c4c4c4;
+  margin-bottom: 20px;
+}
