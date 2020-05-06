@@ -46,6 +46,8 @@ import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 import { CardProjectComponent } from './base/card-project/card-project.component';
 import { CheckboxComponent } from './base/checkbox/checkbox.component';
 import { ColorThemeSettingComponent } from './base/color-theme-setting/color-theme-setting.component';
+import { DevSetupComponent } from './developer/dev-setup/dev-setup.component';
+import { DevSidebarComponent } from './developer/dev-sidebar/dev-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { ColorThemeSettingComponent } from './base/color-theme-setting/color-the
     DscProjectComponent,
     CardProjectComponent,
     CheckboxComponent,
-    ColorThemeSettingComponent
+    ColorThemeSettingComponent,
+    DevSetupComponent,
+    DevSidebarComponent
   ],
   imports: [
     BrowserModule,

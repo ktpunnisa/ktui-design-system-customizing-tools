@@ -1,0 +1,45 @@
+<div class="menubar sidebar">
+  <div class="menu-list">
+    <div class="header">Getting started</div>
+    <button
+      class="btn"
+      routerLink="/developer/setup-library"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('setup library')"
+      (click)="onSelect('setup library')"
+    >
+      Setup Library
+    </button>
+  </div>
+
+  <div class="menu-list">
+    <div class="header">Components</div>
+    <button
+      class="btn"
+      routerLink="/developer/button"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('button')"
+      (click)="onSelect('button')"
+    >
+      Button
+    </button>
+    <button
+      class="btn"
+      routerLink="/developer/link"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('link')"
+      (click)="onSelect('link')"
+    >
+      Link
+    </button>
+    <button
+      class="btn"
+      routerLink="/developer/button"
+      routerLinkActive="active"
+      [class.selected]="this.isSelected('input')"
+      (click)="onSelect('input')"
+    >
+      Input
+    </button>
+  </div>
+</div>

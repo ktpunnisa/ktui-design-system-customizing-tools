@@ -9,12 +9,20 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'design-system-customization';
 
-  sideHiddenRoutes = ['/project'];
+  sideHiddenRoutes = ['project', 'developer'];
+  devSideShowRoutes = ['developer'];
 
   constructor(private router: Router) {}
 
   get showSide() {
     const path = this.router.url.split('?')[0];
-    return this.sideHiddenRoutes.indexOf(path) === -1;
+    const subPath = path.split('/')[1];
+    return this.sideHiddenRoutes.indexOf(subPath) === -1;
+  }
+
+  get showDevSide() {
+    const path = this.router.url.split('?')[0];
+    const subPath = path.split('/')[1];
+    return this.sideHiddenRoutes.indexOf(subPath) !== -1;
   }
 }

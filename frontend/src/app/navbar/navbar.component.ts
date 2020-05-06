@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LibGeneratorComponent } from '../lib-generator/lib-generator.component';
 import { DscProjectService } from '../dsc-project/dsc-project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,13 @@ import { DscProjectService } from '../dsc-project/dsc-project.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(public dialog: MatDialog, protected ProjectService: DscProjectService) {}
+  sideHiddenRoutes = ['project', 'developer'];
+
+  constructor(
+    private router: Router,
+    public dialog: MatDialog,
+    protected ProjectService: DscProjectService
+  ) {}
 
   ngOnInit() {}
 
@@ -19,5 +26,11 @@ export class NavbarComponent implements OnInit {
       height: '250px',
       data: { projectId: '5e9d79ea81f8ad60d9c429df', projectName: 'test' }
     });
+  }
+
+  get showMenu() {
+    const path = this.router.url.split('?')[0];
+    const subPath = path.split('/')[1];
+    return this.sideHiddenRoutes.indexOf(subPath) === -1;
   }
 }
