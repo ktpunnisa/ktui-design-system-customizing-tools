@@ -10,6 +10,7 @@ export class DevSetupComponent implements OnInit {
   constructor(private developerService: DeveloperService) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.developerService.selectedMenu = 'setup library';
   }
 }

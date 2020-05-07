@@ -12,6 +12,7 @@ export class DemoButtonComponent implements OnInit, OnChanges {
   @Input() name = 'Button';
   @Input() type = 'default';
   @Input() color = 'primary';
+  @Input() size = 'medium';
   @Input() isEnable = true;
   state = 'normal';
 
@@ -31,7 +32,7 @@ export class DemoButtonComponent implements OnInit, OnChanges {
 
   setButton() {
     this.buttonShape = this.ButtonService.buttonShape;
-    this.buttonSize = this.ButtonService.buttonBaseSize;
+    this.buttonSize = this.ButtonService.buttonSizes[this.size];
     this.buttonType = this.ButtonService.buttonTypes
       ? this.ButtonService.buttonTypes[this.type]
       : undefined;

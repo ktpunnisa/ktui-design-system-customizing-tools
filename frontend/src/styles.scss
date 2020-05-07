@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 $light-color: #fafafa;
 $border-color: #e9e9e9;
@@ -10,7 +10,7 @@ $font-color: #333333;
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: $font-color;
 }
 
@@ -20,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 16px 0;
 }
 
@@ -87,6 +87,41 @@ button {
   padding: 40px 64px;
 
   @extend .template-setting;
+}
+
+.template-dev {
+  @extend .template-no-setting;
+
+  .tag {
+    background-color: $border-color;
+    width: fit-content;
+    padding: 2px 4px;
+    margin: 0px 4px;
+  }
+
+  .detail {
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .code-box {
+    background-color: $border-color;
+    padding: 12px;
+    border-left: 4px solid #c4c4c4;
+    margin-bottom: 20px;
+  }
+
+  .display-box {
+    padding: 12px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .box {
+    margin: 4px;
+  }
 }
 
 .sidebar {

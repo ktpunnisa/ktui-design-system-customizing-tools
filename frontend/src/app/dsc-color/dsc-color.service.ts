@@ -133,4 +133,29 @@ export class DscColorService {
       shade: colorShade.shade
     };
   }
+
+  get devColorThemes(): ColorTheme {
+    return {
+      primary: '#ff8879',
+      secondary: '#009ba6',
+      success: '#00CCA6',
+      info: '#5c80ff',
+      warning: '#ffcf5c',
+      danger: '#ff647c',
+      white: '#ffffff',
+      gray: '#818181',
+      black: '#232323'
+    };
+  }
+
+  get devColorShades(): ColorShade {
+    return {
+      lightest: 55,
+      lighter: 30,
+      light: 20,
+      default: 0,
+      dark: 30,
+      darker: 45
+    };
+  }
 }

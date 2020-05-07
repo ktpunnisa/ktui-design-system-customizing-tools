@@ -12,9 +12,11 @@ import { DscInputResolver } from './dsc-input/dsc-input.resolver';
 import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 import { DscProjectComponent } from './dsc-project/dsc-project.component';
 import { DevSetupComponent } from './developer/dev-setup/dev-setup.component';
+import { DevButtonComponent } from './developer/dev-button/dev-button.component';
 
 const routes: Routes = [
   { path: 'developer/setup-library', component: DevSetupComponent },
+  { path: 'developer/button', component: DevButtonComponent },
   {
     path: 'project',
     component: DscProjectComponent,

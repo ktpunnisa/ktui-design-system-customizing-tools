@@ -48,6 +48,7 @@ import { CheckboxComponent } from './base/checkbox/checkbox.component';
 import { ColorThemeSettingComponent } from './base/color-theme-setting/color-theme-setting.component';
 import { DevSetupComponent } from './developer/dev-setup/dev-setup.component';
 import { DevSidebarComponent } from './developer/dev-sidebar/dev-sidebar.component';
+import { DevButtonComponent } from './developer/dev-button/dev-button.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { DevSidebarComponent } from './developer/dev-sidebar/dev-sidebar.compone
     CheckboxComponent,
     ColorThemeSettingComponent,
     DevSetupComponent,
-    DevSidebarComponent
+    DevSidebarComponent,
+    DevButtonComponent
   ],
   imports: [
     BrowserModule,

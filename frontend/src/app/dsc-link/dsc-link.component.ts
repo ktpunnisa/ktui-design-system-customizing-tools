@@ -18,6 +18,7 @@ export class DscLinkComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.route.data.subscribe(data => {
       const project = data.project;
       this.ProjectService.currentProject = project;
