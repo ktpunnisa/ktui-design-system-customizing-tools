@@ -101,7 +101,7 @@ export class ProjectService {
     console.log('build Library');
   }
 
-  async zipLibrary(
+  async compressLibrary(
     projectId: string,
     libraryDir: string,
     libraryZipDir: string,
@@ -118,7 +118,7 @@ export class ProjectService {
     await this.shell.exec(
       `zip -r ${project.name}-library.zip ${project.name}-library`,
     );
-    console.log('zip library');
+    console.log('compress library');
     return {
       filePath: `library/${project.name}-library.zip`,
     };

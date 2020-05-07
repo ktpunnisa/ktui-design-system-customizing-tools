@@ -61,7 +61,7 @@ export class ProjectController {
     await this.linkService.generateToken(projectId, tokenDir);
     await this.inputService.generateToken(projectId, tokenDir);
     await this.projectService.buildLibrary(libraryDir);
-    return await this.projectService.zipLibrary(
+    return await this.projectService.compressLibrary(
       projectId,
       libraryDir,
       libraryZipDir,
