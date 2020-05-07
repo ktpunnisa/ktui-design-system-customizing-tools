@@ -13,10 +13,12 @@ import { DscProjectResolver } from './dsc-project/dsc-project.resolver';
 import { DscProjectComponent } from './dsc-project/dsc-project.component';
 import { DevSetupComponent } from './developer/dev-setup/dev-setup.component';
 import { DevButtonComponent } from './developer/dev-button/dev-button.component';
+import { DevLinkComponent } from './developer/dev-link/dev-link.component';
 
 const routes: Routes = [
   { path: 'developer/setup-library', component: DevSetupComponent },
   { path: 'developer/button', component: DevButtonComponent },
+  { path: 'developer/link', component: DevLinkComponent },
   {
     path: 'project',
     component: DscProjectComponent,

@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="template-dev">
+    <h1 class="component-mg">kt-link</h1>
+
+    <div class="component-mg">
+      <h2>Default Setting</h2>
+      <div class="display-box">
+        <app-demo-link class="box" [name]="getName('default')"></app-demo-link>
+      </div>
+      <div class="code-box">
+        <code>
+          {{ '<' }}<b>kt-link</b>{{ generateCode('default', '', true) }}{{ '>'
+          }}{{ getName('default') }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+        </code>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>Sizes</h2>
+      <div class="display-box row">
+        <div class="box" *ngFor="let size of LinkService.sizes">
+          <app-demo-link [name]="getName(size)" [size]="size"></app-demo-link>
+        </div>
+      </div>
+      <div class="code-box">
+        <div *ngFor="let size of LinkService.sizes">
+          <code>
+            {{ '<' }}<b>kt-link</b>{{ generateCode('size', size, true) }}{{ '>' }}{{ getName(size)
+            }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+          </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>Types</h2>
+      <div class="display-box row">
+        <div class="box" *ngFor="let type of LinkService.types">
+          <app-demo-link [name]="getName(type)" [type]="type"></app-demo-link>
+        </div>
+      </div>
+      <div class="code-box">
+        <div *ngFor="let type of LinkService.types">
+          <code>
+            {{ '<' }}<b>kt-link</b>{{ generateCode('type', type, true) }}{{ '>' }}{{ getName(type)
+            }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+          </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>Colors</h2>
+      <div class="display-box row">
+        <div class="box" *ngFor="let color of ColorService.allColors">
+          <app-demo-link [name]="getName(color)" [color]="color"></app-demo-link>
+        </div>
+      </div>
+      <div class="code-box">
+        <div *ngFor="let color of ColorService.allColors">
+          <code>
+            {{ '<' }}<b>kt-link</b>{{ generateCode('color', color, true) }}{{ '>'
+            }}{{ getName(color) }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

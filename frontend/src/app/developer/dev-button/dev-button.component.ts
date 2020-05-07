@@ -8,7 +8,7 @@ import { DscButtonService } from 'src/app/dsc-button/dsc-button.service';
   styleUrls: ['./dev-button.component.scss']
 })
 export class DevButtonComponent implements OnInit {
-  constructor(private ColorService: DscColorService, private ButtonService: DscButtonService) {}
+  constructor(protected ColorService: DscColorService, protected ButtonService: DscButtonService) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -18,6 +18,10 @@ export class DevButtonComponent implements OnInit {
     this.ButtonService.buttonShape = this.ButtonService.devButtonShape;
     this.ButtonService.buttonSizes = this.ButtonService.devButtonSizes;
     this.ButtonService.buttonTypes = this.ButtonService.devButtonTypes;
+  }
+
+  getName(param) {
+    return `${param} button`;
   }
 
   generateCode(setting, param, isEnable) {

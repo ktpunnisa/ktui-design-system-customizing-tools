@@ -11,6 +11,7 @@ import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
 export class DemoLinkComponent implements OnInit {
   @Input() name = 'Link';
   @Input() type = 'default';
+  @Input() size = 'medium';
   @Input() color = 'primary';
   state = 'normal';
 
@@ -22,7 +23,7 @@ export class DemoLinkComponent implements OnInit {
   ngOnInit() {}
 
   setLink() {
-    this.linkSize = this.LinkService.linkBaseSize;
+    this.linkSize = this.LinkService.linkSizes ? this.LinkService.linkSizes[this.size] : undefined;
     this.linkType = this.LinkService.linkTypes ? this.LinkService.linkTypes[this.type] : undefined;
   }
 
