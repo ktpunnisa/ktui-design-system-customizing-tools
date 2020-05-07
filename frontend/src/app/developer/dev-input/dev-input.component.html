@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="template-dev">
+    <h1 class="component-mg">kt-input</h1>
+
+    <div class="component-mg">
+      <h2>Default Setting</h2>
+      <div class="display-box row">
+        <app-demo-input class="box" [label]="getName('default')"></app-demo-input>
+        <app-demo-input
+          class="box"
+          [label]="getName('default')"
+          value="input is filled"
+        ></app-demo-input>
+      </div>
+      <div class="code-box">
+        <code>
+          {{ '<' }}<b>kt-link</b>{{ generateCode(getName('default'), 'default', '') }}{{ '>'
+          }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+        </code>
+        <br />
+        <code>
+          {{ '<' }}<b>kt-link</b>{{ generateCode(getName('default'), 'value', 'input is filled')
+          }}{{ '>' }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+        </code>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>States</h2>
+      <div class="display-box row">
+        <app-demo-input
+          class="box"
+          [label]="getName('disabled')"
+          [isEnable]="false"
+        ></app-demo-input>
+        <app-demo-input class="box" [label]="getName('error')" [isError]="true"></app-demo-input>
+      </div>
+      <div class="code-box">
+        <code>
+          {{ '<' }}<b>kt-link</b>{{ generateCode(getName('disabled'), 'disabled', '') }}{{ '>'
+          }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+        </code>
+        <br />
+        <code>
+          {{ '<' }}<b>kt-link</b>{{ generateCode(getName('error'), 'error', '') }}{{ '>'
+          }}{{ '<' }}/<b>kt-link</b>{{ '>' }}
+        </code>
+      </div>
+    </div>
+
+    <div class="component-mg">
+      <h2>Sizes</h2>
+      <div class="display-box row">
+        <div class="box" *ngFor="let size of InputService.sizes">
+          <app-demo-input [label]="getName(size)" [size]="size"></app-demo-input>
+        </div>
+      </div>
+      <div class="code-box">
+        <div *ngFor="let size of InputService.sizes">
+          <code>
+            {{ '<' }}<b>kt-input</b>{{ generateCode(getName(size), 'size', size) }}{{ '>'
+            }}{{ '<' }}/<b>kt-input</b>{{ '>' }}
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

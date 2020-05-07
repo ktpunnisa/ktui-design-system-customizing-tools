@@ -8,19 +8,19 @@
         <app-demo-button class="box" [name]="getName('default')"></app-demo-button>
         <app-demo-button
           class="box"
-          [name]="getName('default')"
+          [name]="getName('disabled')"
           [isEnable]="false"
         ></app-demo-button>
       </div>
       <div class="code-box">
         <code>
-          {{ '<' }}<b>kt-button</b>{{ generateCode('default', '', true) }}{{ '>'
-          }}{{ getName('default') }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
+          {{ '<' }}<b>kt-button</b>{{ generateCode('default', '') }}{{ '>' }}{{ getName('default')
+          }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
         </code>
         <br />
         <code>
-          {{ '<' }}<b>kt-button</b>{{ generateCode('default', '', false) }}{{ '>'
-          }}{{ getName('default') }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
+          {{ '<' }}<b>kt-button</b>{{ generateCode('disabled', '') }}{{ '>'
+          }}{{ getName('disabled') }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
         </code>
       </div>
     </div>
@@ -35,8 +35,8 @@
       <div class="code-box">
         <div *ngFor="let size of ButtonService.sizes">
           <code>
-            {{ '<' }}<b>kt-button</b>{{ generateCode('size', size, true) }}{{ '>'
-            }}{{ getName(size) }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
+            {{ '<' }}<b>kt-button</b>{{ generateCode('size', size) }}{{ '>' }}{{ getName(size)
+            }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
           </code>
         </div>
       </div>
@@ -52,8 +52,8 @@
       <div class="code-box">
         <div *ngFor="let type of ButtonService.types">
           <code>
-            {{ '<' }}<b>kt-button</b>{{ generateCode('type', type, true) }}{{ '>'
-            }}{{ getName(type) }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
+            {{ '<' }}<b>kt-button</b>{{ generateCode('type', type) }}{{ '>' }}{{ getName(type)
+            }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
           </code>
         </div>
       </div>
@@ -69,8 +69,8 @@
       <div class="code-box">
         <div *ngFor="let color of ColorService.allColors">
           <code>
-            {{ '<' }}<b>kt-button</b>{{ generateCode('color', color, true) }}{{ '>'
-            }}{{ getName(color) }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
+            {{ '<' }}<b>kt-button</b>{{ generateCode('color', color) }}{{ '>' }}{{ getName(color)
+            }}{{ '<' }}/<b>kt-button</b>{{ '>' }}
           </code>
         </div>
       </div>

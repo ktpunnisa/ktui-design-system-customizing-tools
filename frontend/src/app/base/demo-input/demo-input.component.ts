@@ -15,10 +15,12 @@ import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
   styleUrls: ['./demo-input.component.scss']
 })
 export class DemoInputComponent implements OnInit, OnChanges {
+  @Input() label = 'Label';
   @Input() value = '';
   @Input() type = 'default';
+  @Input() size = 'medium';
   @Input() isEnable = true;
-  @Input() isError = true;
+  @Input() isError = false;
   state = 'normal';
 
   labelShape: LabelShape;
@@ -42,7 +44,7 @@ export class DemoInputComponent implements OnInit, OnChanges {
   setLabel() {
     this.labelShape = this.InputService.dInputShape.label;
     this.labelSize = this.InputService.dInputSizes
-      ? this.InputService.dInputBaseSize.label
+      ? this.InputService.dInputSizes[this.size].label
       : undefined;
     this.dInputType = this.InputService.dInputTypes
       ? this.InputService.dInputTypes[this.type]
@@ -52,7 +54,7 @@ export class DemoInputComponent implements OnInit, OnChanges {
   setInput() {
     this.inputShape = this.InputService.dInputShape.input;
     this.inputSize = this.InputService.dInputSizes
-      ? this.InputService.dInputBaseSize.input
+      ? this.InputService.dInputSizes[this.size].input
       : undefined;
     this.dInputType = this.InputService.dInputTypes
       ? this.InputService.dInputTypes[this.type]

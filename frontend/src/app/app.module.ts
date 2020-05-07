@@ -50,6 +50,7 @@ import { DevSetupComponent } from './developer/dev-setup/dev-setup.component';
 import { DevSidebarComponent } from './developer/dev-sidebar/dev-sidebar.component';
 import { DevButtonComponent } from './developer/dev-button/dev-button.component';
 import { DevLinkComponent } from './developer/dev-link/dev-link.component';
+import { DevInputComponent } from './developer/dev-input/dev-input.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { DevLinkComponent } from './developer/dev-link/dev-link.component';
     DevSetupComponent,
     DevSidebarComponent,
     DevButtonComponent,
-    DevLinkComponent
+    DevLinkComponent,
+    DevInputComponent
   ],
   imports: [
     BrowserModule,

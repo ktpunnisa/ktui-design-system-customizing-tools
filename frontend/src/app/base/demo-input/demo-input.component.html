@@ -1,4 +1,4 @@
-<div [ngStyle]="getLabelStyle()">Label</div>
+<div [ngStyle]="getLabelStyle()">{{ label }}</div>
 <input
   [ngStyle]="getInputStyle()"
   (focus)="setState('focus', 'down')"

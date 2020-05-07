@@ -26,9 +26,9 @@ export class DevLinkComponent implements OnInit {
   generateCode(setting, param) {
     let code = '';
     if (setting !== 'default') {
-      code = setting === 'color' ? code + ` color:"${param}"` : code;
-      code = setting === 'size' ? code + ` size:"${param}"` : code;
-      code = setting === 'type' ? code + ` type:"${param}"` : code;
+      code = setting === 'color' ? code + ` color="${param}"` : code;
+      code = setting === 'size' ? code + ` size="${param}"` : code;
+      code = setting === 'type' ? code + ` type="${param}"` : code;
     }
     return code;
   }

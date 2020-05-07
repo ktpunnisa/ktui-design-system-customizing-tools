@@ -24,14 +24,14 @@ export class DevButtonComponent implements OnInit {
     return `${param} button`;
   }
 
-  generateCode(setting, param, isEnable) {
+  generateCode(setting, param) {
     let code = '';
     if (setting !== 'default') {
-      code = setting === 'color' ? code + ` color:"${param}"` : code;
-      code = setting === 'size' ? code + ` size:"${param}"` : code;
-      code = setting === 'type' ? code + ` type:"${param}"` : code;
+      code = setting === 'color' ? code + ` color="${param}"` : code;
+      code = setting === 'size' ? code + ` size="${param}"` : code;
+      code = setting === 'type' ? code + ` type="${param}"` : code;
+      code = setting === 'disabled' ? code + ` disabled="true"` : code;
     }
-    code = isEnable ? code : code + ` disabled:"true"`;
     return code;
   }
 }
