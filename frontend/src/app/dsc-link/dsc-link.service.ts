@@ -31,13 +31,13 @@ export class DscLinkService {
 
   get devLinkSizes(): LinkSize {
     return {
-      small: { fontSize: 14, fontWeight: 500 },
+      small: { fontSize: 16, fontWeight: 500 },
       medium: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 600
       },
       large: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 700
       }
     };
