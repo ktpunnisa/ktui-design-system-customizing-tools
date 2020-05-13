@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DscButtonService } from './dsc-button.service';
-import { ButtonToken } from './dsc-button';
+import { DscButtonService } from './button.service';
+import { ButtonToken } from './button';
 
 @Injectable()
 export class DscButtonResolver implements Resolve<ButtonToken> {

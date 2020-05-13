@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LinkSizeValue, LinkSize, LinkType, LinkToken } from './dsc-link';
+import { LinkSizeValue, LinkSize, LinkType, LinkToken } from './link';
 import { Selected } from '../base/display-container/display-container';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';

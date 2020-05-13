@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
-import { ButtonToken, ButtonSizeValue, ButtonSize, ButtonShape, ButtonType } from './dsc-button';
+import { ButtonToken, ButtonSizeValue, ButtonSize, ButtonShape, ButtonType } from './button';
 import { Selected } from '../base/display-container/display-container';
 
 @Injectable({

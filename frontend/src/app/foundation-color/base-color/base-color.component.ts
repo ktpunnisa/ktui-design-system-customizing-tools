@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DscColorService } from '../dsc-color.service';
-import { Palette } from '../dsc-color';
+import { DscColorService } from '../color.service';
+import { Palette } from '../color';
 
 @Component({
   selector: 'app-base-color',

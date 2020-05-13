@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LinkToken } from './dsc-link';
-import { DscLinkService } from './dsc-link.service';
+import { LinkToken } from './link';
+import { DscLinkService } from './link.service';
 
 @Injectable()
 export class DscLinkResolver implements Resolve<LinkToken> {

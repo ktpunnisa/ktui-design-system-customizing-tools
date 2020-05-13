@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DscButtonService } from '../dsc-button.service';
+import { DscButtonService } from '../button.service';
 import { ActivatedRoute } from '@angular/router';
-import { DscColorService } from '../../foundation-color/dsc-color.service';
+import { DscColorService } from '../../foundation-color/color.service';
 import { DscProjectService } from '../../dsc-project/dsc-project.service';
 
 @Component({

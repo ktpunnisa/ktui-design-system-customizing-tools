@@ -5,9 +5,9 @@ import {
   InputShape,
   InputSizeValue,
   DInputState
-} from 'src/app/component-input/dsc-input';
-import { DscInputService } from 'src/app/component-input/dsc-input.service';
-import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
+} from 'src/app/component-input/input';
+import { DscInputService } from 'src/app/component-input/input.service';
+import { DscColorService } from 'src/app/foundation-color/color.service';
 
 @Component({
   selector: 'app-demo-input',

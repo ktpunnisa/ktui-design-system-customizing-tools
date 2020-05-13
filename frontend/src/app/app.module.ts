@@ -18,10 +18,10 @@ import { BaseColorComponent } from './foundation-color/base-color/base-color.com
 import { DscColorSettingComponent } from './foundation-color/dsc-color-setting/dsc-color-setting.component';
 import { DscButtonSettingComponent } from './component-button/dsc-button-setting/dsc-button-setting.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { DscColorResolver } from './foundation-color/dsc-color.resolver';
-import { DscButtonResolver } from './component-button/dsc-button.resolver';
-import { DscLinkResolver } from './component-link/dsc-link.resolver';
-import { DscInputResolver } from './component-input/dsc-input.resolver';
+import { DscColorResolver } from './foundation-color/color.resolver';
+import { DscButtonResolver } from './component-button/button.resolver';
+import { DscLinkResolver } from './component-link/link.resolver';
+import { DscInputResolver } from './component-input/input.resolver';
 import { DisplayContainerComponent } from './base/display-container/display-container.component';
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
 import { ColorListSettingComponent } from './base/color-list-setting/color-list-setting.component';

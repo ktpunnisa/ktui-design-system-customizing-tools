@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DscLinkService } from '../dsc-link.service';
-import { DscColorService } from '../../foundation-color/dsc-color.service';
+import { DscLinkService } from '../link.service';
+import { DscColorService } from '../../foundation-color/color.service';
 import { DscProjectService } from '../../dsc-project/dsc-project.service';
 
 @Component({

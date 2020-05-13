@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ColorSystem } from 'src/app/foundation-color/dsc-color';
-import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
+import { ColorSystem } from 'src/app/foundation-color/color';
+import { DscColorService } from 'src/app/foundation-color/color.service';
 
 @Component({
   selector: 'app-color-list-setting',

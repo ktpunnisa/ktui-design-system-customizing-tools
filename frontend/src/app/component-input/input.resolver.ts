@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { InputToken } from './dsc-input';
-import { DscInputService } from './dsc-input.service';
+import { InputToken } from './input';
+import { DscInputService } from './input.service';
 
 @Injectable()
 export class DscInputResolver implements Resolve<InputToken> {

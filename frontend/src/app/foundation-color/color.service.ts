@@ -10,7 +10,7 @@ import {
   ShadowSystem,
   ShadeSystem,
   ColorSystem
-} from './dsc-color';
+} from './color';
 import { ApiService } from '../api.service';
 
 @Injectable({

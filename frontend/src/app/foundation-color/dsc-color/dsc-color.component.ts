@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DscColorService } from '../dsc-color.service';
+import { DscColorService } from '../color.service';
 import { ActivatedRoute } from '@angular/router';
 import { DscProjectService } from '../../dsc-project/dsc-project.service';
 

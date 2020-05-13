@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DscColorService } from '../dsc-color.service';
-import { ColorSystem } from '../dsc-color';
+import { DscColorService } from '../color.service';
+import { ColorSystem } from '../color';
 
 @Component({
   selector: 'app-dsc-color-setting',

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DscInputService } from './dsc-input.service';
+import { DscColorService } from './color.service';
 
-describe('DscInputService', () => {
+describe('DscColorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DscInputService = TestBed.get(DscInputService);
+    const service: DscColorService = TestBed.get(DscColorService);
     expect(service).toBeTruthy();
   });
 });

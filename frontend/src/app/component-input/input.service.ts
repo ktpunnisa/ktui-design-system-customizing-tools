@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DInputSizeValue, DInputShape, DInputSize, DInputType, InputToken } from './dsc-input';
+import { DInputSizeValue, DInputShape, DInputSize, DInputType, InputToken } from './input';
 import { Selected } from '../base/display-container/display-container';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';

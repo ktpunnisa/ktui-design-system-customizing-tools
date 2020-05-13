@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DscLinkService } from '../dsc-link.service';
-import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
-import { LinkSizeValue, LinkStyle } from '../dsc-link';
+import { DscLinkService } from '../link.service';
+import { DscColorService } from 'src/app/foundation-color/color.service';
+import { LinkSizeValue, LinkStyle } from '../link';
 
 @Component({
   selector: 'app-base-link',

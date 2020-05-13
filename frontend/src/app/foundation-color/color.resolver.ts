@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DscColorService } from './dsc-color.service';
-import { ColorToken } from './dsc-color';
+import { DscColorService } from './color.service';
+import { ColorToken } from './color';
 
 @Injectable()
 export class DscColorResolver implements Resolve<ColorToken> {

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DscLinkService } from './dsc-link.service';
+import { DscButtonService } from './button.service';
 
-describe('DscLinkService', () => {
+describe('DscButtonService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DscLinkService = TestBed.get(DscLinkService);
+    const service: DscButtonService = TestBed.get(DscButtonService);
     expect(service).toBeTruthy();
   });
 });

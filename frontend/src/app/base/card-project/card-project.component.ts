@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ColorTheme } from 'src/app/foundation-color/dsc-color';
+import { ColorTheme } from 'src/app/foundation-color/color';
 
 @Component({
   selector: 'app-card-project',
