@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DscInputService } from '../dsc-input/dsc-input.service';
-import { DscColorService } from '../dsc-color/dsc-color.service';
+import { DscColorService } from '../color/dsc-color.service';
 
 @Component({
   selector: 'app-dsc-input-setting',

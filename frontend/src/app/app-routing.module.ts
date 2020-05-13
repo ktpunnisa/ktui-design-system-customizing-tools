@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DesignSystemComponent } from './design-system/design-system.component';
-import { DscColorComponent } from './dsc-color/dsc-color.component';
-import { DscColorResolver } from './dsc-color/dsc-color.resolver';
+import { DscColorComponent } from './color/dsc-color/dsc-color.component';
+import { DscColorResolver } from './color/dsc-color.resolver';
 import { DscButtonComponent } from './button/dsc-button/dsc-button.component';
 import { DscButtonResolver } from './button/dsc-button.resolver';
 import { DscLinkComponent } from './dsc-link/dsc-link.component';

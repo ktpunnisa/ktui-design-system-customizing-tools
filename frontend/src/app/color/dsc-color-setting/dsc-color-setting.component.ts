@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DscColorService } from '../dsc-color/dsc-color.service';
-import { ColorSystem } from '../dsc-color/dsc-color';
+import { DscColorService } from '../dsc-color.service';
+import { ColorSystem } from '../dsc-color';
 
 @Component({
   selector: 'app-dsc-color-setting',
@@ -9,17 +9,13 @@ import { ColorSystem } from '../dsc-color/dsc-color';
 })
 export class DscColorSettingComponent implements OnInit {
   constructor(protected ColorService: DscColorService) {}
-
   ngOnInit() {}
-
   isSelected(state: string) {
     return state === this.ColorService.displayContainer;
   }
-
   onSelect(state: string) {
     this.ColorService.displayContainer = state;
   }
-
   changeShade(event, shade, valueType) {
     this.ColorService.colorShades[shade] = event;
     if (valueType === 'output') {
@@ -32,7 +28,6 @@ export class DscColorSettingComponent implements OnInit {
       });
     }
   }
-
   changeTheme(event, color, valueType) {
     this.ColorService.colorThemes[color] = event;
     if (valueType === 'output') {
@@ -45,7 +40,6 @@ export class DscColorSettingComponent implements OnInit {
       });
     }
   }
-
   getColorSystem(color): ColorSystem {
     return {
       name: this.ColorService.colorThemes[color].toUpperCase(),

@@ -7,7 +7,7 @@ import {
   DInputState
 } from 'src/app/dsc-input/dsc-input';
 import { DscInputService } from 'src/app/dsc-input/dsc-input.service';
-import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
+import { DscColorService } from 'src/app/color/dsc-color.service';
 
 @Component({
   selector: 'app-demo-input',

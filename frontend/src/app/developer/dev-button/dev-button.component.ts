@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
+import { DscColorService } from 'src/app/color/dsc-color.service';
 import { DscButtonService } from '../../button/dsc-button.service';
 
 @Component({

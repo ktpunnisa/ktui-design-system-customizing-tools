@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ColorSystem } from 'src/app/dsc-color/dsc-color';
+import { ColorSystem } from 'src/app/color/dsc-color';
 import { ColorPickerControl } from '@iplab/ngx-color-picker';
-import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
+import { DscColorService } from 'src/app/color/dsc-color.service';
 
 @Component({
   selector: 'app-color-picker',

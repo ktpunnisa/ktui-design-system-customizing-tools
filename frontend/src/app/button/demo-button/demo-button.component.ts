@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { DscButtonService } from 'src/app/button/dsc-button.service';
-import { DscColorService } from 'src/app/dsc-color/dsc-color.service';
+import { DscColorService } from 'src/app/color/dsc-color.service';
 import { ButtonShape, ButtonSizeValue, ButtonState } from 'src/app/button/dsc-button';
 
 @Component({

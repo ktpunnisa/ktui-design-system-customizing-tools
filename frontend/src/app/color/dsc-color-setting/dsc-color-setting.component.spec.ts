@@ -8,9 +8,8 @@ describe('DscColorSettingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DscColorSettingComponent ]
-    })
-    .compileComponents();
+      declarations: [DscColorSettingComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
