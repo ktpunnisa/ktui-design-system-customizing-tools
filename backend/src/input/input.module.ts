@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { InputService } from './input.service';
 import { InputController } from './input.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { InputSchema } from 'src/schemas/input.schema';
+import { InputSchema } from './schemas/input.schema';
 
 @Module({
   imports: [

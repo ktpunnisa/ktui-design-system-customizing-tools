@@ -8,7 +8,7 @@ import {
   Param,
 } from '@nestjs/common';
 import { ColorService } from './color.service';
-import { ColorTheme, ColorShade } from 'src/interfaces/color.interface';
+import { ColorTheme, ColorShade } from './interfaces/color.interface';
 
 @Controller()
 export class ColorController {

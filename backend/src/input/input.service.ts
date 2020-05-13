@@ -8,9 +8,9 @@ import {
   DInputSize,
   DInputShape,
   DInputType,
-} from 'src/interfaces/input.interface';
+} from './interfaces/input.interface';
 
-import inputToken from '../style-tokens/input';
+import inputToken from './styleTokens/input';
 
 @Injectable()
 export class InputService {

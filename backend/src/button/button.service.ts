@@ -2,14 +2,13 @@ import { Model } from 'mongoose';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ConfigService } from '@nestjs/config';
-
 import {
   ButtonToken,
-  ButtonType,
   ButtonShape,
   ButtonSize,
-} from 'src/interfaces/button.interface';
-import buttonToken from '../style-tokens/button';
+  ButtonType,
+} from './interfaces/button.interface';
+import buttonToken from './styleTokens/button';
 
 @Injectable()
 export class ButtonService {

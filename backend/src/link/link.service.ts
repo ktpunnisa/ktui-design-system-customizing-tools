@@ -3,8 +3,12 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ConfigService } from '@nestjs/config';
 
-import { LinkToken, LinkSize, LinkType } from 'src/interfaces/link.interface';
-import linkToken from '../style-tokens/link';
+import {
+  LinkToken,
+  LinkSize,
+  LinkType,
+} from 'src/link/interfaces/link.interface';
+import linkToken from './styleTokens/link';
 
 @Injectable()
 export class LinkService {

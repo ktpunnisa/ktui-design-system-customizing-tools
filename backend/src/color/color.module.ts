@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { ColorController } from './color.controller';
 import { ColorService } from './color.service';
-import { ColorSchema } from '../schemas/color.schema';
+import { ColorSchema } from './schemas/color.schema';
 
 @Module({
   imports: [

@@ -8,8 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { LinkService } from './link.service';
-import { LinkSize, LinkType } from 'src/interfaces/link.interface';
-import linkToken from '../style-tokens/link';
+import { LinkSize, LinkType } from './interfaces/link.interface';
 
 @Controller()
 export class LinkController {

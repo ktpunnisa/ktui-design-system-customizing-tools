@@ -12,7 +12,7 @@ import {
   ButtonShape,
   ButtonSize,
   ButtonType,
-} from 'src/interfaces/button.interface';
+} from './interfaces/button.interface';
 
 @Controller()
 export class ButtonController {

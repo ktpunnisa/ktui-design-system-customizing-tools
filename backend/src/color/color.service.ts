@@ -7,8 +7,8 @@ import {
   ColorToken,
   ColorTheme,
   ColorShade,
-} from '../interfaces/color.interface';
-import colorToken from '../style-tokens/color';
+} from './interfaces/color.interface';
+import colorToken from './styleTokens/color';
 @Injectable()
 export class ColorService {
   fs = require('fs');

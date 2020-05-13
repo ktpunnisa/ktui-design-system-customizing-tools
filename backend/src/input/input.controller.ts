@@ -12,7 +12,7 @@ import {
   DInputShape,
   DInputSize,
   DInputType,
-} from 'src/interfaces/input.interface';
+} from './interfaces/input.interface';
 
 @Controller()
 export class InputController {
