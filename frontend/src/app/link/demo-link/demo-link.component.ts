@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LinkSizeValue, LinkState } from 'src/app/dsc-link/dsc-link';
-import { DscLinkService } from 'src/app/dsc-link/dsc-link.service';
+import { LinkSizeValue, LinkState } from '../../link/dsc-link';
+import { DscLinkService } from '../../link/dsc-link.service';
 import { DscColorService } from 'src/app/color/dsc-color.service';
 
 @Component({

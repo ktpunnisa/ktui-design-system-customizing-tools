@@ -20,7 +20,7 @@ import { DscButtonSettingComponent } from './button/dsc-button-setting/dsc-butto
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DscColorResolver } from './color/dsc-color.resolver';
 import { DscButtonResolver } from './button/dsc-button.resolver';
-import { DscLinkResolver } from './dsc-link/dsc-link.resolver';
+import { DscLinkResolver } from './link/dsc-link.resolver';
 import { DscInputResolver } from './dsc-input/dsc-input.resolver';
 import { DisplayContainerComponent } from './base/display-container/display-container.component';
 import { PaddingSettingComponent } from './base/padding-setting/padding-setting.component';
@@ -32,10 +32,10 @@ import { ToggleSwitchComponent } from './base/toggle-switch/toggle-switch.compon
 import { DesignSystemComponent } from './design-system/design-system.component';
 import { LoadingComponent } from './base/loading/loading.component';
 import { LibGeneratorComponent } from './lib-generator/lib-generator.component';
-import { DscLinkComponent } from './dsc-link/dsc-link.component';
-import { DscLinkSettingComponent } from './dsc-link-setting/dsc-link-setting.component';
-import { BaseLinkComponent } from './base/base-link/base-link.component';
-import { DemoLinkComponent } from './base/demo-link/demo-link.component';
+import { DscLinkComponent } from './link/dsc-link/dsc-link.component';
+import { DscLinkSettingComponent } from './link/dsc-link-setting/dsc-link-setting.component';
+import { BaseLinkComponent } from './link/base-link/base-link.component';
+import { DemoLinkComponent } from './link/demo-link/demo-link.component';
 import { FontWeightSettingComponent } from './base/font-weight-setting/font-weight-setting.component';
 import { DscInputComponent } from './dsc-input/dsc-input.component';
 import { DscInputSettingComponent } from './dsc-input-setting/dsc-input-setting.component';

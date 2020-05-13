@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DscLinkService } from './dsc-link.service';
-import { DscColorService } from '../color/dsc-color.service';
-import { DscProjectService } from '../dsc-project/dsc-project.service';
+import { DscLinkService } from '../dsc-link.service';
+import { DscColorService } from '../../color/dsc-color.service';
+import { DscProjectService } from '../../dsc-project/dsc-project.service';
 
 @Component({
   selector: 'app-dsc-link',
