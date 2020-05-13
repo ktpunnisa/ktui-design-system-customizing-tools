@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { DscButtonService } from '../dsc-button.service';
 import { ActivatedRoute } from '@angular/router';
-import { DscColorService } from '../../color/dsc-color.service';
+import { DscInputService } from '../dsc-input.service';
+import { DscColorService } from '../../foundation-color/dsc-color.service';
 import { DscProjectService } from '../../dsc-project/dsc-project.service';
 
 @Component({
-  selector: 'app-dsc-button',
-  templateUrl: './dsc-button.component.html',
-  styleUrls: ['./dsc-button.component.scss']
+  selector: 'app-dsc-input',
+  templateUrl: './dsc-input.component.html',
+  styleUrls: ['./dsc-input.component.scss']
 })
-export class DscButtonComponent implements OnInit {
+export class DscInputComponent implements OnInit {
   isEnable = true;
 
   constructor(
     private route: ActivatedRoute,
-    protected ButtonService: DscButtonService,
+    protected InputService: DscInputService,
     protected ColorService: DscColorService,
     private ProjectService: DscProjectService
   ) {}
@@ -29,21 +29,21 @@ export class DscButtonComponent implements OnInit {
       this.ColorService.colorThemes = colorToken.themes;
       this.ColorService.colorShades = colorToken.shades;
 
-      const buttonToken = data.button;
-      this.ButtonService.buttonShape = buttonToken.shape;
-      this.ButtonService.buttonSizes = buttonToken.sizes;
-      this.ButtonService.buttonTypes = buttonToken.types;
-      this.ButtonService.buttonBaseSize = buttonToken.sizes.medium;
+      const inputToken = data.input;
+      this.InputService.dInputShape = inputToken.shape;
+      this.InputService.dInputSizes = inputToken.sizes;
+      this.InputService.dInputTypes = inputToken.types;
+      this.InputService.dInputBaseSize = inputToken.sizes.medium;
     });
-    this.ButtonService.selected = {
+    this.InputService.selected = {
       row: 'shape',
       col: 'shape'
     };
-    this.ProjectService.selectedMenu = 'button';
+    this.ProjectService.selectedMenu = 'input';
   }
 
   changeSelected(event) {
-    this.ButtonService.selected = event;
+    this.InputService.selected = event;
   }
 
   changeEnable(event) {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DscColorService } from 'src/app/color/dsc-color.service';
-import { DscButtonService } from '../../button/dsc-button.service';
+import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
+import { DscButtonService } from '../../component-button/dsc-button.service';
 
 @Component({
   selector: 'app-dev-button',

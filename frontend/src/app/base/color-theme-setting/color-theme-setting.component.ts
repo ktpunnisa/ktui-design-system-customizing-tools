@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DscColorService } from 'src/app/color/dsc-color.service';
+import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
 
 @Component({
   selector: 'app-color-theme-setting',

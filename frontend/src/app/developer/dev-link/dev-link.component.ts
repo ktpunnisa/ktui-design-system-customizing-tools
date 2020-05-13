@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DscColorService } from 'src/app/color/dsc-color.service';
-import { DscLinkService } from 'src/app/link/dsc-link.service';
+import { DscLinkService } from 'src/app/component-link/dsc-link.service';
+import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
 
 @Component({
   selector: 'app-dev-link',

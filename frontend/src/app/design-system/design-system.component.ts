@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DscButtonService } from '../button/dsc-button.service';
-import { DscColorService } from '../color/dsc-color.service';
+import { DscButtonService } from '../component-button/dsc-button.service';
+import { DscColorService } from '../foundation-color/dsc-color.service';
 import { DscProjectService } from '../dsc-project/dsc-project.service';
-import { DscLinkService } from '../link/dsc-link.service';
-import { DscInputService } from '../dsc-input/dsc-input.service';
+import { DscLinkService } from '../component-link/dsc-link.service';
+import { DscInputService } from '../component-input/dsc-input.service';
 
 @Component({
   selector: 'app-design-system',

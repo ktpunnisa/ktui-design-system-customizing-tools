@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DscInputService } from 'src/app/dsc-input/dsc-input.service';
-import { DscColorService } from 'src/app/color/dsc-color.service';
+import { DscInputService } from '../dsc-input.service';
+import { DscColorService } from 'src/app/foundation-color/dsc-color.service';
 import {
   InputShape,
   InputSizeValue,
@@ -8,7 +8,7 @@ import {
   LabelShape,
   LabelSizeValue,
   LabelStyle
-} from 'src/app/dsc-input/dsc-input';
+} from 'src/app/component-input/dsc-input';
 
 @Component({
   selector: 'app-base-input',
