@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Project } from './interfaces/project.interface';
+import execAsync from '../utils/execAsync';
 
 @Injectable()
 export class ProjectService {
@@ -45,10 +46,16 @@ export class ProjectService {
 
   async cloneLibrary(projectId: string) {
     const project = await this.getProject(projectId);
+    const projectDirectory = `${project.name}-library`;
     await this.shell.cd(this.staticDir);
-    await this.shell.exec(
-      `git clone https://github.com/ktpunnisa/kt-web-component.git ${project.name}-library`,
-    );
+    if (!this.fs.existsSync(projectDirectory)) {
+      await execAsync(
+        `git clone https://github.com/ktpunnisa/kt-web-component.git ${project.name}-library`,
+      );
+    } else {
+      await this.shell.cd(projectDirectory);
+      await execAsync(`git pull`);
+    }
     console.log(`clone ${project.name}-library`);
     return await this.path.join(this.staticDir, `${project.name}-library`);
   }
@@ -95,9 +102,9 @@ export class ProjectService {
 
   async buildLibrary(libraryDir: string) {
     await this.shell.cd(libraryDir);
-    await this.shell.exec('npm install');
+    await execAsync('npm install');
     console.log('install node_module');
-    await this.shell.exec('npm run build');
+    await execAsync('npm run build');
     console.log('build Library');
   }
 
@@ -115,7 +122,7 @@ export class ProjectService {
     const project = await this.getProject(projectId);
     const zipDir = await this.path.join(this.staticDir, 'library');
     await this.shell.cd(zipDir);
-    await this.shell.exec(
+    await execAsync(
       `zip -r ${project.name}-library.zip ${project.name}-library`,
     );
     console.log('compress library');
