@@ -73,8 +73,8 @@ export class DscButtonSettingComponent implements OnInit {
 
   changeSize(event, style, type) {
     const size = this.ButtonService.selected.col;
+    this.ButtonService.buttonSizes[size][style] = event;
     if (type === 'output') {
-      this.ButtonService.buttonSizes[size][style] = event;
       this.ButtonService.updateButtonToken(
         '5e9d79ea81f8ad60d9c429df',
         null,
