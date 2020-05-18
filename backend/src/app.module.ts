@@ -14,10 +14,18 @@ import { ButtonModule } from './button/button.module';
 import { LinkModule } from './link/link.module';
 import { InputModule } from './input/input.module';
 import configuration from './configuration';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/dscProjectDB'),
+    // MongooseModule.forRoot('mongodb://localhost:27017/dscProjectDB'),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'),
+      }),
+      inject: [ConfigService],
+    }),
     RouterModule.forRoutes(routes),
     ConfigModule.forRoot({
       load: [configuration],
