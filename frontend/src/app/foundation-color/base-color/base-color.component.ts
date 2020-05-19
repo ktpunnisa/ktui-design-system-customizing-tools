@@ -21,7 +21,12 @@ export class BaseColorComponent implements OnInit {
   ngOnInit() {}
 
   get hasBorder(): boolean {
-    return this.colorGenerated === '#ffffff' || this.opacity === 1 || this.color === 'transparent';
+    return (
+      this.colorGenerated === '#ffffff' ||
+      this.colorGenerated === '#FFFFFF' ||
+      this.opacity === 1 ||
+      this.color === 'transparent'
+    );
   }
 
   getColorStyle() {
