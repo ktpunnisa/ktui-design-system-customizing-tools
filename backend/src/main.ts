@@ -5,6 +5,7 @@ import { ConfigService } from '@nestjs/config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  const port = configService.get('port');
   const allowOrigin = configService.get('allowOrigin');
   const options = {
     origin: allowOrigin,
@@ -14,6 +15,6 @@ async function bootstrap() {
     credentials: true,
   };
   app.enableCors(options);
-  await app.listen(3000);
+  await app.listen(port);
 }
 bootstrap();
